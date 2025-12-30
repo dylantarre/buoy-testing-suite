@@ -1,0 +1,45 @@
+{
+  "name": "buoy-testing-suite",
+  "version": "0.1.0",
+  "description": "Test harness for stress-testing Buoy against real-world design systems",
+  "type": "module",
+  "license": "MIT",
+  "author": "Buoy <hello@buoy.design>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dylantarre/buoy-testing-suite.git"
+  },
+  "bin": {
+    "buoy-test": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/cli.js",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "clean": "rm -rf dist",
+    "format": "prettier --write \"src/**/*.ts\""
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.1",
+    "@buoy-design/agents": "link:../buoy/packages/agents",
+    "@buoy-design/cli": "link:../buoy/apps/cli",
+    "@buoy-design/core": "link:../buoy/packages/core",
+    "@octokit/rest": "^21.0.0",
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0",
+    "simple-git": "^3.27.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
