@@ -1,5 +1,5 @@
 {
-  "id": "tailwindlabs-headlessui-1767163123040",
+  "id": "tailwindlabs-headlessui-1767163905690",
   "repo": {
     "url": "https://github.com/tailwindlabs/headlessui",
     "owner": "tailwindlabs",
@@ -37,10 +37,10 @@
       }
     },
     "discoveredAt": "2025-12-31T05:28:46.895Z",
-    "lastTestedAt": "2025-12-31T06:27:52.243Z"
+    "lastTestedAt": "2025-12-31T06:38:46.926Z"
   },
   "status": "completed",
-  "startedAt": "2025-12-31T06:38:43.040Z",
+  "startedAt": "2025-12-31T06:51:45.690Z",
   "buoyVersion": "0.0.1",
   "configGenerated": true,
   "buoyOutput": {
@@ -59,6 +59,6 @@
       "signals": []
     }
   },
-  "completedAt": "2025-12-31T06:38:46.909Z",
-  "durationMs": 3869
+  "completedAt": "2025-12-31T06:51:49.900Z",
+  "durationMs": 4210
 }

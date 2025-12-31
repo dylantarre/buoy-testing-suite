@@ -3,8 +3,8 @@
     "totalRepos": 13,
     "successfulRuns": 13,
     "failedRuns": 0,
-    "totalComponents": 9099,
-    "totalTokens": 2702,
+    "totalComponents": 11729,
+    "totalTokens": 2343,
     "totalDriftSignals": 0
   },
   "driftByType": {},
@@ -52,5 +52,5 @@
     }
   ],
   "topDriftTypes": [],
-  "generatedAt": "2025-12-31T06:43:53.902Z"
+  "generatedAt": "2025-12-31T07:05:03.802Z"
 }

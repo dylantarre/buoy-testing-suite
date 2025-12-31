@@ -5,12 +5,12 @@
     "owner": "primer"
   },
   "score": 5,
-  "testedAt": "2025-12-31T06:38:42.850Z",
+  "testedAt": "2025-12-31T06:57:52.824Z",
   "buoyVersion": "0.0.1",
   "designSystemSources": [],
   "scan": {
-    "components": 0,
-    "tokens": 2,
+    "components": 325,
+    "tokens": 0,
     "coverage": {}
   },
   "drift": {

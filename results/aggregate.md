@@ -9,8 +9,8 @@
 | Total Repos | 13 |
 | Successful Runs | 13 |
 | Failed Runs | 0 |
-| Total Components | 9099 |
-| Total Tokens | 2702 |
+| Total Components | 11729 |
+| Total Tokens | 2343 |
 | Total Drift Signals | 0 |
 
 ## Drift by Severity

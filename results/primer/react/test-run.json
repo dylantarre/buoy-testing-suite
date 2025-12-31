@@ -1,5 +1,5 @@
 {
-  "id": "primer-react-1767163116798",
+  "id": "primer-react-1767164268516",
   "repo": {
     "url": "https://github.com/primer/react",
     "owner": "primer",
@@ -33,16 +33,16 @@
       }
     },
     "discoveredAt": "2025-12-31T05:28:01.526Z",
-    "lastTestedAt": "2025-12-31T06:27:52.242Z"
+    "lastTestedAt": "2025-12-31T06:47:46.985Z"
   },
   "status": "completed",
-  "startedAt": "2025-12-31T06:38:36.798Z",
+  "startedAt": "2025-12-31T06:57:48.516Z",
   "buoyVersion": "0.0.1",
-  "configGenerated": true,
+  "configGenerated": false,
   "buoyOutput": {
     "scan": {
-      "components": 0,
-      "tokens": 2,
+      "components": 325,
+      "tokens": 0,
       "sources": []
     },
     "status": {
@@ -55,6 +55,6 @@
       "signals": []
     }
   },
-  "completedAt": "2025-12-31T06:38:42.850Z",
-  "durationMs": 6052
+  "completedAt": "2025-12-31T06:57:52.824Z",
+  "durationMs": 4308
 }

@@ -117,19 +117,35 @@ export class BuoyRunner {
       await this.execCommand(this.buoyPath, ['init', '--yes'], repoPath);
       return true;
     } catch {
-      // If init fails, create config with monorepo patterns
+      // If init fails, create config with comprehensive monorepo patterns
+      const repoName = repoPath.split('/').pop() || 'unknown';
       const fallbackConfig = `export default {
+  project: { name: '${repoName}' },
   sources: {
-    code: [
-      './src',
-      './app',
-      './components',
-      './lib',
-      './packages/*/src',
-      './packages/@*/*/src',
-      './apps/*/src',
-      './libs/*/src',
-    ],
+    react: {
+      enabled: true,
+      include: [
+        // Standard locations
+        'src/**/*.tsx',
+        'src/**/*.jsx',
+        'app/**/*.tsx',
+        'components/**/*.tsx',
+        'lib/**/*.tsx',
+        // Monorepo packages
+        'packages/*/src/**/*.tsx',
+        'packages/*/*/src/**/*.tsx',
+        'packages/@*/src/**/*.tsx',
+        'packages/@*/*/src/**/*.tsx',
+        // Apps directory
+        'apps/*/src/**/*.tsx',
+        'apps/*/**/*.tsx',
+        // Registry patterns (shadcn-ui)
+        'apps/*/registry/**/*.tsx',
+        // Libs (Nx)
+        'libs/*/src/**/*.tsx',
+      ],
+      exclude: ['**/*.test.*', '**/*.spec.*', '**/*.stories.*', '**/node_modules/**'],
+    },
   },
 };
 `;
