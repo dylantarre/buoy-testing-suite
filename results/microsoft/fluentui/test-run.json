@@ -1,0 +1,65 @@
+{
+  "id": "microsoft-fluentui-1767163057202",
+  "repo": {
+    "url": "https://github.com/microsoft/fluentui",
+    "owner": "microsoft",
+    "name": "fluentui",
+    "description": "Fluent UI web represents a collection of utilities, React components, and web components for building web applications.",
+    "stars": 19779,
+    "forks": 2859,
+    "defaultBranch": "master",
+    "lastCommit": "2025-12-29T15:55:08.000Z",
+    "language": "TypeScript",
+    "topics": [
+      "components",
+      "fluent",
+      "microsoft",
+      "office-ui-fabric",
+      "react",
+      "react-components"
+    ],
+    "designSystemSignals": [
+      "storybook"
+    ],
+    "activitySignals": [
+      "recent-commits",
+      "high-pr-acceptance",
+      "high-stars"
+    ],
+    "score": {
+      "total": 8,
+      "designSystem": 3,
+      "activity": 5,
+      "breakdown": {
+        "storybook": 3,
+        "recent-commits": 2,
+        "high-pr-acceptance": 2,
+        "high-stars": 1
+      }
+    },
+    "discoveredAt": "2025-12-31T05:27:50.908Z",
+    "lastTestedAt": "2025-12-31T06:27:52.233Z"
+  },
+  "status": "completed",
+  "startedAt": "2025-12-31T06:37:37.202Z",
+  "buoyVersion": "0.0.1",
+  "configGenerated": true,
+  "buoyOutput": {
+    "scan": {
+      "components": 1363,
+      "tokens": 1078,
+      "sources": []
+    },
+    "status": {
+      "coverage": {}
+    },
+    "drift": {
+      "total": 0,
+      "byType": {},
+      "bySeverity": {},
+      "signals": []
+    }
+  },
+  "completedAt": "2025-12-31T06:38:03.510Z",
+  "durationMs": 26308
+}

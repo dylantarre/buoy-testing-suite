@@ -1,0 +1,21 @@
+{
+  "repo": {
+    "url": "https://github.com/ant-design/ant-design",
+    "name": "ant-design",
+    "owner": "ant-design"
+  },
+  "score": 6,
+  "testedAt": "2025-12-31T06:38:25.566Z",
+  "buoyVersion": "0.0.1",
+  "designSystemSources": [],
+  "scan": {
+    "components": 1502,
+    "tokens": 0,
+    "coverage": {}
+  },
+  "drift": {
+    "total": 0,
+    "byType": {},
+    "bySeverity": {}
+  }
+}

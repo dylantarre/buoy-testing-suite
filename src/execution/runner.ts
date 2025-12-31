@@ -117,14 +117,23 @@ export class BuoyRunner {
       await this.execCommand(this.buoyPath, ['init', '--yes'], repoPath);
       return true;
     } catch {
-      // If init fails, create minimal config
-      const minimalConfig = `export default {
+      // If init fails, create config with monorepo patterns
+      const fallbackConfig = `export default {
   sources: {
-    code: ['./src', './app', './components', './lib'],
+    code: [
+      './src',
+      './app',
+      './components',
+      './lib',
+      './packages/*/src',
+      './packages/@*/*/src',
+      './apps/*/src',
+      './libs/*/src',
+    ],
   },
 };
 `;
-      await writeFile(configPath, minimalConfig);
+      await writeFile(configPath, fallbackConfig);
       return true;
     }
   }

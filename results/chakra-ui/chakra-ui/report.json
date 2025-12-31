@@ -5,13 +5,13 @@
     "owner": "chakra-ui"
   },
   "score": 10,
-  "testedAt": "2025-12-31T03:57:08.688Z",
+  "testedAt": "2025-12-31T06:37:37.201Z",
   "buoyVersion": "0.0.1",
   "designSystemSources": [
     "storybook"
   ],
   "scan": {
-    "components": 0,
+    "components": 2047,
     "tokens": 0,
     "coverage": {}
   },

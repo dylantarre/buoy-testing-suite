@@ -1,0 +1,23 @@
+{
+  "repo": {
+    "url": "https://github.com/microsoft/fluentui",
+    "name": "fluentui",
+    "owner": "microsoft"
+  },
+  "score": 8,
+  "testedAt": "2025-12-31T06:38:03.510Z",
+  "buoyVersion": "0.0.1",
+  "designSystemSources": [
+    "storybook"
+  ],
+  "scan": {
+    "components": 1363,
+    "tokens": 1078,
+    "coverage": {}
+  },
+  "drift": {
+    "total": 0,
+    "byType": {},
+    "bySeverity": {}
+  }
+}

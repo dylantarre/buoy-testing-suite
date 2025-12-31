@@ -1,0 +1,21 @@
+{
+  "repo": {
+    "url": "https://github.com/ariakit/ariakit",
+    "name": "ariakit",
+    "owner": "ariakit"
+  },
+  "score": 6,
+  "testedAt": "2025-12-31T06:38:19.993Z",
+  "buoyVersion": "0.0.1",
+  "designSystemSources": [],
+  "scan": {
+    "components": 153,
+    "tokens": 91,
+    "coverage": {}
+  },
+  "drift": {
+    "total": 0,
+    "byType": {},
+    "bySeverity": {}
+  }
+}

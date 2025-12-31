@@ -1,0 +1,23 @@
+{
+  "repo": {
+    "url": "https://github.com/adobe/react-spectrum",
+    "name": "react-spectrum",
+    "owner": "adobe"
+  },
+  "score": 11,
+  "testedAt": "2025-12-31T06:37:31.950Z",
+  "buoyVersion": "0.0.1",
+  "designSystemSources": [
+    "storybook"
+  ],
+  "scan": {
+    "components": 555,
+    "tokens": 783,
+    "coverage": {}
+  },
+  "drift": {
+    "total": 0,
+    "byType": {},
+    "bySeverity": {}
+  }
+}

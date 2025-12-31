@@ -1,0 +1,23 @@
+{
+  "repo": {
+    "url": "https://github.com/tremorlabs/tremor",
+    "name": "tremor",
+    "owner": "tremorlabs"
+  },
+  "score": 6,
+  "testedAt": "2025-12-31T06:38:36.797Z",
+  "buoyVersion": "0.0.1",
+  "designSystemSources": [
+    "storybook"
+  ],
+  "scan": {
+    "components": 128,
+    "tokens": 0,
+    "coverage": {}
+  },
+  "drift": {
+    "total": 0,
+    "byType": {},
+    "bySeverity": {}
+  }
+}

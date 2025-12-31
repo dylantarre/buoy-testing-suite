@@ -1,0 +1,64 @@
+{
+  "id": "tremorlabs-tremor-1767163105568",
+  "repo": {
+    "url": "https://github.com/tremorlabs/tremor",
+    "owner": "tremorlabs",
+    "name": "tremor",
+    "description": "Copy & Paste React components to build modern web applications. ",
+    "stars": 3127,
+    "forks": 129,
+    "defaultBranch": "main",
+    "lastCommit": "2025-10-10T13:08:24.000Z",
+    "language": "TypeScript",
+    "topics": [
+      "components",
+      "dashboard",
+      "radix-ui",
+      "react",
+      "tailwindcss",
+      "typescript",
+      "ui"
+    ],
+    "designSystemSignals": [
+      "storybook"
+    ],
+    "activitySignals": [
+      "high-pr-acceptance",
+      "high-stars"
+    ],
+    "score": {
+      "total": 6,
+      "designSystem": 3,
+      "activity": 3,
+      "breakdown": {
+        "storybook": 3,
+        "high-pr-acceptance": 2,
+        "high-stars": 1
+      }
+    },
+    "discoveredAt": "2025-12-31T05:28:52.121Z",
+    "lastTestedAt": "2025-12-31T06:27:52.239Z"
+  },
+  "status": "completed",
+  "startedAt": "2025-12-31T06:38:25.568Z",
+  "buoyVersion": "0.0.1",
+  "configGenerated": true,
+  "buoyOutput": {
+    "scan": {
+      "components": 128,
+      "tokens": 0,
+      "sources": []
+    },
+    "status": {
+      "coverage": {}
+    },
+    "drift": {
+      "total": 0,
+      "byType": {},
+      "bySeverity": {},
+      "signals": []
+    }
+  },
+  "completedAt": "2025-12-31T06:38:36.797Z",
+  "durationMs": 11229
+}

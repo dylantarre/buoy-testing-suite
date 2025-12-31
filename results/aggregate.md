@@ -6,11 +6,11 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Repos | 4 |
-| Successful Runs | 4 |
+| Total Repos | 13 |
+| Successful Runs | 13 |
 | Failed Runs | 0 |
-| Total Components | 0 |
-| Total Tokens | 718 |
+| Total Components | 9099 |
+| Total Tokens | 2702 |
 | Total Drift Signals | 0 |
 
 ## Drift by Severity
@@ -27,7 +27,13 @@
 
 | Repository | Drift Signals |
 |------------|---------------|
+| adobe/react-spectrum | 0 |
+| ant-design/ant-design | 0 |
+| ariakit/ariakit | 0 |
 | chakra-ui/chakra-ui | 0 |
 | mantinedev/mantine | 0 |
+| microsoft/fluentui | 0 |
+| nextui-org/nextui | 0 |
+| primer/react | 0 |
 | radix-ui/primitives | 0 |
-| shadcn-ui/ui | 0 |
+| react-bootstrap/react-bootstrap | 0 |

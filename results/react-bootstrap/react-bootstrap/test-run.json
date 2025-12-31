@@ -1,0 +1,64 @@
+{
+  "id": "react-bootstrap-react-bootstrap-1767163087364",
+  "repo": {
+    "url": "https://github.com/react-bootstrap/react-bootstrap",
+    "owner": "react-bootstrap",
+    "name": "react-bootstrap",
+    "description": "Bootstrap components built with React",
+    "stars": 22635,
+    "forks": 3613,
+    "defaultBranch": "master",
+    "lastCommit": "2025-12-29T18:09:28.000Z",
+    "language": "TypeScript",
+    "topics": [
+      "bootstrap",
+      "hacktoberfest",
+      "javascript",
+      "react",
+      "react-components",
+      "typescript"
+    ],
+    "designSystemSignals": [],
+    "activitySignals": [
+      "recent-commits",
+      "contributing-guide",
+      "high-pr-acceptance",
+      "high-stars"
+    ],
+    "score": {
+      "total": 7,
+      "designSystem": 0,
+      "activity": 7,
+      "breakdown": {
+        "recent-commits": 2,
+        "contributing-guide": 2,
+        "high-pr-acceptance": 2,
+        "high-stars": 1
+      }
+    },
+    "discoveredAt": "2025-12-31T05:28:57.731Z",
+    "lastTestedAt": "2025-12-31T06:27:52.235Z"
+  },
+  "status": "completed",
+  "startedAt": "2025-12-31T06:38:07.364Z",
+  "buoyVersion": "0.0.1",
+  "configGenerated": true,
+  "buoyOutput": {
+    "scan": {
+      "components": 125,
+      "tokens": 0,
+      "sources": []
+    },
+    "status": {
+      "coverage": {}
+    },
+    "drift": {
+      "total": 0,
+      "byType": {},
+      "bySeverity": {},
+      "signals": []
+    }
+  },
+  "completedAt": "2025-12-31T06:38:11.869Z",
+  "durationMs": 4505
+}

@@ -12,7 +12,7 @@ No design system sources detected.
 
 | Type | Found | Coverage |
 |------|-------|----------|
-| Components | 0 | N/A |
+| Components | 283 | N/A |
 | Tokens | 5 | N/A |
 
 ## Drift Signals
@@ -26,5 +26,5 @@ No drift signals detected.
 - **Stars:** 18373
 - **Default Branch:** main
 - **Language:** TypeScript
-- **Duration:** 5.0s
+- **Duration:** 9.4s
 - **Config Generated:** Yes

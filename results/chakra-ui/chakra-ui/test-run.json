@@ -1,5 +1,5 @@
 {
-  "id": "chakra-ui-chakra-ui-1767153420849",
+  "id": "chakra-ui-chakra-ui-1767163042748",
   "repo": {
     "url": "https://github.com/chakra-ui/chakra-ui",
     "owner": "chakra-ui",
@@ -50,15 +50,15 @@
       }
     },
     "discoveredAt": "2025-12-31T03:48:51.386Z",
-    "lastTestedAt": "2025-12-31T03:49:52.199Z"
+    "lastTestedAt": "2025-12-31T06:27:52.230Z"
   },
   "status": "completed",
-  "startedAt": "2025-12-31T03:57:00.849Z",
+  "startedAt": "2025-12-31T06:37:22.748Z",
   "buoyVersion": "0.0.1",
-  "configGenerated": false,
+  "configGenerated": true,
   "buoyOutput": {
     "scan": {
-      "components": 0,
+      "components": 2047,
       "tokens": 0,
       "sources": []
     },
@@ -72,6 +72,6 @@
       "signals": []
     }
   },
-  "completedAt": "2025-12-31T03:57:08.688Z",
-  "durationMs": 7839
+  "completedAt": "2025-12-31T06:37:37.201Z",
+  "durationMs": 14453
 }

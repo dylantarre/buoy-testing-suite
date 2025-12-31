@@ -1,0 +1,62 @@
+{
+  "id": "nextui-org-nextui-1767163087363",
+  "repo": {
+    "url": "https://github.com/heroui-inc/heroui",
+    "owner": "nextui-org",
+    "name": "nextui",
+    "description": "🚀 Beautiful, fast and modern React UI library. (Previously NextUI)",
+    "stars": 27759,
+    "forks": 2022,
+    "defaultBranch": "canary",
+    "lastCommit": "2025-12-30T19:17:44.000Z",
+    "language": "TypeScript",
+    "topics": [
+      "component-library",
+      "components",
+      "library",
+      "reactjs"
+    ],
+    "designSystemSignals": [],
+    "activitySignals": [
+      "recent-commits",
+      "contributing-guide",
+      "high-pr-acceptance",
+      "high-stars"
+    ],
+    "score": {
+      "total": 7,
+      "designSystem": 0,
+      "activity": 7,
+      "breakdown": {
+        "recent-commits": 2,
+        "contributing-guide": 2,
+        "high-pr-acceptance": 2,
+        "high-stars": 1
+      }
+    },
+    "discoveredAt": "2025-12-31T05:28:23.817Z",
+    "lastTestedAt": "2025-12-31T06:27:52.234Z"
+  },
+  "status": "completed",
+  "startedAt": "2025-12-31T06:38:07.363Z",
+  "buoyVersion": "0.0.1",
+  "configGenerated": true,
+  "buoyOutput": {
+    "scan": {
+      "components": 206,
+      "tokens": 30,
+      "sources": []
+    },
+    "status": {
+      "coverage": {}
+    },
+    "drift": {
+      "total": 0,
+      "byType": {},
+      "bySeverity": {},
+      "signals": []
+    }
+  },
+  "completedAt": "2025-12-31T06:38:13.508Z",
+  "durationMs": 6145
+}

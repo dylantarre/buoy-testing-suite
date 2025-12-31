@@ -1,7 +1,51 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2025-12-31T03:57:25.727Z",
+  "lastUpdated": "2025-12-31T06:38:46.926Z",
   "repos": [
+    {
+      "url": "https://github.com/adobe/react-spectrum",
+      "owner": "adobe",
+      "name": "react-spectrum",
+      "description": "A collection of libraries and tools that help you build adaptive, accessible, and robust user experiences.",
+      "stars": 14639,
+      "forks": 1369,
+      "defaultBranch": "main",
+      "lastCommit": "2025-12-23T22:58:35.000Z",
+      "language": "TypeScript",
+      "topics": [
+        "accessibility",
+        "design-systems",
+        "react",
+        "react-components",
+        "ui-components",
+        "wai-aria"
+      ],
+      "designSystemSignals": [
+        "storybook"
+      ],
+      "activitySignals": [
+        "recent-commits",
+        "contributing-guide",
+        "good-first-issues",
+        "high-pr-acceptance",
+        "high-stars"
+      ],
+      "score": {
+        "total": 11,
+        "designSystem": 3,
+        "activity": 8,
+        "breakdown": {
+          "storybook": 3,
+          "recent-commits": 2,
+          "contributing-guide": 2,
+          "good-first-issues": 1,
+          "high-pr-acceptance": 2,
+          "high-stars": 1
+        }
+      },
+      "discoveredAt": "2025-12-31T05:27:44.291Z",
+      "lastTestedAt": "2025-12-31T06:38:46.912Z"
+    },
     {
       "url": "https://github.com/chakra-ui/chakra-ui",
       "owner": "chakra-ui",
@@ -52,7 +96,7 @@
         }
       },
       "discoveredAt": "2025-12-31T03:48:51.386Z",
-      "lastTestedAt": "2025-12-31T03:57:25.723Z"
+      "lastTestedAt": "2025-12-31T06:38:46.914Z"
     },
     {
       "url": "https://github.com/mantinedev/mantine",
@@ -94,7 +138,246 @@
         }
       },
       "discoveredAt": "2025-12-31T03:49:15.102Z",
-      "lastTestedAt": "2025-12-31T03:57:25.725Z"
+      "lastTestedAt": "2025-12-31T06:38:46.915Z"
+    },
+    {
+      "url": "https://github.com/microsoft/fluentui",
+      "owner": "microsoft",
+      "name": "fluentui",
+      "description": "Fluent UI web represents a collection of utilities, React components, and web components for building web applications.",
+      "stars": 19779,
+      "forks": 2859,
+      "defaultBranch": "master",
+      "lastCommit": "2025-12-29T15:55:08.000Z",
+      "language": "TypeScript",
+      "topics": [
+        "components",
+        "fluent",
+        "microsoft",
+        "office-ui-fabric",
+        "react",
+        "react-components"
+      ],
+      "designSystemSignals": [
+        "storybook"
+      ],
+      "activitySignals": [
+        "recent-commits",
+        "high-pr-acceptance",
+        "high-stars"
+      ],
+      "score": {
+        "total": 8,
+        "designSystem": 3,
+        "activity": 5,
+        "breakdown": {
+          "storybook": 3,
+          "recent-commits": 2,
+          "high-pr-acceptance": 2,
+          "high-stars": 1
+        }
+      },
+      "discoveredAt": "2025-12-31T05:27:50.908Z",
+      "lastTestedAt": "2025-12-31T06:38:46.916Z"
+    },
+    {
+      "url": "https://github.com/heroui-inc/heroui",
+      "owner": "nextui-org",
+      "name": "nextui",
+      "description": "🚀 Beautiful, fast and modern React UI library. (Previously NextUI)",
+      "stars": 27759,
+      "forks": 2022,
+      "defaultBranch": "canary",
+      "lastCommit": "2025-12-30T19:17:44.000Z",
+      "language": "TypeScript",
+      "topics": [
+        "component-library",
+        "components",
+        "library",
+        "reactjs"
+      ],
+      "designSystemSignals": [],
+      "activitySignals": [
+        "recent-commits",
+        "contributing-guide",
+        "high-pr-acceptance",
+        "high-stars"
+      ],
+      "score": {
+        "total": 7,
+        "designSystem": 0,
+        "activity": 7,
+        "breakdown": {
+          "recent-commits": 2,
+          "contributing-guide": 2,
+          "high-pr-acceptance": 2,
+          "high-stars": 1
+        }
+      },
+      "discoveredAt": "2025-12-31T05:28:23.817Z",
+      "lastTestedAt": "2025-12-31T06:38:46.918Z"
+    },
+    {
+      "url": "https://github.com/react-bootstrap/react-bootstrap",
+      "owner": "react-bootstrap",
+      "name": "react-bootstrap",
+      "description": "Bootstrap components built with React",
+      "stars": 22635,
+      "forks": 3613,
+      "defaultBranch": "master",
+      "lastCommit": "2025-12-29T18:09:28.000Z",
+      "language": "TypeScript",
+      "topics": [
+        "bootstrap",
+        "hacktoberfest",
+        "javascript",
+        "react",
+        "react-components",
+        "typescript"
+      ],
+      "designSystemSignals": [],
+      "activitySignals": [
+        "recent-commits",
+        "contributing-guide",
+        "high-pr-acceptance",
+        "high-stars"
+      ],
+      "score": {
+        "total": 7,
+        "designSystem": 0,
+        "activity": 7,
+        "breakdown": {
+          "recent-commits": 2,
+          "contributing-guide": 2,
+          "high-pr-acceptance": 2,
+          "high-stars": 1
+        }
+      },
+      "discoveredAt": "2025-12-31T05:28:57.731Z",
+      "lastTestedAt": "2025-12-31T06:38:46.918Z"
+    },
+    {
+      "url": "https://github.com/ant-design/ant-design",
+      "owner": "ant-design",
+      "name": "ant-design",
+      "description": "An enterprise-class UI design language and React UI library",
+      "stars": 97133,
+      "forks": 54300,
+      "defaultBranch": "master",
+      "lastCommit": "2025-12-31T03:44:03.000Z",
+      "language": "TypeScript",
+      "topics": [
+        "ant-design",
+        "antd",
+        "design-systems",
+        "react",
+        "typescript",
+        "ui-kit",
+        "ui-library"
+      ],
+      "designSystemSignals": [],
+      "activitySignals": [
+        "recent-commits",
+        "good-first-issues",
+        "high-pr-acceptance",
+        "high-stars"
+      ],
+      "score": {
+        "total": 6,
+        "designSystem": 0,
+        "activity": 6,
+        "breakdown": {
+          "recent-commits": 2,
+          "good-first-issues": 1,
+          "high-pr-acceptance": 2,
+          "high-stars": 1
+        }
+      },
+      "discoveredAt": "2025-12-31T05:27:56.810Z",
+      "lastTestedAt": "2025-12-31T06:38:46.919Z"
+    },
+    {
+      "url": "https://github.com/ariakit/ariakit",
+      "owner": "ariakit",
+      "name": "ariakit",
+      "description": "Toolkit with accessible components, styles, and examples for your next web app",
+      "stars": 8477,
+      "forks": 406,
+      "defaultBranch": "main",
+      "lastCommit": "2025-12-30T22:45:51.000Z",
+      "language": "TypeScript",
+      "topics": [
+        "a11y",
+        "accessibility",
+        "accessible",
+        "aria",
+        "ariakit",
+        "components",
+        "css",
+        "react",
+        "reactjs",
+        "tailwindcss",
+        "wai-aria"
+      ],
+      "designSystemSignals": [],
+      "activitySignals": [
+        "recent-commits",
+        "good-first-issues",
+        "high-pr-acceptance",
+        "high-stars"
+      ],
+      "score": {
+        "total": 6,
+        "designSystem": 0,
+        "activity": 6,
+        "breakdown": {
+          "recent-commits": 2,
+          "good-first-issues": 1,
+          "high-pr-acceptance": 2,
+          "high-stars": 1
+        }
+      },
+      "discoveredAt": "2025-12-31T05:28:30.890Z",
+      "lastTestedAt": "2025-12-31T06:38:46.920Z"
+    },
+    {
+      "url": "https://github.com/tremorlabs/tremor",
+      "owner": "tremorlabs",
+      "name": "tremor",
+      "description": "Copy & Paste React components to build modern web applications. ",
+      "stars": 3127,
+      "forks": 129,
+      "defaultBranch": "main",
+      "lastCommit": "2025-10-10T13:08:24.000Z",
+      "language": "TypeScript",
+      "topics": [
+        "components",
+        "dashboard",
+        "radix-ui",
+        "react",
+        "tailwindcss",
+        "typescript",
+        "ui"
+      ],
+      "designSystemSignals": [
+        "storybook"
+      ],
+      "activitySignals": [
+        "high-pr-acceptance",
+        "high-stars"
+      ],
+      "score": {
+        "total": 6,
+        "designSystem": 3,
+        "activity": 3,
+        "breakdown": {
+          "storybook": 3,
+          "high-pr-acceptance": 2,
+          "high-stars": 1
+        }
+      },
+      "discoveredAt": "2025-12-31T05:28:52.121Z",
+      "lastTestedAt": "2025-12-31T06:38:46.921Z"
     },
     {
       "url": "https://github.com/radix-ui/primitives",
@@ -134,7 +417,7 @@
         }
       },
       "discoveredAt": "2025-12-31T03:49:05.973Z",
-      "lastTestedAt": "2025-12-31T03:57:25.726Z"
+      "lastTestedAt": "2025-12-31T06:38:46.922Z"
     },
     {
       "url": "https://github.com/shadcn-ui/ui",
@@ -173,7 +456,81 @@
         }
       },
       "discoveredAt": "2025-12-31T03:49:10.577Z",
-      "lastTestedAt": "2025-12-31T03:57:25.727Z"
+      "lastTestedAt": "2025-12-31T06:38:46.924Z"
+    },
+    {
+      "url": "https://github.com/primer/react",
+      "owner": "primer",
+      "name": "react",
+      "description": "An implementation of GitHub's Primer Design System using React",
+      "stars": 3767,
+      "forks": 648,
+      "defaultBranch": "main",
+      "lastCommit": "2025-12-31T02:08:24.000Z",
+      "language": "TypeScript",
+      "topics": [
+        "component-library",
+        "design-system",
+        "primer",
+        "react"
+      ],
+      "designSystemSignals": [],
+      "activitySignals": [
+        "recent-commits",
+        "high-pr-acceptance",
+        "high-stars"
+      ],
+      "score": {
+        "total": 5,
+        "designSystem": 0,
+        "activity": 5,
+        "breakdown": {
+          "recent-commits": 2,
+          "high-pr-acceptance": 2,
+          "high-stars": 1
+        }
+      },
+      "discoveredAt": "2025-12-31T05:28:01.526Z",
+      "lastTestedAt": "2025-12-31T06:38:46.925Z"
+    },
+    {
+      "url": "https://github.com/tailwindlabs/headlessui",
+      "owner": "tailwindlabs",
+      "name": "headlessui",
+      "description": "Completely unstyled, fully accessible UI components, designed to integrate beautifully with Tailwind CSS.",
+      "stars": 28254,
+      "forks": 1184,
+      "defaultBranch": "main",
+      "lastCommit": "2025-12-19T16:46:31.000Z",
+      "language": "TypeScript",
+      "topics": [
+        "a11y",
+        "accessibility",
+        "components",
+        "headless-ui",
+        "headlessui",
+        "react",
+        "tailwindcss",
+        "vue"
+      ],
+      "designSystemSignals": [],
+      "activitySignals": [
+        "recent-commits",
+        "high-pr-acceptance",
+        "high-stars"
+      ],
+      "score": {
+        "total": 5,
+        "designSystem": 0,
+        "activity": 5,
+        "breakdown": {
+          "recent-commits": 2,
+          "high-pr-acceptance": 2,
+          "high-stars": 1
+        }
+      },
+      "discoveredAt": "2025-12-31T05:28:46.895Z",
+      "lastTestedAt": "2025-12-31T06:38:46.926Z"
     }
   ]
 }

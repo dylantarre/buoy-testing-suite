@@ -1,0 +1,193 @@
+{
+  "testRunId": "tremorlabs-tremor-1767159021316",
+  "repoOwner": "tremorlabs",
+  "repoName": "tremor",
+  "assessedAt": "2025-12-31T05:42:08.572Z",
+  "mode": "coverage-analysis",
+  "model": "claude-sonnet-4-20250514",
+  "tokensUsed": 14296,
+  "analysis": "Looking at this Tremor design system repository, I can see significant gaps in Buoy's detection capabilities. This is a sophisticated component library with extensive design tokens, variant systems, and potential drift issues that Buoy completely missed.\n\n## Analysis\n\n### Major Detection Gaps\n\n**1. Design Token Systems**: Buoy found 0 tokens despite extensive use of:\n- Tailwind Variants with complex color/spacing/typography systems\n- Hardcoded Tailwind classes that should be tokenized\n- Focus ring utilities and shared style patterns\n- Color variants across components (primary, secondary, destructive, etc.)\n\n**2. Advanced Component Patterns**: While Buoy found 128 components, it likely missed:\n- Variant-based component systems using `tailwind-variants`\n- Shared utility functions that act as design tokens\n- Component composition patterns with forwarded refs\n- TypeScript variant prop systems\n\n**3. Drift Detection**: Extensive hardcoded values throughout:\n- Direct Tailwind classes instead of design tokens\n- Repeated color patterns that could be systematized\n- Inconsistent spacing and styling approaches\n- Magic numbers in sizing and positioning\n\n**4. Framework Integration**: Buoy missed:\n- Storybook story configurations with design examples\n- Utility functions that serve as design system APIs\n- CSS-in-JS patterns using `tv()` from tailwind-variants\n\n### Key Issues\n\nThe most critical issue is Buoy's complete failure to detect any design tokens. This suggests fundamental gaps in:\n- Understanding modern CSS-in-JS token systems\n- Parsing Tailwind Variants configurations\n- Recognizing utility functions as token systems\n- Detecting repeated hardcoded values as drift\n\n```json\n{\n  \"missedPatterns\": [\n    {\n      \"category\": \"token\",\n      \"description\": \"Tailwind Variants token system completely missed\",\n      \"evidence\": {\n        \"file\": \"src/components/Button/Button.tsx\",\n        \"lineRange\": [10, 50],\n        \"codeSnippet\": \"const buttonVariants = tv({\\n  base: [\\n    \\\"relative inline-flex items-center justify-center whitespace-nowrap rounded-md border px-3 py-2 text-center text-sm font-medium shadow-xs transition-all duration-100 ease-in-out\\\",\\n  ],\\n  variants: {\\n    variant: {\\n      primary: [\\n        \\\"border-transparent\\\",\\n        \\\"text-white dark:text-white\\\",\\n        \\\"bg-blue-500 dark:bg-blue-500\\\",\\n      ],\\n    },\\n  },\\n})\"\n      },\n      \"suggestedDetection\": \"Parse tailwind-variants tv() calls as design token definitions, extract variant keys as token names\",\n      \"severity\": \"high\"\n    },\n    {\n      \"category\": \"token\",\n      \"description\": \"Shared utility functions serving as design tokens\",\n      \"evidence\": {\n        \"file\": \"src/utils/focusRing.ts\",\n        \"lineRange\": [1, 20],\n        \"codeSnippet\": \"export const focusRing = \\\"focus:outline-none focus:ring-2 focus:ring-blue-500\\\"\"\n      },\n      \"suggestedDetection\": \"Scan utility files for exported constants containing CSS class strings or style objects\",\n      \"severity\": \"high\"\n    },\n    {\n      \"category\": \"drift\",\n      \"description\": \"Repeated hardcoded color values that should be tokenized\",\n      \"evidence\": {\n        \"file\": \"src/components/Tracker/tracker.stories.tsx\",\n        \"lineRange\": [5, 15],\n        \"codeSnippet\": \"{ color: \\\"bg-emerald-600 dark:bg-emerald-500\\\", tooltip: \\\"Tracker Info\\\" },\\n{ color: \\\"bg-emerald-600 dark:bg-emerald-500\\\", tooltip: \\\"Tracker Info\\\" },\\n{ color: \\\"bg-red-600 dark:bg-red-500\\\", tooltip: \\\"Error\\\" },\"\n      },\n      \"suggestedDetection\": \"Detect repeated exact string values in component props, especially color-related patterns\",\n      \"severity\": \"medium\"\n    },\n    {\n      \"category\": \"drift\",\n      \"description\": \"Inconsistent spacing patterns across components\",\n      \"evidence\": {\n        \"file\": \"src/components/Input/Input.tsx\",\n        \"lineRange\": [25, 35],\n        \"codeSnippet\": \"\\\"px-2.5 py-2\\\" // in Input\\nvs\\n\\\"px-3 py-2\\\" // in Button\"\n      },\n      \"suggestedDetection\": \"Analyze spacing class patterns across components to find inconsistencies in padding/margin values\",\n      \"severity\": \"medium\"\n    },\n    {\n      \"category\": \"component\",\n      \"description\": \"Component variant systems using VariantProps\",\n      \"evidence\": {\n        \"file\": \"src/components/Button/Button.tsx\",\n        \"lineRange\": [60, 70],\n        \"codeSnippet\": \"interface ButtonProps\\n  extends React.ComponentPropsWithoutRef<\\\"button\\\">,\\n    VariantProps<typeof buttonVariants> {\\n  asChild?: boolean\\n  isLoading?: boolean\\n}\"\n      },\n      \"suggestedDetection\": \"Parse TypeScript interfaces extending VariantProps to understand component variant systems\",\n      \"severity\": \"medium\"\n    },\n    {\n      \"category\": \"source\",\n      \"description\": \"Storybook stories containing design examples and token usage\",\n      \"evidence\": {\n        \"file\": \"src/components/Toast/toast.stories.tsx\",\n        \"lineRange\": [30, 50],\n        \"codeSnippet\": \"export const Warning: Story = {\\n  args: {\\n    variant: \\\"warning\\\",\\n  },\\n}\"\n      },\n      \"suggestedDetection\": \"Parse Storybook stories to extract variant examples and component usage patterns\",\n      \"severity\": \"low\"\n    },\n    {\n      \"category\": \"drift\",\n      \"description\": \"Magic numbers in sizing and positioning\",\n      \"evidence\": {\n        \"file\": \"src/components/Tracker/Tracker.tsx\",\n        \"lineRange\": [85, 90],\n        \"codeSnippet\": \"\\\"px-[0.5px] transition first:rounded-l-[4px]\\\"\\n\\\"sideOffset={10}\\\"\"\n      },\n      \"suggestedDetection\": \"Detect arbitrary value syntax [value] and numeric literals that could be tokenized\",\n      \"severity\": \"medium\"\n    },\n    {\n      \"category\": \"token\",\n      \"description\": \"CSS utility composition patterns\",\n      \"evidence\": {\n        \"file\": \"src/components/Card/Card.tsx\",\n        \"lineRange\": [15, 25],\n        \"codeSnippet\": \"cx(\\n  \\\"relative w-full rounded-lg border p-6 text-left shadow-xs\\\",\\n  \\\"bg-white dark:bg-[#090E1A]\\\",\\n  \\\"border-gray-200 dark:border-gray-900\\\",\\n)\"\n      },\n      \"suggestedDetection\": \"Analyze cx() and similar utility functions to extract repeated class combinations as potential tokens\",\n      \"severity\": \"high\"\n    }\n  ],\n  \"improvements\": [\n    {\n      \"area\": \"token-parser\",\n      \"title\": \"Tailwind Variants Integration\",\n      \"description\": \"Add dedicated parser for tailwind-variants tv() function calls to extract variant-based token systems. Should parse base styles, variant definitions, and compound variants as design tokens.\",\n      \"examples\": [\"buttonVariants with primary/secondary/destructive variants\", \"inputStyles with error states\"],\n      \"estimatedImpact\": \"Would catch 20+ token systems across all components\"\n    },\n    {\n      \"area\": \"scanner\",\n      \"title\": \"Utility Function Token Detection\",\n      \"description\": \"Scan utility directories for exported constants that serve as design tokens. Look for patterns like exported strings containing CSS classes, style objects, or configuration values.\",\n      \"examples\": [\"focusRing utility\", \"hasErrorInput utility\", \"cx utility patterns\"],\n      \"estimatedImpact\": \"Would catch 10+ utility-based token systems\"\n    },\n    {\n      \"area\": \"drift-rules\",\n      \"title\": \"Repeated Value Analysis\",\n      \"description\": \"Implement analysis to detect exact string repetitions across files, especially in component props and className strings. Flag repeated color values, spacing patterns, and magic numbers.\",\n      \"examples\": [\"bg-emerald-600 dark:bg-emerald-500 repeated 50+ times\", \"inconsistent px-2.5 vs px-3 spacing\"],\n      \"estimatedImpact\": \"Would catch 15+ drift instances of repeated hardcoded values\"\n    },\n    {\n      \"area\": \"scanner\",\n      \"title\": \"TypeScript Variant Props Analysis\",\n      \"description\": \"Parse TypeScript interfaces extending VariantProps to understand component API design and variant systems. Extract variant names and values as design system elements.\",\n      \"examples\": [\"ButtonProps with variant types\", \"InputProps with state variants\"],\n      \"estimatedImpact\": \"Would better categorize 30+ component variants\"\n    },\n    {\n      \"area\": \"drift-rules\",\n      \"title\": \"Arbitrary Value Detection\",\n      \"description\": \"Flag Tailwind arbitrary values [value] syntax and hardcoded numeric literals as potential drift. These often indicate values that should be part of the design token system.\",\n      \"examples\": [\"px-[0.5px]\", \"rounded-l-[4px]\", \"sideOffset={10}\"],\n      \"estimatedImpact\": \"Would catch 20+ hardcoded values that should be tokenized\"\n    },\n    {\n      \"area\": \"source\",\n      \"title\": \"Enhanced Storybook Integration\",\n      \"description\": \"Deeper analysis of Storybook stories to extract design examples, variant demonstrations, and component usage patterns. Parse story args to understand available component variants.\",\n      \"examples\": [\"Toast variant stories\", \"Button state examples\"],\n      \"estimatedImpact\": \"Would provide richer component documentation and variant discovery\"\n    }\n  ],\n  \"summary\": {\n    \"totalMissed\": 8,\n    \"missedByCategory\": {\n      \"component\": 1,\n      \"token\": 3,\n      \"drift\": 3,\n      \"source\": 1\n    },\n    \"improvementAreas\": [\n      \"token-parser\",\n      \"scanner\", \n      \"drift-rules\",\n      \"source\"\n    ]\n  }\n}\n```",
+  "missedPatterns": [
+    {
+      "category": "token",
+      "description": "Tailwind Variants token system completely missed",
+      "evidence": {
+        "file": "src/components/Button/Button.tsx",
+        "lineRange": [
+          10,
+          50
+        ],
+        "codeSnippet": "const buttonVariants = tv({\n  base: [\n    \"relative inline-flex items-center justify-center whitespace-nowrap rounded-md border px-3 py-2 text-center text-sm font-medium shadow-xs transition-all duration-100 ease-in-out\",\n  ],\n  variants: {\n    variant: {\n      primary: [\n        \"border-transparent\",\n        \"text-white dark:text-white\",\n        \"bg-blue-500 dark:bg-blue-500\",\n      ],\n    },\n  },\n})"
+      },
+      "suggestedDetection": "Parse tailwind-variants tv() calls as design token definitions, extract variant keys as token names",
+      "severity": "high"
+    },
+    {
+      "category": "token",
+      "description": "Shared utility functions serving as design tokens",
+      "evidence": {
+        "file": "src/utils/focusRing.ts",
+        "lineRange": [
+          1,
+          20
+        ],
+        "codeSnippet": "export const focusRing = \"focus:outline-none focus:ring-2 focus:ring-blue-500\""
+      },
+      "suggestedDetection": "Scan utility files for exported constants containing CSS class strings or style objects",
+      "severity": "high"
+    },
+    {
+      "category": "drift",
+      "description": "Repeated hardcoded color values that should be tokenized",
+      "evidence": {
+        "file": "src/components/Tracker/tracker.stories.tsx",
+        "lineRange": [
+          5,
+          15
+        ],
+        "codeSnippet": "{ color: \"bg-emerald-600 dark:bg-emerald-500\", tooltip: \"Tracker Info\" },\n{ color: \"bg-emerald-600 dark:bg-emerald-500\", tooltip: \"Tracker Info\" },\n{ color: \"bg-red-600 dark:bg-red-500\", tooltip: \"Error\" },"
+      },
+      "suggestedDetection": "Detect repeated exact string values in component props, especially color-related patterns",
+      "severity": "medium"
+    },
+    {
+      "category": "drift",
+      "description": "Inconsistent spacing patterns across components",
+      "evidence": {
+        "file": "src/components/Input/Input.tsx",
+        "lineRange": [
+          25,
+          35
+        ],
+        "codeSnippet": "\"px-2.5 py-2\" // in Input\nvs\n\"px-3 py-2\" // in Button"
+      },
+      "suggestedDetection": "Analyze spacing class patterns across components to find inconsistencies in padding/margin values",
+      "severity": "medium"
+    },
+    {
+      "category": "component",
+      "description": "Component variant systems using VariantProps",
+      "evidence": {
+        "file": "src/components/Button/Button.tsx",
+        "lineRange": [
+          60,
+          70
+        ],
+        "codeSnippet": "interface ButtonProps\n  extends React.ComponentPropsWithoutRef<\"button\">,\n    VariantProps<typeof buttonVariants> {\n  asChild?: boolean\n  isLoading?: boolean\n}"
+      },
+      "suggestedDetection": "Parse TypeScript interfaces extending VariantProps to understand component variant systems",
+      "severity": "medium"
+    },
+    {
+      "category": "source",
+      "description": "Storybook stories containing design examples and token usage",
+      "evidence": {
+        "file": "src/components/Toast/toast.stories.tsx",
+        "lineRange": [
+          30,
+          50
+        ],
+        "codeSnippet": "export const Warning: Story = {\n  args: {\n    variant: \"warning\",\n  },\n}"
+      },
+      "suggestedDetection": "Parse Storybook stories to extract variant examples and component usage patterns",
+      "severity": "low"
+    },
+    {
+      "category": "drift",
+      "description": "Magic numbers in sizing and positioning",
+      "evidence": {
+        "file": "src/components/Tracker/Tracker.tsx",
+        "lineRange": [
+          85,
+          90
+        ],
+        "codeSnippet": "\"px-[0.5px] transition first:rounded-l-[4px]\"\n\"sideOffset={10}\""
+      },
+      "suggestedDetection": "Detect arbitrary value syntax [value] and numeric literals that could be tokenized",
+      "severity": "medium"
+    },
+    {
+      "category": "token",
+      "description": "CSS utility composition patterns",
+      "evidence": {
+        "file": "src/components/Card/Card.tsx",
+        "lineRange": [
+          15,
+          25
+        ],
+        "codeSnippet": "cx(\n  \"relative w-full rounded-lg border p-6 text-left shadow-xs\",\n  \"bg-white dark:bg-[#090E1A]\",\n  \"border-gray-200 dark:border-gray-900\",\n)"
+      },
+      "suggestedDetection": "Analyze cx() and similar utility functions to extract repeated class combinations as potential tokens",
+      "severity": "high"
+    }
+  ],
+  "improvements": [
+    {
+      "area": "token-parser",
+      "title": "Tailwind Variants Integration",
+      "description": "Add dedicated parser for tailwind-variants tv() function calls to extract variant-based token systems. Should parse base styles, variant definitions, and compound variants as design tokens.",
+      "examples": [
+        "buttonVariants with primary/secondary/destructive variants",
+        "inputStyles with error states"
+      ],
+      "estimatedImpact": "Would catch 20+ token systems across all components"
+    },
+    {
+      "area": "scanner",
+      "title": "Utility Function Token Detection",
+      "description": "Scan utility directories for exported constants that serve as design tokens. Look for patterns like exported strings containing CSS classes, style objects, or configuration values.",
+      "examples": [
+        "focusRing utility",
+        "hasErrorInput utility",
+        "cx utility patterns"
+      ],
+      "estimatedImpact": "Would catch 10+ utility-based token systems"
+    },
+    {
+      "area": "drift-rules",
+      "title": "Repeated Value Analysis",
+      "description": "Implement analysis to detect exact string repetitions across files, especially in component props and className strings. Flag repeated color values, spacing patterns, and magic numbers.",
+      "examples": [
+        "bg-emerald-600 dark:bg-emerald-500 repeated 50+ times",
+        "inconsistent px-2.5 vs px-3 spacing"
+      ],
+      "estimatedImpact": "Would catch 15+ drift instances of repeated hardcoded values"
+    },
+    {
+      "area": "scanner",
+      "title": "TypeScript Variant Props Analysis",
+      "description": "Parse TypeScript interfaces extending VariantProps to understand component API design and variant systems. Extract variant names and values as design system elements.",
+      "examples": [
+        "ButtonProps with variant types",
+        "InputProps with state variants"
+      ],
+      "estimatedImpact": "Would better categorize 30+ component variants"
+    },
+    {
+      "area": "drift-rules",
+      "title": "Arbitrary Value Detection",
+      "description": "Flag Tailwind arbitrary values [value] syntax and hardcoded numeric literals as potential drift. These often indicate values that should be part of the design token system.",
+      "examples": [
+        "px-[0.5px]",
+        "rounded-l-[4px]",
+        "sideOffset={10}"
+      ],
+      "estimatedImpact": "Would catch 20+ hardcoded values that should be tokenized"
+    }
+  ],
+  "summary": {
+    "totalMissed": 8,
+    "missedByCategory": {
+      "component": 1,
+      "token": 3,
+      "drift": 3,
+      "source": 1
+    },
+    "improvementAreas": [
+      "token-parser",
+      "scanner",
+      "drift-rules",
+      "source"
+    ]
+  }
+}

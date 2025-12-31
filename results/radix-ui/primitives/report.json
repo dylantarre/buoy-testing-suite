@@ -5,11 +5,11 @@
     "owner": "radix-ui"
   },
   "score": 5,
-  "testedAt": "2025-12-31T03:57:16.691Z",
+  "testedAt": "2025-12-31T06:38:34.921Z",
   "buoyVersion": "0.0.1",
   "designSystemSources": [],
   "scan": {
-    "components": 0,
+    "components": 283,
     "tokens": 5,
     "coverage": {}
   },

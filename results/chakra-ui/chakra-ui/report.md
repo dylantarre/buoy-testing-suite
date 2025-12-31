@@ -12,7 +12,7 @@
 
 | Type | Found | Coverage |
 |------|-------|----------|
-| Components | 0 | N/A |
+| Components | 2047 | N/A |
 | Tokens | 0 | N/A |
 
 ## Drift Signals
@@ -26,5 +26,5 @@ No drift signals detected.
 - **Stars:** 40100
 - **Default Branch:** main
 - **Language:** TypeScript
-- **Duration:** 7.8s
-- **Config Generated:** No
+- **Duration:** 14.5s
+- **Config Generated:** Yes

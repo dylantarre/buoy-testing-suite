@@ -5,13 +5,13 @@
     "owner": "mantinedev"
   },
   "score": 10,
-  "testedAt": "2025-12-31T03:57:11.738Z",
+  "testedAt": "2025-12-31T06:38:07.362Z",
   "buoyVersion": "0.0.1",
   "designSystemSources": [
     "storybook"
   ],
   "scan": {
-    "components": 0,
+    "components": 2737,
     "tokens": 356,
     "coverage": {}
   },

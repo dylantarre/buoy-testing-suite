@@ -1,0 +1,21 @@
+{
+  "repo": {
+    "url": "https://github.com/tailwindlabs/headlessui",
+    "name": "headlessui",
+    "owner": "tailwindlabs"
+  },
+  "score": 5,
+  "testedAt": "2025-12-31T06:38:46.909Z",
+  "buoyVersion": "0.0.1",
+  "designSystemSources": [],
+  "scan": {
+    "components": 0,
+    "tokens": 0,
+    "coverage": {}
+  },
+  "drift": {
+    "total": 0,
+    "byType": {},
+    "bySeverity": {}
+  }
+}

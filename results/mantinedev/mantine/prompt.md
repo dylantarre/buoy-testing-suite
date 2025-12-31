@@ -14,7 +14,7 @@ Score: 10
 </repository_context>
 
 <scan_results>
-Components detected: 0
+Components detected: 2737
 Tokens detected: 356
 Sources scanned: 
 </scan_results>

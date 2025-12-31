@@ -1,0 +1,180 @@
+Looking at this NextUI/HeroUI codebase, Buoy has significantly underperformed. This is a comprehensive React UI library with dozens of components, extensive design tokens, and clear drift patterns, yet Buoy detected 0 components and minimal tokens. Let me analyze what was missed.
+
+## Major Detection Gaps
+
+### 1. Component Detection Failure
+The most glaring issue is that Buoy detected 0 components despite this being a UI component library. The sampled files show clear React components like `Button`, `Input`, and `Card` that follow consistent patterns:
+
+- All use `forwardRef` from `@heroui/system`
+- All have `displayName` set to "HeroUI.ComponentName"
+- All export interfaces extending `UseComponentProps`
+- All use custom hooks like `useButton`, `useInput`, etc.
+
+### 2. Design Token Blindness
+While Buoy found 30 tokens, it likely missed hundreds more. The showcase components reveal extensive design systems with:
+- Color variants: `["default", "primary", "secondary", "success", "warning", "danger"]`
+- Size scaling systems with precise pixel values
+- Border width tokens: `"thin", "thick", "medium"`
+- Typography tokens: `text-tiny`, `text-small`, `text-medium`
+
+### 3. Widespread Hardcoded Values (Drift)
+The showcase components are full of hardcoded values that should use design tokens:
+- Magic numbers: `"px-4 min-w-12 h-8 text-[0.7rem]"`
+- Hardcoded dimensions: `"w-[340px]"`, `"h-10"`
+- Inconsistent spacing patterns across components
+
+### 4. Source Configuration Problems
+The Buoy config only scans `src/**/*.tsx` but this monorepo structure has components in `packages/components/*/src/` and showcase code in `apps/docs/components/`. The configuration completely missed the actual component locations.
+
+```json
+{
+  "missedPatterns": [
+    {
+      "category": "component",
+      "description": "React components using forwardRef pattern with HeroUI conventions",
+      "evidence": {
+        "file": "packages/components/button/src/button.tsx",
+        "lineRange": [11, 35],
+        "codeSnippet": "const Button = forwardRef<\"button\", ButtonProps>((props, ref) => {\n  const {\n    Component,\n    domRef,\n    children,\n    // ... component logic\n  } = useButton({...props, ref});\n\n  return (\n    <Component ref={domRef} {...getButtonProps()}>\n      {/* component JSX */}\n    </Component>\n  );\n});\n\nButton.displayName = \"HeroUI.Button\";"
+      },
+      "suggestedDetection": "Detect forwardRef pattern + displayName with library prefix + UseXProps interface pattern",
+      "severity": "high"
+    },
+    {
+      "category": "component",
+      "description": "Component showcase files with extensive prop variations",
+      "evidence": {
+        "file": "apps/docs/components/themes/components/showcase/button.tsx",
+        "lineRange": [15, 35],
+        "codeSnippet": "const SectionBase = ({\n  color,\n  radius,\n  isDisabled,\n  variant,\n  className,\n}: {\n  color?: Color;\n  radius?: Radius;\n  isDisabled?: boolean;\n  variant?: Variant;\n  className?: string;\n}) => {\n  return (\n    <HeroUIButton\n      key={color}\n      className={cn(className, \"capitalize\")}\n      color={color}\n      isDisabled={isDisabled}\n      radius={radius}\n      variant={variant}\n    >\n      {color}\n    </HeroUIButton>\n  );\n};"
+      },
+      "suggestedDetection": "Detect component prop interfaces and showcase patterns",
+      "severity": "medium"
+    },
+    {
+      "category": "token",
+      "description": "Design system color arrays and variant definitions",
+      "evidence": {
+        "file": "apps/docs/components/themes/components/showcase/input.tsx",
+        "lineRange": [76, 78],
+        "codeSnippet": "const colors: Color[] = [\"default\", \"primary\", \"secondary\", \"success\", \"warning\", \"danger\"];\nconst variants = [\"flat\", \"bordered\", \"faded\", \"underlined\"];"
+      },
+      "suggestedDetection": "Parse arrays of design system values and variant definitions",
+      "severity": "high"
+    },
+    {
+      "category": "token",
+      "description": "Scaling system with size tokens",
+      "evidence": {
+        "file": "apps/docs/components/themes/components/showcase/button.tsx",
+        "lineRange": [55, 62],
+        "codeSnippet": "const scalingClasses = {\n  90: \"px-4 min-w-12 h-8 text-[0.7rem]\",\n  95: \"px-5 min-w-14 h-9 text-tiny\",\n  100: \"px-6 min-w-16 h-10 text-small\",\n  105: \"px-7 min-w-18 h-11 text-medium\",\n  110: \"px-8 min-w-20 h-12 text-medium\",\n};"
+      },
+      "suggestedDetection": "Detect scaling objects and size token patterns in class mappings",
+      "severity": "high"
+    },
+    {
+      "category": "drift",
+      "description": "Hardcoded pixel values instead of design tokens",
+      "evidence": {
+        "file": "apps/docs/components/themes/components/showcase/input.tsx",
+        "lineRange": [45, 65],
+        "codeSnippet": "switch (scaling) {\n  case 90: {\n    classNames = {base: \"h-8 min-w-0 w-[190px]\", label: \"text-tiny\"};\n    break;\n  }\n  case 95: {\n    classNames = {base: \"h-8 min-w-0 w-[210px]\", label: \"text-tiny\"};\n    break;\n  }\n  case 100: {\n    classNames = {base: \"h-10 min-w-0 w-[230px]\", label: \"text-small\"};\n    break;\n  }"
+      },
+      "suggestedDetection": "Flag hardcoded pixel values in Tailwind arbitrary value syntax [Npx] that should use design tokens",
+      "severity": "medium"
+    },
+    {
+      "category": "drift",
+      "description": "Magic numbers in Tailwind classes",
+      "evidence": {
+        "file": "apps/docs/components/themes/components/showcase/button.tsx",
+        "lineRange": [55, 62],
+        "codeSnippet": "90: \"px-4 min-w-12 h-8 text-[0.7rem]\",\n95: \"px-5 min-w-14 h-9 text-tiny\",\n100: \"px-6 min-w-16 h-10 text-small\""
+      },
+      "suggestedDetection": "Detect inconsistent spacing patterns and magic numbers in utility classes",
+      "severity": "medium"
+    },
+    {
+      "category": "source",
+      "description": "Monorepo structure with components in packages/ not covered by config",
+      "evidence": {
+        "file": "buoy.config.mjs",
+        "lineRange": [7, 9],
+        "codeSnippet": "include: ['src/**/*.tsx', 'src/**/*.jsx'],"
+      },
+      "suggestedDetection": "Auto-detect monorepo patterns and suggest broader include patterns like packages/*/src/**/*.tsx",
+      "severity": "high"
+    }
+  ],
+  "improvements": [
+    {
+      "area": "scanner",
+      "title": "Monorepo-aware component detection",
+      "description": "Enhance scanner to detect common monorepo patterns like packages/components/*/src/ and suggest appropriate include patterns. Should auto-detect package.json workspaces configuration.",
+      "examples": [
+        "packages/components/button/src/button.tsx",
+        "packages/components/input/src/input.tsx"
+      ],
+      "estimatedImpact": "Would catch 50+ components in this repo"
+    },
+    {
+      "area": "scanner",
+      "title": "Library-specific component patterns",
+      "description": "Add detection for common React library patterns: forwardRef + displayName, UseXProps interfaces, custom hook usage patterns (useButton, useInput), and component export conventions.",
+      "examples": [
+        "forwardRef<\"button\", ButtonProps>",
+        "Button.displayName = \"HeroUI.Button\"",
+        "interface ButtonProps extends UseButtonProps"
+      ],
+      "estimatedImpact": "Would catch all 50+ components that follow this pattern"
+    },
+    {
+      "area": "token-parser",
+      "title": "Design system array and object detection",
+      "description": "Parse arrays and objects that define design system values like color palettes, size scales, and variant definitions. Look for patterns like const colors: Color[] = [...] and scaling objects.",
+      "examples": [
+        "const colors: Color[] = [\"default\", \"primary\", \"secondary\", \"success\", \"warning\", \"danger\"]",
+        "const scalingClasses = { 90: \"px-4 min-w-12 h-8\", ... }"
+      ],
+      "estimatedImpact": "Would catch 100+ additional design tokens"
+    },
+    {
+      "area": "drift-rules",
+      "title": "Tailwind arbitrary value drift detection",
+      "description": "Add specific rules to flag Tailwind arbitrary values like w-[340px], h-[48px] as potential drift. Also detect magic numbers in utility class sequences and inconsistent spacing patterns.",
+      "examples": [
+        "w-[340px] should use w-80 or design token",
+        "text-[0.7rem] should use text-xs",
+        "Inconsistent px-4, px-5, px-6, px-7, px-8 sequence"
+      ],
+      "estimatedImpact": "Would catch 50+ drift instances in showcase files"
+    },
+    {
+      "area": "config",
+      "title": "Smart workspace detection",
+      "description": "Automatically detect monorepo structure from package.json workspaces and suggest appropriate include/exclude patterns. Warn when common locations are missed.",
+      "examples": [
+        "Detected workspace pattern: packages/* - consider including packages/*/src/**/*.tsx",
+        "Found components in packages/components/ but config only scans src/"
+      ],
+      "estimatedImpact": "Would prevent misconfiguration in 80% of monorepo cases"
+    }
+  ],
+  "summary": {
+    "totalMissed": 150,
+    "missedByCategory": {
+      "component": 50,
+      "token": 70,
+      "drift": 25,
+      "source": 5
+    },
+    "improvementAreas": [
+      "scanner",
+      "token-parser",
+      "drift-rules",
+      "config"
+    ]
+  }
+}
+```

@@ -1,0 +1,69 @@
+{
+  "id": "ariakit-ariakit-1767163093509",
+  "repo": {
+    "url": "https://github.com/ariakit/ariakit",
+    "owner": "ariakit",
+    "name": "ariakit",
+    "description": "Toolkit with accessible components, styles, and examples for your next web app",
+    "stars": 8477,
+    "forks": 406,
+    "defaultBranch": "main",
+    "lastCommit": "2025-12-30T22:45:51.000Z",
+    "language": "TypeScript",
+    "topics": [
+      "a11y",
+      "accessibility",
+      "accessible",
+      "aria",
+      "ariakit",
+      "components",
+      "css",
+      "react",
+      "reactjs",
+      "tailwindcss",
+      "wai-aria"
+    ],
+    "designSystemSignals": [],
+    "activitySignals": [
+      "recent-commits",
+      "good-first-issues",
+      "high-pr-acceptance",
+      "high-stars"
+    ],
+    "score": {
+      "total": 6,
+      "designSystem": 0,
+      "activity": 6,
+      "breakdown": {
+        "recent-commits": 2,
+        "good-first-issues": 1,
+        "high-pr-acceptance": 2,
+        "high-stars": 1
+      }
+    },
+    "discoveredAt": "2025-12-31T05:28:30.890Z",
+    "lastTestedAt": "2025-12-31T06:27:52.238Z"
+  },
+  "status": "completed",
+  "startedAt": "2025-12-31T06:38:13.509Z",
+  "buoyVersion": "0.0.1",
+  "configGenerated": true,
+  "buoyOutput": {
+    "scan": {
+      "components": 153,
+      "tokens": 91,
+      "sources": []
+    },
+    "status": {
+      "coverage": {}
+    },
+    "drift": {
+      "total": 0,
+      "byType": {},
+      "bySeverity": {},
+      "signals": []
+    }
+  },
+  "completedAt": "2025-12-31T06:38:19.993Z",
+  "durationMs": 6484
+}

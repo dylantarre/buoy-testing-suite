@@ -1,0 +1,133 @@
+{
+  "testRunId": "ariakit-ariakit-1767159003096",
+  "repoOwner": "ariakit",
+  "repoName": "ariakit",
+  "assessedAt": "2025-12-31T05:37:54.079Z",
+  "mode": "coverage-analysis",
+  "model": "claude-sonnet-4-20250514",
+  "tokensUsed": 7866,
+  "analysis": "Looking at this repository, I can see that Buoy missed significant patterns in what appears to be a comprehensive React component library. The main issue is that Buoy's current configuration is looking in the wrong places and using patterns that don't match how this library is structured.\n\n## Major Gaps Identified\n\n### 1. Massive Component Library Missed\nThe most glaring issue is that Buoy detected **0 components** despite this being a full-featured React component library. The `packages/ariakit-react-core/src/button/button.tsx` file I can see contains multiple component exports (`useButton` hook, `Button` component, type definitions), but Buoy missed them entirely.\n\nThe configuration is looking for components in `src/**/*.tsx` but the actual components are in `packages/ariakit-react-core/src/**/*.tsx` and likely other package subdirectories. This is a monorepo structure that Buoy isn't handling properly.\n\n### 2. Incorrect Design System Package Reference\nThe config specifies `designSystemPackage: '@radix-ui/react-popover'` but this IS the design system - it's Ariakit itself. The library exports its own components that other projects would consume. Buoy should be analyzing this as the source of truth, not looking for usage of another design system.\n\n### 3. Hook-Based Component Pattern Not Detected\nAriakit uses a distinctive pattern where components are built with custom hooks (like `useButton`) paired with component exports. This is a more advanced React pattern that Buoy's component detection doesn't seem to recognize. The `useButton` hook is just as much a \"component\" API as the `Button` component itself.\n\n### 4. Missing Source Directories\nThe tokens were found (91 detected) but components weren't, suggesting the component scanner isn't looking in the right places. The `packages/` directory structure indicates this is a monorepo where the actual component source code lives in subdirectories that aren't being scanned.\n\n### 5. TypeScript Interface Patterns\nThe component files use TypeScript extensively with interface definitions like `ButtonOptions` and `ButtonProps` that define the component API. These type definitions are crucial parts of the design system that establish the contract for how components should be used.\n\n```json\n{\n  \"missedPatterns\": [\n    {\n      \"category\": \"component\",\n      \"description\": \"React component with hook-based API pattern not detected\",\n      \"evidence\": {\n        \"file\": \"packages/ariakit-react-core/src/button/button.tsx\",\n        \"lineRange\": [25, 45],\n        \"codeSnippet\": \"export const useButton = createHook<TagName, ButtonOptions>(\\n  function useButton(props) {\\n    // ... hook implementation\\n  },\\n);\\n\\nexport const Button = forwardRef(function Button(props: ButtonProps) {\\n  const htmlProps = useButton(props);\\n  return createElement(TagName, htmlProps);\\n});\"\n      },\n      \"suggestedDetection\": \"Scan for custom hook + component pairs, detect createHook/forwardRef patterns, include packages/**/src in component scanning\",\n      \"severity\": \"high\"\n    },\n    {\n      \"category\": \"component\",\n      \"description\": \"TypeScript component interfaces and prop types not detected as component APIs\",\n      \"evidence\": {\n        \"file\": \"packages/ariakit-react-core/src/button/button.tsx\",\n        \"lineRange\": [70, 78],\n        \"codeSnippet\": \"export interface ButtonOptions<T extends ElementType = TagName>\\n  extends CommandOptions<T> {}\\n\\nexport type ButtonProps<T extends ElementType = TagName> = Props<\\n  T,\\n  ButtonOptions<T>\\n>;\"\n      },\n      \"suggestedDetection\": \"Detect exported TypeScript interfaces ending in Options/Props as component APIs, track component inheritance patterns\",\n      \"severity\": \"medium\"\n    },\n    {\n      \"category\": \"source\",\n      \"description\": \"Monorepo package structure not properly scanned for components\",\n      \"evidence\": {\n        \"file\": \"packages/ariakit-react-core/src/button/button.tsx\",\n        \"lineRange\": [1, 5],\n        \"codeSnippet\": \"import { isButton } from \\\"@ariakit/core/utils/dom\\\";\\nimport type { ElementType } from \\\"react\\\";\\nimport { useEffect, useRef, useState } from \\\"react\\\";\"\n      },\n      \"suggestedDetection\": \"Auto-detect monorepo structure, scan packages/*/src directories, handle workspace-based projects\",\n      \"severity\": \"high\"\n    },\n    {\n      \"category\": \"source\",\n      \"description\": \"Design system library incorrectly configured as consumer of another design system\",\n      \"evidence\": {\n        \"file\": \"package.json\",\n        \"lineRange\": [1, 10],\n        \"codeSnippet\": \"{\\n  \\\"name\\\": \\\"root\\\",\\n  \\\"private\\\": true,\\n  \\\"workspaces\\\": [\\n    \\\"packages/*\\\",\\n    \\\"templates/*\\\"\\n  ]\"\n      },\n      \"suggestedDetection\": \"Detect when scanning the source of a design system vs consumer, auto-detect monorepo workspaces in package.json\",\n      \"severity\": \"high\"\n    },\n    {\n      \"category\": \"drift\",\n      \"description\": \"Hardcoded accessibility attributes and DOM manipulation not flagged as potential drift\",\n      \"evidence\": {\n        \"file\": \"packages/ariakit-react-core/src/button/button.tsx\",\n        \"lineRange\": [20, 30],\n        \"codeSnippet\": \"props = {\\n  role: !isNativeButton && tagName !== \\\"a\\\" ? \\\"button\\\" : undefined,\\n  ...props,\\n  ref: useMergeRefs(ref, props.ref),\\n};\"\n      },\n      \"suggestedDetection\": \"Flag hardcoded ARIA attributes and roles as potential design system standardization opportunities\",\n      \"severity\": \"low\"\n    }\n  ],\n  \"improvements\": [\n    {\n      \"area\": \"scanner\",\n      \"title\": \"Monorepo workspace detection\",\n      \"description\": \"Automatically detect monorepo structures from package.json workspaces and scan all workspace directories for components. Handle nested package structures like packages/*/src.\",\n      \"examples\": [\"packages/ariakit-react-core/src/button/button.tsx\"],\n      \"estimatedImpact\": \"Would catch all components in this library (likely 20+ components across packages)\"\n    },\n    {\n      \"area\": \"scanner\", \n      \"title\": \"Hook-based component pattern detection\",\n      \"description\": \"Recognize React patterns where custom hooks (useComponentName) are paired with components, detect createHook/forwardRef patterns common in headless UI libraries.\",\n      \"examples\": [\"useButton hook paired with Button component\"],\n      \"estimatedImpact\": \"Would double component detection in hook-heavy libraries\"\n    },\n    {\n      \"area\": \"config\",\n      \"title\": \"Design system vs consumer auto-detection\",\n      \"description\": \"Automatically detect whether scanning the source of a design system or a consumer project. For design system sources, focus on exports and consistency rather than imports from other systems.\",\n      \"examples\": [\"Ariakit library should be analyzed as design system source, not Radix consumer\"],\n      \"estimatedImpact\": \"Would properly categorize design system libraries and scan for appropriate patterns\"\n    },\n    {\n      \"area\": \"scanner\",\n      \"title\": \"TypeScript component API detection\",\n      \"description\": \"Scan for exported TypeScript interfaces and types that define component APIs (Props, Options, State interfaces). Track component inheritance and composition patterns.\",\n      \"examples\": [\"ButtonOptions and ButtonProps interfaces\"],\n      \"estimatedImpact\": \"Would provide deeper insight into component API design and consistency\"\n    }\n  ],\n  \"summary\": {\n    \"totalMissed\": 5,\n    \"missedByCategory\": {\n      \"component\": 2,\n      \"token\": 0,\n      \"drift\": 1,\n      \"source\": 2\n    },\n    \"improvementAreas\": [\n      \"scanner\",\n      \"config\"\n    ]\n  }\n}\n```",
+  "missedPatterns": [
+    {
+      "category": "component",
+      "description": "React component with hook-based API pattern not detected",
+      "evidence": {
+        "file": "packages/ariakit-react-core/src/button/button.tsx",
+        "lineRange": [
+          25,
+          45
+        ],
+        "codeSnippet": "export const useButton = createHook<TagName, ButtonOptions>(\n  function useButton(props) {\n    // ... hook implementation\n  },\n);\n\nexport const Button = forwardRef(function Button(props: ButtonProps) {\n  const htmlProps = useButton(props);\n  return createElement(TagName, htmlProps);\n});"
+      },
+      "suggestedDetection": "Scan for custom hook + component pairs, detect createHook/forwardRef patterns, include packages/**/src in component scanning",
+      "severity": "high"
+    },
+    {
+      "category": "component",
+      "description": "TypeScript component interfaces and prop types not detected as component APIs",
+      "evidence": {
+        "file": "packages/ariakit-react-core/src/button/button.tsx",
+        "lineRange": [
+          70,
+          78
+        ],
+        "codeSnippet": "export interface ButtonOptions<T extends ElementType = TagName>\n  extends CommandOptions<T> {}\n\nexport type ButtonProps<T extends ElementType = TagName> = Props<\n  T,\n  ButtonOptions<T>\n>;"
+      },
+      "suggestedDetection": "Detect exported TypeScript interfaces ending in Options/Props as component APIs, track component inheritance patterns",
+      "severity": "medium"
+    },
+    {
+      "category": "source",
+      "description": "Monorepo package structure not properly scanned for components",
+      "evidence": {
+        "file": "packages/ariakit-react-core/src/button/button.tsx",
+        "lineRange": [
+          1,
+          5
+        ],
+        "codeSnippet": "import { isButton } from \"@ariakit/core/utils/dom\";\nimport type { ElementType } from \"react\";\nimport { useEffect, useRef, useState } from \"react\";"
+      },
+      "suggestedDetection": "Auto-detect monorepo structure, scan packages/*/src directories, handle workspace-based projects",
+      "severity": "high"
+    },
+    {
+      "category": "source",
+      "description": "Design system library incorrectly configured as consumer of another design system",
+      "evidence": {
+        "file": "package.json",
+        "lineRange": [
+          1,
+          10
+        ],
+        "codeSnippet": "{\n  \"name\": \"root\",\n  \"private\": true,\n  \"workspaces\": [\n    \"packages/*\",\n    \"templates/*\"\n  ]"
+      },
+      "suggestedDetection": "Detect when scanning the source of a design system vs consumer, auto-detect monorepo workspaces in package.json",
+      "severity": "high"
+    },
+    {
+      "category": "drift",
+      "description": "Hardcoded accessibility attributes and DOM manipulation not flagged as potential drift",
+      "evidence": {
+        "file": "packages/ariakit-react-core/src/button/button.tsx",
+        "lineRange": [
+          20,
+          30
+        ],
+        "codeSnippet": "props = {\n  role: !isNativeButton && tagName !== \"a\" ? \"button\" : undefined,\n  ...props,\n  ref: useMergeRefs(ref, props.ref),\n};"
+      },
+      "suggestedDetection": "Flag hardcoded ARIA attributes and roles as potential design system standardization opportunities",
+      "severity": "low"
+    }
+  ],
+  "improvements": [
+    {
+      "area": "scanner",
+      "title": "Monorepo workspace detection",
+      "description": "Automatically detect monorepo structures from package.json workspaces and scan all workspace directories for components. Handle nested package structures like packages/*/src.",
+      "examples": [
+        "packages/ariakit-react-core/src/button/button.tsx"
+      ],
+      "estimatedImpact": "Would catch all components in this library (likely 20+ components across packages)"
+    },
+    {
+      "area": "scanner",
+      "title": "Hook-based component pattern detection",
+      "description": "Recognize React patterns where custom hooks (useComponentName) are paired with components, detect createHook/forwardRef patterns common in headless UI libraries.",
+      "examples": [
+        "useButton hook paired with Button component"
+      ],
+      "estimatedImpact": "Would double component detection in hook-heavy libraries"
+    },
+    {
+      "area": "config",
+      "title": "Design system vs consumer auto-detection",
+      "description": "Automatically detect whether scanning the source of a design system or a consumer project. For design system sources, focus on exports and consistency rather than imports from other systems.",
+      "examples": [
+        "Ariakit library should be analyzed as design system source, not Radix consumer"
+      ],
+      "estimatedImpact": "Would properly categorize design system libraries and scan for appropriate patterns"
+    },
+    {
+      "area": "scanner",
+      "title": "TypeScript component API detection",
+      "description": "Scan for exported TypeScript interfaces and types that define component APIs (Props, Options, State interfaces). Track component inheritance and composition patterns.",
+      "examples": [
+        "ButtonOptions and ButtonProps interfaces"
+      ],
+      "estimatedImpact": "Would provide deeper insight into component API design and consistency"
+    }
+  ],
+  "summary": {
+    "totalMissed": 5,
+    "missedByCategory": {
+      "component": 2,
+      "token": 0,
+      "drift": 1,
+      "source": 2
+    },
+    "improvementAreas": [
+      "scanner",
+      "config"
+    ]
+  }
+}

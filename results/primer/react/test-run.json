@@ -1,0 +1,60 @@
+{
+  "id": "primer-react-1767163116798",
+  "repo": {
+    "url": "https://github.com/primer/react",
+    "owner": "primer",
+    "name": "react",
+    "description": "An implementation of GitHub's Primer Design System using React",
+    "stars": 3767,
+    "forks": 648,
+    "defaultBranch": "main",
+    "lastCommit": "2025-12-31T02:08:24.000Z",
+    "language": "TypeScript",
+    "topics": [
+      "component-library",
+      "design-system",
+      "primer",
+      "react"
+    ],
+    "designSystemSignals": [],
+    "activitySignals": [
+      "recent-commits",
+      "high-pr-acceptance",
+      "high-stars"
+    ],
+    "score": {
+      "total": 5,
+      "designSystem": 0,
+      "activity": 5,
+      "breakdown": {
+        "recent-commits": 2,
+        "high-pr-acceptance": 2,
+        "high-stars": 1
+      }
+    },
+    "discoveredAt": "2025-12-31T05:28:01.526Z",
+    "lastTestedAt": "2025-12-31T06:27:52.242Z"
+  },
+  "status": "completed",
+  "startedAt": "2025-12-31T06:38:36.798Z",
+  "buoyVersion": "0.0.1",
+  "configGenerated": true,
+  "buoyOutput": {
+    "scan": {
+      "components": 0,
+      "tokens": 2,
+      "sources": []
+    },
+    "status": {
+      "coverage": {}
+    },
+    "drift": {
+      "total": 0,
+      "byType": {},
+      "bySeverity": {},
+      "signals": []
+    }
+  },
+  "completedAt": "2025-12-31T06:38:42.850Z",
+  "durationMs": 6052
+}

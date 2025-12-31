@@ -1,15 +1,27 @@
 {
   "summary": {
-    "totalRepos": 4,
-    "successfulRuns": 4,
+    "totalRepos": 13,
+    "successfulRuns": 13,
     "failedRuns": 0,
-    "totalComponents": 0,
-    "totalTokens": 718,
+    "totalComponents": 9099,
+    "totalTokens": 2702,
     "totalDriftSignals": 0
   },
   "driftByType": {},
   "driftBySeverity": {},
   "topReposByDrift": [
+    {
+      "repo": "adobe/react-spectrum",
+      "driftCount": 0
+    },
+    {
+      "repo": "ant-design/ant-design",
+      "driftCount": 0
+    },
+    {
+      "repo": "ariakit/ariakit",
+      "driftCount": 0
+    },
     {
       "repo": "chakra-ui/chakra-ui",
       "driftCount": 0
@@ -19,14 +31,26 @@
       "driftCount": 0
     },
     {
+      "repo": "microsoft/fluentui",
+      "driftCount": 0
+    },
+    {
+      "repo": "nextui-org/nextui",
+      "driftCount": 0
+    },
+    {
+      "repo": "primer/react",
+      "driftCount": 0
+    },
+    {
       "repo": "radix-ui/primitives",
       "driftCount": 0
     },
     {
-      "repo": "shadcn-ui/ui",
+      "repo": "react-bootstrap/react-bootstrap",
       "driftCount": 0
     }
   ],
   "topDriftTypes": [],
-  "generatedAt": "2025-12-31T04:02:35.337Z"
+  "generatedAt": "2025-12-31T06:43:53.902Z"
 }

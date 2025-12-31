@@ -1,0 +1,21 @@
+{
+  "repo": {
+    "url": "https://github.com/heroui-inc/heroui",
+    "name": "nextui",
+    "owner": "nextui-org"
+  },
+  "score": 7,
+  "testedAt": "2025-12-31T06:38:13.508Z",
+  "buoyVersion": "0.0.1",
+  "designSystemSources": [],
+  "scan": {
+    "components": 206,
+    "tokens": 30,
+    "coverage": {}
+  },
+  "drift": {
+    "total": 0,
+    "byType": {},
+    "bySeverity": {}
+  }
+}

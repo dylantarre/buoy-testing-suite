@@ -1,0 +1,64 @@
+{
+  "id": "tailwindlabs-headlessui-1767163123040",
+  "repo": {
+    "url": "https://github.com/tailwindlabs/headlessui",
+    "owner": "tailwindlabs",
+    "name": "headlessui",
+    "description": "Completely unstyled, fully accessible UI components, designed to integrate beautifully with Tailwind CSS.",
+    "stars": 28254,
+    "forks": 1184,
+    "defaultBranch": "main",
+    "lastCommit": "2025-12-19T16:46:31.000Z",
+    "language": "TypeScript",
+    "topics": [
+      "a11y",
+      "accessibility",
+      "components",
+      "headless-ui",
+      "headlessui",
+      "react",
+      "tailwindcss",
+      "vue"
+    ],
+    "designSystemSignals": [],
+    "activitySignals": [
+      "recent-commits",
+      "high-pr-acceptance",
+      "high-stars"
+    ],
+    "score": {
+      "total": 5,
+      "designSystem": 0,
+      "activity": 5,
+      "breakdown": {
+        "recent-commits": 2,
+        "high-pr-acceptance": 2,
+        "high-stars": 1
+      }
+    },
+    "discoveredAt": "2025-12-31T05:28:46.895Z",
+    "lastTestedAt": "2025-12-31T06:27:52.243Z"
+  },
+  "status": "completed",
+  "startedAt": "2025-12-31T06:38:43.040Z",
+  "buoyVersion": "0.0.1",
+  "configGenerated": true,
+  "buoyOutput": {
+    "scan": {
+      "components": 0,
+      "tokens": 0,
+      "sources": []
+    },
+    "status": {
+      "coverage": {}
+    },
+    "drift": {
+      "total": 0,
+      "byType": {},
+      "bySeverity": {},
+      "signals": []
+    }
+  },
+  "completedAt": "2025-12-31T06:38:46.909Z",
+  "durationMs": 3869
+}
