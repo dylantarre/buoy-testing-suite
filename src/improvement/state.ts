@@ -19,6 +19,23 @@ export interface ImprovementTask {
   error?: string;
 }
 
+export interface GapAnalysisState {
+  timestamp: string;
+  repo: string;
+  taskId: string;
+  gaps: {
+    missingComponents: number;
+    missingTokens: number;
+    detectionRate: {
+      components: number;
+      tokens: number;
+    };
+  };
+  rootCauses: string[];
+  recommendations: string[];
+  quirks: string[];
+}
+
 export interface ImprovementState {
   version: number;
   currentTask: string | null;
@@ -31,6 +48,7 @@ export interface ImprovementState {
   lastRun: string | null;
   totalCycles: number;
   consecutiveFailures: number;
+  lastGapAnalysis?: GapAnalysisState;
 }
 
 const STATE_PATH = join(process.cwd(), '.improvement', 'state.json');
@@ -240,6 +258,15 @@ export function getStateReport(state: ImprovementState): string {
   const pending = state.tasks.filter(t => t.status === 'pending').length;
   const failed = state.tasks.filter(t => t.status === 'failed').length;
 
+  // Handle both old format (cycle/task/result) and new format (taskId/improvement)
+  const formatHistoryEntry = (h: any): string => {
+    const taskName = h.taskId || h.task || 'unknown';
+    const detail = h.improvement || h.result || h.notes || '';
+    return `  - ${taskName}: ${detail}`;
+  };
+
+  const historyLines = state.history.slice(-5).map(formatHistoryEntry);
+
   return `
 Improvement State Report
 ========================
@@ -250,6 +277,6 @@ Last run: ${state.lastRun || 'never'}
 Consecutive failures: ${state.consecutiveFailures}
 
 Recent History:
-${state.history.slice(-5).map(h => `  - ${h.taskId}: ${h.improvement}`).join('\n') || '  (none)'}
+${historyLines.length > 0 ? historyLines.join('\n') : '  (none)'}
 `.trim();
 }

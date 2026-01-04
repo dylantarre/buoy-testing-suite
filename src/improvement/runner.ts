@@ -2,9 +2,32 @@
 // src/improvement/runner.ts
 // Autonomous improvement loop runner with regression prevention
 
-import { spawn, SpawnOptions } from 'child_process';
+import { spawn, spawnSync, SpawnOptions } from 'child_process';
 import { readFileSync, existsSync, writeFileSync, mkdirSync, appendFileSync } from 'fs';
 import { join, dirname } from 'path';
+
+// Ground truth loader
+function loadGroundTruth(repo: string): { components: number; tokens: number } | null {
+  const parts = repo.split('/');
+  const owner = parts[0];
+  const name = parts[1];
+  if (!owner || !name) return null;
+  const gtPath = join(process.cwd(), 'results', owner, name, 'ground-truth.json');
+
+  if (!existsSync(gtPath)) {
+    return null;
+  }
+
+  try {
+    const gt = JSON.parse(readFileSync(gtPath, 'utf-8'));
+    return {
+      components: gt.components?.total ?? 0,
+      tokens: gt.tokens?.total ?? 0,
+    };
+  } catch {
+    return null;
+  }
+}
 import {
   loadState,
   saveState,
@@ -13,8 +36,8 @@ import {
   getStateReport,
   createInitialState,
   type ImprovementState,
-  type ImprovementTask,
 } from './state.js';
+import { analyzeGap, formatGapAnalysisForPrompt } from './gap-analyzer.js';
 
 // ============================================================================
 // CONFIGURATION
@@ -26,7 +49,6 @@ const LOG_DIR = join(IMPROVEMENT_DIR, 'logs');
 const CHANGELOG_PATH = join(IMPROVEMENT_DIR, 'CHANGELOG.md');
 const METRICS_HISTORY_PATH = join(LOG_DIR, 'metrics-history.json');
 const BUOY_REPO = '/Users/dylantarre/dev/buoy';
-const TESTING_SUITE = '/Users/dylantarre/dev/buoy-testing-suite';
 
 interface RunnerConfig {
   maxCycles: number;
@@ -126,17 +148,18 @@ function getCycleLogPath(cycleNumber: number, taskId: string): string {
   return join(LOG_DIR, `cycle-${cycleNumber}-${taskId}.log`);
 }
 
-function log(message: string, verbose = false): void {
+let clearStatusLine = () => {};  // Will be set by runClaudeCode
+
+function log(message: string): void {
   const timestamp = new Date().toISOString();
   const line = `[${timestamp}] ${message}`;
+
+  // Clear status line before printing
+  clearStatusLine();
   console.log(line);
 
   // Also append to runner log file
   appendFileSync(getRunnerLogPath(), line + '\n');
-}
-
-function logToFile(filePath: string, content: string): void {
-  appendFileSync(filePath, content);
 }
 
 // ============================================================================
@@ -165,56 +188,10 @@ function appendMetricsHistory(entry: MetricsHistoryEntry): void {
 function getLastMetrics(): Metrics | null {
   const history = loadMetricsHistory();
   if (history.cycles.length === 0) return null;
-  return history.cycles[history.cycles.length - 1].after;
+  const lastCycle = history.cycles[history.cycles.length - 1];
+  return lastCycle ? lastCycle.after : null;
 }
 
-// ============================================================================
-// CHANGELOG
-// ============================================================================
-
-function appendChangelog(
-  cycleNumber: number,
-  task: ImprovementTask,
-  metrics: { before: Metrics; after: Metrics },
-  filesModified: string[],
-  commitHash: string,
-  version: string
-): void {
-  const timestamp = new Date().toISOString();
-  const improvement = {
-    components: metrics.after.components - metrics.before.components,
-    tokens: metrics.after.tokens - metrics.before.tokens,
-    coverage: metrics.after.coverage - metrics.before.coverage,
-  };
-
-  const entry = `
-## Cycle ${cycleNumber} - ${timestamp}
-
-### Task: ${task.id} - ${task.title}
-
-**Description:** ${task.description}
-
-**Changes:**
-- ${task.description}
-
-**Metrics:**
-| Metric | Before | After | Change |
-|--------|--------|-------|--------|
-| Components | ${metrics.before.components} | ${metrics.after.components} | ${improvement.components >= 0 ? '+' : ''}${improvement.components} |
-| Tokens | ${metrics.before.tokens} | ${metrics.after.tokens} | ${improvement.tokens >= 0 ? '+' : ''}${improvement.tokens} |
-| Coverage | ${metrics.before.coverage}% | ${metrics.after.coverage}% | ${improvement.coverage >= 0 ? '+' : ''}${improvement.coverage}% |
-
-**Files Modified:**
-${filesModified.map(f => `- ${f}`).join('\n')}
-
-**Version:** ${version}
-**Commit:** \`${commitHash}\`
-
----
-`;
-
-  appendFileSync(CHANGELOG_PATH, entry);
-}
 
 // ============================================================================
 // REGRESSION CHECKING
@@ -329,6 +306,8 @@ If the improvement doesn't help, revert and exit with status indicating no impro
 - Changelog: ${CHANGELOG_PATH}
 - Metrics history: ${METRICS_HISTORY_PATH}
 
+${state.lastGapAnalysis ? formatGapAnalysisForPrompt(state.lastGapAnalysis) : ''}
+
 Begin the improvement cycle now.
 `.trim();
 }
@@ -337,18 +316,21 @@ Begin the improvement cycle now.
 // CLAUDE EXECUTION
 // ============================================================================
 
-async function runClaudeCode(prompt: string, config: RunnerConfig): Promise<{ success: boolean; output: string }> {
+async function runClaudeCode(prompt: string, _config: RunnerConfig): Promise<{ success: boolean; output: string }> {
   return new Promise((resolve) => {
     const args = [
       '--print',  // Non-interactive mode
-      '--prompt', prompt,
-      '--allowedTools', 'Read,Write,Edit,Bash,Glob,Grep',
-      '--max-turns', '50',
+      '--verbose',  // Required for stream-json output format
+      '--output-format', 'stream-json',  // Stream output as it happens
+      '--allowed-tools', 'Read,Write,Edit,Bash,Glob,Grep',
+      '--dangerously-skip-permissions',  // Skip permission prompts for autonomous operation
     ];
 
-    if (config.verbose) {
-      log(`Spawning claude with prompt length: ${prompt.length}`);
-    }
+    log(`Spawning claude with prompt length: ${prompt.length}`);
+    log(`Working directory: ${BUOY_REPO}`);
+    log('');
+    log('📡 Live status (updates every 30s while Claude works):');
+    log('─'.repeat(60));
 
     const spawnOptions: SpawnOptions = {
       cwd: BUOY_REPO,
@@ -357,6 +339,53 @@ async function runClaudeCode(prompt: string, config: RunnerConfig): Promise<{ su
     };
 
     const child = spawn('claude', args, spawnOptions);
+    const startTime = Date.now();
+    let toolCallCount = 0;
+    let lastToolName = '';
+    let totalInputTokens = 0;
+    let totalOutputTokens = 0;
+    let cacheReadTokens = 0;
+    let cacheWriteTokens = 0;
+
+    // Write prompt to stdin
+    if (child.stdin) {
+      child.stdin.write(prompt);
+      child.stdin.end();
+    }
+
+    // Heartbeat timer - single-line status that overwrites itself
+    let lastStatusLength = 0;
+
+    // Set up status line clearing for log messages
+    clearStatusLine = () => {
+      if (lastStatusLength > 0) {
+        process.stdout.write('\r' + ' '.repeat(lastStatusLength) + '\r');
+        lastStatusLength = 0;
+      }
+    };
+
+    const updateStatus = () => {
+      const elapsed = Math.floor((Date.now() - startTime) / 1000);
+      const mins = Math.floor(elapsed / 60);
+      const secs = elapsed % 60;
+
+      // Check for file changes in Buoy repo
+      const gitStatus = spawnSync('git', ['status', '--short'], { cwd: BUOY_REPO });
+      const changes = gitStatus.stdout?.toString().trim() || '';
+      const fileCount = changes ? changes.split('\n').length : 0;
+
+      const tokenInfo = totalInputTokens + totalOutputTokens > 0
+        ? ` | ${((totalInputTokens + totalOutputTokens) / 1000).toFixed(1)}k tokens`
+        : '';
+
+      const status = `⏱️  ${mins}m ${secs}s | ${toolCallCount} tools | ${fileCount} files${tokenInfo}${lastToolName ? ` | ${lastToolName}` : ''}`;
+
+      // Clear previous line and write new status
+      process.stdout.write('\r' + ' '.repeat(lastStatusLength) + '\r' + status);
+      lastStatusLength = status.length;
+    };
+
+    const heartbeat = setInterval(updateStatus, 5000);  // Update every 5 seconds for smoother feel
 
     let stdout = '';
     let stderr = '';
@@ -364,20 +393,143 @@ async function runClaudeCode(prompt: string, config: RunnerConfig): Promise<{ su
     child.stdout?.on('data', (data) => {
       const text = data.toString();
       stdout += text;
-      if (config.verbose) {
-        process.stdout.write(text);
+
+      // Parse stream-json output to show tool usage
+      const lines = text.split('\n').filter(Boolean);
+      for (const line of lines) {
+        try {
+          const event = JSON.parse(line);
+
+          if (event.type === 'assistant' && event.message?.content) {
+            // Parse tool uses from assistant message
+            for (const block of event.message.content) {
+              if (block.type === 'tool_use') {
+                toolCallCount++;
+                lastToolName = block.name || 'unknown';
+                log(`🔧 ${lastToolName}`);
+
+                // Show relevant input details
+                if (block.input) {
+                  if (block.name === 'Read' && block.input.file_path) {
+                    log(`   📄 ${block.input.file_path}`);
+                  } else if (block.name === 'Write' && block.input.file_path) {
+                    log(`   📝 ${block.input.file_path}`);
+                  } else if (block.name === 'Edit' && block.input.file_path) {
+                    log(`   ✏️  ${block.input.file_path}`);
+                  } else if (block.name === 'Bash' && block.input.command) {
+                    const cmd = block.input.command.substring(0, 60);
+                    log(`   $ ${cmd}${block.input.command.length > 60 ? '...' : ''}`);
+                  } else if (block.name === 'Grep' && block.input.pattern) {
+                    log(`   🔍 "${block.input.pattern}"`);
+                  } else if (block.name === 'Glob' && block.input.pattern) {
+                    log(`   📂 ${block.input.pattern}`);
+                  } else if (block.name === 'TodoWrite' && block.input.todos) {
+                    const inProgress = block.input.todos.find((t: { status: string }) => t.status === 'in_progress');
+                    if (inProgress) {
+                      log(`   📋 ${inProgress.activeForm || inProgress.content}`);
+                    }
+                  }
+                }
+              } else if (block.type === 'text' && block.text) {
+                // Show assistant thinking/text (first 120 chars)
+                const text = block.text.trim().replace(/\n/g, ' ').substring(0, 120);
+                if (text.length > 0) {
+                  log(`💭 ${text}${block.text.length > 120 ? '...' : ''}`);
+                }
+              }
+            }
+          } else if (event.type === 'result') {
+            if (event.subtype === 'success') {
+              // Don't log every success, too noisy
+            } else if (event.subtype === 'error') {
+              log(`❌ Error: ${event.error || 'unknown error'}`);
+            }
+          }
+
+          // Track token usage from assistant messages
+          if (event.type === 'assistant' && event.message?.usage) {
+            const usage = event.message.usage;
+            totalInputTokens += usage.input_tokens || 0;
+            totalOutputTokens += usage.output_tokens || 0;
+            cacheReadTokens += usage.cache_read_input_tokens || 0;
+            cacheWriteTokens += usage.cache_creation_input_tokens || 0;
+          }
+
+          // Show Bash command output, especially Buoy scans
+          if (event.type === 'user' && event.message?.content) {
+            for (const block of event.message.content) {
+              if (block.type === 'tool_result' && block.content) {
+                const content = typeof block.content === 'string'
+                  ? block.content
+                  : JSON.stringify(block.content);
+
+                // Check if this looks like Buoy output or test results
+                const isBuoyOutput = content.includes('components') ||
+                                     content.includes('tokens') ||
+                                     content.includes('Scanning') ||
+                                     content.includes('Coverage') ||
+                                     content.includes('PASS') ||
+                                     content.includes('FAIL') ||
+                                     content.includes('test');
+
+                if (isBuoyOutput && content.length < 5000) {
+                  log('');
+                  log('📋 Command Output:');
+                  // Show the output, limiting to first 40 lines
+                  const lines = content.split('\n').slice(0, 40);
+                  for (const line of lines) {
+                    if (line.trim()) {
+                      log(`   ${line}`);
+                    }
+                  }
+                  if (content.split('\n').length > 40) {
+                    log(`   ... (${content.split('\n').length - 40} more lines)`);
+                  }
+                  log('');
+                }
+              }
+            }
+          }
+        } catch {
+          // Not valid JSON, ignore partial lines
+        }
       }
     });
 
     child.stderr?.on('data', (data) => {
       const text = data.toString();
       stderr += text;
-      if (config.verbose) {
-        process.stderr.write(text);
+      if (text.includes('Error') || text.includes('error')) {
+        log(`❌ Error: ${text.trim()}`);
       }
     });
 
     child.on('close', (code) => {
+      clearInterval(heartbeat);
+      clearStatusLine();  // Clear the status line
+      clearStatusLine = () => {};  // Reset to no-op
+
+      const elapsed = Math.floor((Date.now() - startTime) / 1000);
+      const mins = Math.floor(elapsed / 60);
+      const secs = elapsed % 60;
+
+      log('─'.repeat(60));
+      log(`🏁 Claude finished in ${mins}m ${secs}s with ${toolCallCount} tool calls`);
+      log(`   Exit code: ${code}`);
+
+      // Show token usage summary
+      if (totalInputTokens + totalOutputTokens > 0) {
+        log('');
+        log('📊 Token Usage:');
+        log(`   Input:  ${totalInputTokens.toLocaleString()} tokens`);
+        log(`   Output: ${totalOutputTokens.toLocaleString()} tokens`);
+        log(`   Total:  ${(totalInputTokens + totalOutputTokens).toLocaleString()} tokens`);
+        if (cacheReadTokens > 0 || cacheWriteTokens > 0) {
+          log(`   Cache read:  ${cacheReadTokens.toLocaleString()} tokens`);
+          log(`   Cache write: ${cacheWriteTokens.toLocaleString()} tokens`);
+        }
+      }
+
       resolve({
         success: code === 0,
         output: stdout + stderr,
@@ -385,7 +537,8 @@ async function runClaudeCode(prompt: string, config: RunnerConfig): Promise<{ su
     });
 
     child.on('error', (err) => {
-      log(`Claude spawn error: ${err.message}`);
+      clearInterval(heartbeat);
+      log(`❌ Claude spawn error: ${err.message}`);
       resolve({
         success: false,
         output: err.message,
@@ -419,6 +572,9 @@ async function runCycle(config: RunnerConfig): Promise<CycleResult> {
   log(`CYCLE ${cycleNumber}: ${nextTask.id}`);
   log('='.repeat(60));
   log(`Task: ${nextTask.title}`);
+  if (nextTask.description) {
+    log(`What: ${nextTask.description}`);
+  }
   log(`Log: ${cycleLogPath}`);
 
   // Build the prompt
@@ -437,6 +593,7 @@ async function runCycle(config: RunnerConfig): Promise<CycleResult> {
   writeFileSync(cycleLogPath, `
 CYCLE ${cycleNumber}
 Task: ${nextTask.id} - ${nextTask.title}
+What: ${nextTask.description || 'No description'}
 Started: ${new Date().toISOString()}
 ===================================
 
@@ -447,9 +604,10 @@ Completed: ${new Date().toISOString()}
 Exit code: ${result.success ? 0 : 1}
 `);
 
-  // Update state
-  state.totalCycles++;
-  state.lastRun = new Date().toISOString();
+  // Reload state in case Claude updated it
+  const updatedState = loadState();
+  updatedState.totalCycles++;
+  updatedState.lastRun = new Date().toISOString();
 
   // Parse output for metrics and commit info
   // (Claude should print structured output that we can parse)
@@ -465,14 +623,14 @@ Exit code: ${result.success ? 0 : 1}
 
   if (metricsMatch) {
     const before: Metrics = {
-      components: parseInt(metricsMatch[1]),
-      tokens: parseInt(metricsMatch[2]),
-      coverage: parseInt(metricsMatch[3]),
+      components: parseInt(metricsMatch[1] || '0', 10),
+      tokens: parseInt(metricsMatch[2] || '0', 10),
+      coverage: parseInt(metricsMatch[3] || '0', 10),
     };
     const after: Metrics = {
-      components: parseInt(metricsMatch[4]),
-      tokens: parseInt(metricsMatch[5]),
-      coverage: parseInt(metricsMatch[6]),
+      components: parseInt(metricsMatch[4] || '0', 10),
+      tokens: parseInt(metricsMatch[5] || '0', 10),
+      coverage: parseInt(metricsMatch[6] || '0', 10),
     };
 
     cycleResult.metrics = { before, after };
@@ -492,6 +650,51 @@ Exit code: ${result.success ? 0 : 1}
       log(`NO MEANINGFUL IMPROVEMENT: ${improvement.details}`);
     } else if (improvement.improved) {
       log(`IMPROVEMENT DETECTED: ${improvement.details}`);
+    }
+
+    // Run gap analysis if cycle didn't improve
+    if (regression.regressed || !improvement.improved) {
+      log('');
+      log('Running gap analysis with Haiku...');
+      try {
+        // Use the default test repo - could be made configurable
+        const testRepo = 'chakra-ui/chakra-ui';
+        const groundTruth = loadGroundTruth(testRepo);
+        const expected = groundTruth || { components: after.components, tokens: after.tokens };
+
+        const gapAnalysis = await analyzeGap({
+          repo: testRepo,
+          taskId: nextTask.id,
+          detected: { components: after.components, tokens: after.tokens },
+          expected,
+          attemptedFix: result.output.slice(-5000), // Last 5k chars of what Claude tried
+        });
+
+        // Store for next cycle
+        updatedState.lastGapAnalysis = {
+          timestamp: gapAnalysis.timestamp,
+          repo: gapAnalysis.repo,
+          taskId: gapAnalysis.taskId,
+          gaps: gapAnalysis.gaps,
+          rootCauses: gapAnalysis.rootCauses,
+          recommendations: gapAnalysis.recommendations,
+          quirks: gapAnalysis.quirks,
+        };
+
+        log(`Gap analysis complete:`);
+        log(`  Root causes: ${gapAnalysis.rootCauses.length}`);
+        log(`  Recommendations: ${gapAnalysis.recommendations.length}`);
+        log(`  Quirks: ${gapAnalysis.quirks.length}`);
+        for (const rec of gapAnalysis.recommendations.slice(0, 3)) {
+          log(`  - ${rec.slice(0, 80)}${rec.length > 80 ? '...' : ''}`);
+        }
+        log('');
+      } catch (err) {
+        log(`Gap analysis failed: ${err instanceof Error ? err.message : String(err)}`);
+      }
+    } else {
+      // Clear gap analysis on success
+      updatedState.lastGapAnalysis = undefined;
     }
 
     // Record metrics history
@@ -520,7 +723,7 @@ Exit code: ${result.success ? 0 : 1}
     appendMetricsHistory(historyEntry);
   }
 
-  saveState(state);
+  saveState(updatedState);
 
   log(`Cycle complete. Success: ${result.success}. Improved: ${cycleResult.improved}`);
   log(`Full log: ${cycleLogPath}`);
@@ -618,10 +821,10 @@ async function main(): Promise<void> {
   for (let i = 0; i < args.length; i++) {
     switch (args[i]) {
       case '--max-cycles':
-        config.maxCycles = parseInt(args[++i], 10);
+        config.maxCycles = parseInt(args[++i] || '10', 10);
         break;
       case '--cooldown':
-        config.cooldownMs = parseInt(args[++i], 10);
+        config.cooldownMs = parseInt(args[++i] || '5000', 10);
         break;
       case '--dry-run':
         config.dryRun = true;
@@ -633,7 +836,7 @@ async function main(): Promise<void> {
         config.requireImprovement = false;
         break;
       case '--min-improvement':
-        config.minImprovementThreshold = parseInt(args[++i], 10);
+        config.minImprovementThreshold = parseInt(args[++i] || '1', 10);
         break;
       case '--init':
         await ensureDirectories();
@@ -656,6 +859,10 @@ async function main(): Promise<void> {
         const history = loadMetricsHistory();
         const recent = history.cycles.slice(-5);
         for (const entry of recent) {
+          if (!entry?.improvement) {
+            console.log(`  Cycle ${entry?.cycle ?? '?'}: ${entry?.task ?? 'unknown'} (no metrics)`);
+            continue;
+          }
           const sign = (n: number) => n >= 0 ? '+' : '';
           console.log(`  Cycle ${entry.cycle}: ${entry.task}`);
           console.log(`    Components: ${sign(entry.improvement.components)}${entry.improvement.components}`);

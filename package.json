@@ -10,7 +10,9 @@
     "url": "git+https://github.com/dylantarre/buoy-testing-suite.git"
   },
   "bin": {
-    "buoy-test": "./dist/cli.js"
+    "buoy-test": "./dist/cli.js",
+    "buoy-improve": "./dist/improvement/runner.js",
+    "buoy-daemon": "./dist/improvement/daemon.js"
   },
   "scripts": {
     "build": "tsc",
@@ -20,13 +22,19 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "clean": "rm -rf dist",
-    "format": "prettier --write \"src/**/*.ts\""
+    "format": "prettier --write \"src/**/*.ts\"",
+    "improve": "node dist/improvement/runner.js",
+    "improve:init": "node dist/improvement/runner.js --init",
+    "improve:status": "node dist/improvement/runner.js --status",
+    "improve:dry-run": "node dist/improvement/runner.js --dry-run",
+    "daemon": "node dist/improvement/daemon.js",
+    "daemon:status": "node dist/improvement/daemon.js --status"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.32.1",
-    "@buoy-design/agents": "link:../buoy/packages/agents",
-    "@buoy-design/cli": "link:../buoy/apps/cli",
-    "@buoy-design/core": "link:../buoy/packages/core",
+    "@buoy-design/cli": "link:/Users/dylantarre/dev/buoy/apps/cli",
+    "@buoy-design/core": "link:/Users/dylantarre/dev/buoy/packages/core",
+    "@buoy-design/scanners": "link:/Users/dylantarre/dev/buoy/packages/scanners",
     "@octokit/rest": "^21.0.0",
     "chalk": "^5.3.0",
     "commander": "^12.1.0",
