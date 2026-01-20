@@ -1,0 +1,26 @@
+{
+  "repo": {
+    "url": "https://github.com/langgenius/dify",
+    "name": "dify",
+    "owner": "langgenius"
+  },
+  "score": 5,
+  "testedAt": "2026-01-20T23:12:48.119Z",
+  "buoyVersion": "0.2.19",
+  "designSystemSources": [],
+  "scan": {
+    "components": 0,
+    "tokens": 0,
+    "coverage": {}
+  },
+  "drift": {
+    "total": 2693,
+    "byType": {
+      "hardcoded-value": 2693
+    },
+    "bySeverity": {
+      "info": 2619,
+      "warning": 74
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "repo": {
+    "url": "https://github.com/koel/koel",
+    "name": "koel",
+    "owner": "koel"
+  },
+  "score": 5,
+  "testedAt": "2026-01-20T22:55:13.264Z",
+  "buoyVersion": "0.2.19",
+  "designSystemSources": [
+    "tailwind-theme"
+  ],
+  "scan": {
+    "components": 272,
+    "tokens": 0,
+    "coverage": {}
+  },
+  "drift": {
+    "total": 5,
+    "byType": {
+      "semantic-mismatch": 5
+    },
+    "bySeverity": {
+      "warning": 5
+    }
+  }
+}

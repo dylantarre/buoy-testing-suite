@@ -1,0 +1,3367 @@
+{
+  "id": "immich-app-immich-1768950362159",
+  "repo": {
+    "url": "https://github.com/immich-app/immich",
+    "owner": "immich-app",
+    "name": "immich",
+    "description": "High performance self-hosted photo and video management solution.",
+    "stars": 89303,
+    "forks": 4743,
+    "defaultBranch": "main",
+    "lastCommit": "2026-01-18T07:01:59.000Z",
+    "language": "TypeScript",
+    "topics": [
+      "backup-tool",
+      "flutter",
+      "google-photos",
+      "google-photos-alternative",
+      "javascript",
+      "mobile-app",
+      "nestjs",
+      "nodejs",
+      "photo-gallery",
+      "photos",
+      "photos-management",
+      "self-hosted",
+      "svelte",
+      "sveltekit",
+      "typescript",
+      "videos"
+    ],
+    "designSystemSignals": [],
+    "activitySignals": [
+      "recent-commits",
+      "contributing-guide",
+      "high-stars"
+    ],
+    "score": {
+      "total": 5,
+      "designSystem": 0,
+      "activity": 5,
+      "breakdown": {
+        "recent-commits": 2,
+        "contributing-guide": 2,
+        "high-stars": 1
+      }
+    },
+    "discoveredAt": "2026-01-18T08:29:08.819Z",
+    "lastTestedAt": "2026-01-18T08:38:02.268Z"
+  },
+  "status": "completed",
+  "startedAt": "2026-01-20T23:06:02.159Z",
+  "buoyVersion": "0.2.19",
+  "configGenerated": false,
+  "buoyOutput": {
+    "scan": {
+      "components": 332,
+      "tokens": 0,
+      "sources": []
+    },
+    "drift": {
+      "total": 132,
+      "byType": {
+        "semantic-mismatch": 37,
+        "hardcoded-value": 94,
+        "naming-inconsistency": 1
+      },
+      "bySeverity": {
+        "warning": 42,
+        "info": 90
+      },
+      "signals": [
+        {
+          "id": "drift:semantic-mismatch:svelte:web/src/lib/elements/GroupTab.svelte:GroupTab:selected",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/elements/GroupTab.svelte:GroupTab",
+            "entityName": "GroupTab",
+            "location": "web/src/lib/elements/GroupTab.svelte:1"
+          },
+          "message": "Prop \"selected\" in \"GroupTab\" uses type \"string\" but other components use \"boolean\"",
+          "details": {
+            "expected": "boolean",
+            "actual": "string",
+            "usedIn": [
+              "WorkflowTriggerCard",
+              "FaceThumbnail",
+              "AlbumListItem"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.967Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:svelte:web/src/lib/elements/FormatMessage.svelte:FormatMessage:children",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/elements/FormatMessage.svelte:FormatMessage",
+            "entityName": "FormatMessage",
+            "location": "web/src/lib/elements/FormatMessage.svelte:1"
+          },
+          "message": "Prop \"children\" in \"FormatMessage\" uses type \"import('svelte').Snippet<[{ tag?: string\" but other components use \"Snippet\"",
+          "details": {
+            "expected": "Snippet",
+            "actual": "import('svelte').Snippet<[{ tag?: string",
+            "usedIn": [
+              "Portal",
+              "Badge",
+              "QueueCardButton"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.967Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:svelte:web/src/lib/elements/Dropdown.svelte:Dropdown:title",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/elements/Dropdown.svelte:Dropdown",
+            "entityName": "Dropdown",
+            "location": "web/src/lib/elements/Dropdown.svelte:1"
+          },
+          "message": "Prop \"title\" in \"Dropdown\" uses type \"string | undefined\" but other components use \"string\"",
+          "details": {
+            "expected": "string",
+            "actual": "string | undefined",
+            "usedIn": [
+              "Skeleton",
+              "QrCodeModal",
+              "ToastAction"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.967Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:svelte:web/src/lib/modals/SearchFilterModal.svelte:SearchFilterModal:searchQuery",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/modals/SearchFilterModal.svelte:SearchFilterModal",
+            "entityName": "SearchFilterModal",
+            "location": "web/src/lib/modals/SearchFilterModal.svelte:1"
+          },
+          "message": "Prop \"searchQuery\" in \"SearchFilterModal\" uses type \"MetadataSearchDto | SmartSearchDto\" but other components use \"string\"",
+          "details": {
+            "expected": "string",
+            "actual": "MetadataSearchDto | SmartSearchDto",
+            "usedIn": [
+              "PlacesList",
+              "PlacesControls",
+              "AlbumListItem"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.967Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:svelte:web/src/lib/modals/AssetChangeDateModal.svelte:AssetChangeDateModal:asset",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/modals/AssetChangeDateModal.svelte:AssetChangeDateModal",
+            "entityName": "AssetChangeDateModal",
+            "location": "web/src/lib/modals/AssetChangeDateModal.svelte:1"
+          },
+          "message": "Prop \"asset\" in \"AssetChangeDateModal\" uses type \"TimelineAsset\" but other components use \"AssetResponseDto\"",
+          "details": {
+            "expected": "AssetResponseDto",
+            "actual": "TimelineAsset",
+            "usedIn": [
+              "ProfileImageCropperModal",
+              "ImagePanoramaViewer",
+              "DetailPanel"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.967Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:svelte:web/src/lib/components/QueueCardButton.svelte:QueueCardButton:color",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/components/QueueCardButton.svelte:QueueCardButton",
+            "entityName": "QueueCardButton",
+            "location": "web/src/lib/components/QueueCardButton.svelte:1"
+          },
+          "message": "Prop \"color\" in \"QueueCardButton\" uses type \"Colors\" but other components use \"Color\"",
+          "details": {
+            "expected": "Color",
+            "actual": "Colors",
+            "usedIn": [
+              "ToastAction",
+              "QueueCardBadge",
+              "ButtonContextMenu"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.967Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:svelte:web/src/lib/components/HeaderActionButton.svelte:HeaderActionButton:action",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/components/HeaderActionButton.svelte:HeaderActionButton",
+            "entityName": "HeaderActionButton",
+            "location": "web/src/lib/components/HeaderActionButton.svelte:1"
+          },
+          "message": "Prop \"action\" in \"HeaderActionButton\" uses type \"HeaderButtonActionItem\" but other components use \"ActionItem\"",
+          "details": {
+            "expected": "ActionItem",
+            "actual": "HeaderButtonActionItem",
+            "usedIn": [
+              "TableButton",
+              "ActionMenuItem",
+              "ActionButton"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.967Z"
+        },
+        {
+          "id": "drift:hardcoded-value:svelte:web/src/lib/components/timeline/Scrubber.svelte:Scrubber:spacing",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/components/timeline/Scrubber.svelte:Scrubber",
+            "entityName": "Scrubber",
+            "location": "web/src/lib/components/timeline/Scrubber.svelte:1"
+          },
+          "message": "Component \"Scrubber\" has 2 hardcoded size values: 50px, 36px",
+          "details": {
+            "suggestions": [
+              "Consider using spacing tokens for consistency"
+            ],
+            "affectedFiles": [
+              "height: 50px (template)",
+              "right: 36px (template)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.967Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:svelte:web/src/lib/components/shared-components/user-avatar.svelte:UserAvatar:label",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/components/shared-components/user-avatar.svelte:UserAvatar",
+            "entityName": "UserAvatar",
+            "location": "web/src/lib/components/shared-components/user-avatar.svelte:1"
+          },
+          "message": "Prop \"label\" in \"UserAvatar\" uses type \"string | undefined\" but other components use \"string\"",
+          "details": {
+            "expected": "string",
+            "actual": "string | undefined",
+            "usedIn": [
+              "RadioButton",
+              "GroupTab",
+              "PinCodeInput"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.967Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:svelte:web/src/lib/components/shared-components/single-grid-row.svelte:SingleGridRow:children",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/components/shared-components/single-grid-row.svelte:SingleGridRow",
+            "entityName": "SingleGridRow",
+            "location": "web/src/lib/components/shared-components/single-grid-row.svelte:1"
+          },
+          "message": "Prop \"children\" in \"SingleGridRow\" uses type \"import('svelte').Snippet<[{ itemCount: number\" but other components use \"Snippet\"",
+          "details": {
+            "expected": "Snippet",
+            "actual": "import('svelte').Snippet<[{ itemCount: number",
+            "usedIn": [
+              "Portal",
+              "Badge",
+              "QueueCardButton"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.967Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:svelte:web/src/lib/components/shared-components/change-location.svelte:ChangeLocation:asset",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/components/shared-components/change-location.svelte:ChangeLocation",
+            "entityName": "ChangeLocation",
+            "location": "web/src/lib/components/shared-components/change-location.svelte:1"
+          },
+          "message": "Prop \"asset\" in \"ChangeLocation\" uses type \"AssetResponseDto | undefined\" but other components use \"AssetResponseDto\"",
+          "details": {
+            "expected": "AssetResponseDto",
+            "actual": "AssetResponseDto | undefined",
+            "usedIn": [
+              "ProfileImageCropperModal",
+              "ImagePanoramaViewer",
+              "DetailPanel"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.967Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:svelte:web/src/lib/components/memory-page/memory-video-viewer.svelte:MemoryVideoViewer:asset",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/components/memory-page/memory-video-viewer.svelte:MemoryVideoViewer",
+            "entityName": "MemoryVideoViewer",
+            "location": "web/src/lib/components/memory-page/memory-video-viewer.svelte:1"
+          },
+          "message": "Prop \"asset\" in \"MemoryVideoViewer\" uses type \"TimelineAsset\" but other components use \"AssetResponseDto\"",
+          "details": {
+            "expected": "AssetResponseDto",
+            "actual": "TimelineAsset",
+            "usedIn": [
+              "ProfileImageCropperModal",
+              "ImagePanoramaViewer",
+              "DetailPanel"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.967Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:svelte:web/src/lib/components/memory-page/memory-photo-viewer.svelte:MemoryPhotoViewer:asset",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/components/memory-page/memory-photo-viewer.svelte:MemoryPhotoViewer",
+            "entityName": "MemoryPhotoViewer",
+            "location": "web/src/lib/components/memory-page/memory-photo-viewer.svelte:1"
+          },
+          "message": "Prop \"asset\" in \"MemoryPhotoViewer\" uses type \"TimelineAsset\" but other components use \"AssetResponseDto\"",
+          "details": {
+            "expected": "AssetResponseDto",
+            "actual": "TimelineAsset",
+            "usedIn": [
+              "ProfileImageCropperModal",
+              "ImagePanoramaViewer",
+              "DetailPanel"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.967Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:svelte:web/src/lib/components/onboarding-page/onboarding-card.svelte:OnboardingCard:title",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/components/onboarding-page/onboarding-card.svelte:OnboardingCard",
+            "entityName": "OnboardingCard",
+            "location": "web/src/lib/components/onboarding-page/onboarding-card.svelte:1"
+          },
+          "message": "Prop \"title\" in \"OnboardingCard\" uses type \"string | undefined\" but other components use \"string\"",
+          "details": {
+            "expected": "string",
+            "actual": "string | undefined",
+            "usedIn": [
+              "Skeleton",
+              "QrCodeModal",
+              "ToastAction"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.967Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:svelte:web/src/lib/components/layouts/user-page-layout.svelte:UserPageLayout:title",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/components/layouts/user-page-layout.svelte:UserPageLayout",
+            "entityName": "UserPageLayout",
+            "location": "web/src/lib/components/layouts/user-page-layout.svelte:1"
+          },
+          "message": "Prop \"title\" in \"UserPageLayout\" uses type \"string | undefined\" but other components use \"string\"",
+          "details": {
+            "expected": "string",
+            "actual": "string | undefined",
+            "usedIn": [
+              "Skeleton",
+              "QrCodeModal",
+              "ToastAction"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.967Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:svelte:web/src/lib/components/faces-page/people-infinite-scroll.svelte:PeopleInfiniteScroll:children",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/components/faces-page/people-infinite-scroll.svelte:PeopleInfiniteScroll",
+            "entityName": "PeopleInfiniteScroll",
+            "location": "web/src/lib/components/faces-page/people-infinite-scroll.svelte:1"
+          },
+          "message": "Prop \"children\" in \"PeopleInfiniteScroll\" uses type \"import('svelte').Snippet<[{ person: PersonResponseDto\" but other components use \"Snippet\"",
+          "details": {
+            "expected": "Snippet",
+            "actual": "import('svelte').Snippet<[{ person: PersonResponseDto",
+            "usedIn": [
+              "Portal",
+              "Badge",
+              "QueueCardButton"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.967Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:svelte:web/src/lib/components/asset-viewer/photo-viewer.svelte:PhotoViewer:sharedLink",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/components/asset-viewer/photo-viewer.svelte:PhotoViewer",
+            "entityName": "PhotoViewer",
+            "location": "web/src/lib/components/asset-viewer/photo-viewer.svelte:1"
+          },
+          "message": "Prop \"sharedLink\" in \"PhotoViewer\" uses type \"SharedLinkResponseDto | undefined\" but other components use \"SharedLinkResponseDto\"",
+          "details": {
+            "expected": "SharedLinkResponseDto",
+            "actual": "SharedLinkResponseDto | undefined",
+            "usedIn": [
+              "SharedLinkCard",
+              "IndividualSharedViewer",
+              "AlbumViewer"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.967Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:svelte:web/src/lib/components/asset-viewer/photo-viewer.svelte:PhotoViewer:onPreviousAsset",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/components/asset-viewer/photo-viewer.svelte:PhotoViewer",
+            "entityName": "PhotoViewer",
+            "location": "web/src/lib/components/asset-viewer/photo-viewer.svelte:1"
+          },
+          "message": "Prop \"onPreviousAsset\" in \"PhotoViewer\" uses type \"(() => void) | null\" but other components use \"() => void\"",
+          "details": {
+            "expected": "() => void",
+            "actual": "(() => void) | null",
+            "usedIn": [
+              "VideoWrapperViewer",
+              "VideoNativeViewer",
+              "PreviousAssetAction"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.967Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:svelte:web/src/lib/components/asset-viewer/photo-viewer.svelte:PhotoViewer:onNextAsset",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/components/asset-viewer/photo-viewer.svelte:PhotoViewer",
+            "entityName": "PhotoViewer",
+            "location": "web/src/lib/components/asset-viewer/photo-viewer.svelte:1"
+          },
+          "message": "Prop \"onNextAsset\" in \"PhotoViewer\" uses type \"(() => void) | null\" but other components use \"() => void\"",
+          "details": {
+            "expected": "() => void",
+            "actual": "(() => void) | null",
+            "usedIn": [
+              "VideoWrapperViewer",
+              "VideoNativeViewer",
+              "NextAssetAction"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.967Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:svelte:web/src/lib/components/asset-viewer/asset-viewer-nav-bar.svelte:AssetViewerNavBar:album",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/components/asset-viewer/asset-viewer-nav-bar.svelte:AssetViewerNavBar",
+            "entityName": "AssetViewerNavBar",
+            "location": "web/src/lib/components/asset-viewer/asset-viewer-nav-bar.svelte:1"
+          },
+          "message": "Prop \"album\" in \"AssetViewerNavBar\" uses type \"AlbumResponseDto | null\" but other components use \"AlbumResponseDto\"",
+          "details": {
+            "expected": "AlbumResponseDto",
+            "actual": "AlbumResponseDto | null",
+            "usedIn": [
+              "AlbumOptionsModal",
+              "AlbumEditModal",
+              "AlbumAddUsersModal"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.967Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:svelte:web/src/lib/components/asset-viewer/asset-viewer-nav-bar.svelte:AssetViewerNavBar:person",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/components/asset-viewer/asset-viewer-nav-bar.svelte:AssetViewerNavBar",
+            "entityName": "AssetViewerNavBar",
+            "location": "web/src/lib/components/asset-viewer/asset-viewer-nav-bar.svelte:1"
+          },
+          "message": "Prop \"person\" in \"AssetViewerNavBar\" uses type \"PersonResponseDto | null\" but other components use \"PersonResponseDto\"",
+          "details": {
+            "expected": "PersonResponseDto",
+            "actual": "PersonResponseDto | null",
+            "usedIn": [
+              "PersonEditBirthDateModal",
+              "Timeline",
+              "PeopleCard"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.967Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:svelte:web/src/lib/components/asset-viewer/activity-viewer.svelte:ActivityViewer:assetId",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/components/asset-viewer/activity-viewer.svelte:ActivityViewer",
+            "entityName": "ActivityViewer",
+            "location": "web/src/lib/components/asset-viewer/activity-viewer.svelte:1"
+          },
+          "message": "Prop \"assetId\" in \"ActivityViewer\" uses type \"string | undefined\" but other components use \"string\"",
+          "details": {
+            "expected": "string",
+            "actual": "string | undefined",
+            "usedIn": [
+              "PersonSidePanel",
+              "AssignFaceSidePanel",
+              "VideoWrapperViewer"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.967Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:svelte:web/src/lib/components/asset-viewer/activity-viewer.svelte:ActivityViewer:assetType",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/components/asset-viewer/activity-viewer.svelte:ActivityViewer",
+            "entityName": "ActivityViewer",
+            "location": "web/src/lib/components/asset-viewer/activity-viewer.svelte:1"
+          },
+          "message": "Prop \"assetType\" in \"ActivityViewer\" uses type \"AssetTypeEnum | undefined\" but other components use \"AssetTypeEnum\"",
+          "details": {
+            "expected": "AssetTypeEnum",
+            "actual": "AssetTypeEnum | undefined",
+            "usedIn": [
+              "PersonSidePanel",
+              "AssignFaceSidePanel",
+              "SlideshowBar"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.967Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:svelte:web/src/lib/components/album-page/albums-table-row.svelte:AlbumsTableRow:album",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/components/album-page/albums-table-row.svelte:AlbumsTableRow",
+            "entityName": "AlbumsTableRow",
+            "location": "web/src/lib/components/album-page/albums-table-row.svelte:1"
+          },
+          "message": "Prop \"album\" in \"AlbumsTableRow\" uses type \"AlbumResponseDto) => unknown) | undefined\" but other components use \"AlbumResponseDto\"",
+          "details": {
+            "expected": "AlbumResponseDto",
+            "actual": "AlbumResponseDto) => unknown) | undefined",
+            "usedIn": [
+              "AlbumOptionsModal",
+              "AlbumEditModal",
+              "AlbumAddUsersModal"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.967Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:svelte:web/src/lib/components/album-page/album-card.svelte:AlbumCard:onShowContextMenu",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/components/album-page/album-card.svelte:AlbumCard",
+            "entityName": "AlbumCard",
+            "location": "web/src/lib/components/album-page/album-card.svelte:1"
+          },
+          "message": "Prop \"onShowContextMenu\" in \"AlbumCard\" uses type \"((position: ContextMenuPosition) => unknown) | undefined\" but other components use \"((position: ContextMenuPosition\"",
+          "details": {
+            "expected": "((position: ContextMenuPosition",
+            "actual": "((position: ContextMenuPosition) => unknown) | undefined",
+            "usedIn": [
+              "AlbumsTable",
+              "AlbumsTableRow",
+              "AlbumCardGroup"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.967Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:svelte:web/src/lib/components/timeline/actions/DeleteAssetsAction.svelte:DeleteAssetsAction:onUndoDelete",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/components/timeline/actions/DeleteAssetsAction.svelte:DeleteAssetsAction",
+            "entityName": "DeleteAssetsAction",
+            "location": "web/src/lib/components/timeline/actions/DeleteAssetsAction.svelte:1"
+          },
+          "message": "Prop \"onUndoDelete\" in \"DeleteAssetsAction\" uses type \"OnUndoDelete | undefined\" but other components use \"OnUndoDelete\"",
+          "details": {
+            "expected": "OnUndoDelete",
+            "actual": "OnUndoDelete | undefined",
+            "usedIn": [
+              "AssetViewer",
+              "AssetViewerNavBar",
+              "DeleteAction"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.967Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:svelte:web/src/lib/components/shared-components/search-bar/search-bar.svelte:SearchBar:searchQuery",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/components/shared-components/search-bar/search-bar.svelte:SearchBar",
+            "entityName": "SearchBar",
+            "location": "web/src/lib/components/shared-components/search-bar/search-bar.svelte:1"
+          },
+          "message": "Prop \"searchQuery\" in \"SearchBar\" uses type \"MetadataSearchDto | SmartSearchDto\" but other components use \"string\"",
+          "details": {
+            "expected": "string",
+            "actual": "MetadataSearchDto | SmartSearchDto",
+            "usedIn": [
+              "PlacesList",
+              "PlacesControls",
+              "AlbumListItem"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.967Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:svelte:web/src/lib/components/shared-components/settings/setting-select.svelte:SettingSelect:label",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/components/shared-components/settings/setting-select.svelte:SettingSelect",
+            "entityName": "SettingSelect",
+            "location": "web/src/lib/components/shared-components/settings/setting-select.svelte:1"
+          },
+          "message": "Prop \"label\" in \"SettingSelect\" uses type \"unknown\" but other components use \"string\"",
+          "details": {
+            "expected": "string",
+            "actual": "unknown",
+            "usedIn": [
+              "RadioButton",
+              "GroupTab",
+              "PinCodeInput"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.967Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:svelte:web/src/lib/components/shared-components/settings/setting-select.svelte:SettingSelect:isEdited",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/components/shared-components/settings/setting-select.svelte:SettingSelect",
+            "entityName": "SettingSelect",
+            "location": "web/src/lib/components/shared-components/settings/setting-select.svelte:1"
+          },
+          "message": "Prop \"isEdited\" in \"SettingSelect\" uses type \"unknown\" but other components use \"boolean\"",
+          "details": {
+            "expected": "boolean",
+            "actual": "unknown",
+            "usedIn": [
+              "SettingTextarea",
+              "SettingSwitch",
+              "SettingInputField"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.967Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:svelte:web/src/lib/components/shared-components/settings/setting-select.svelte:SettingSelect:disabled",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/components/shared-components/settings/setting-select.svelte:SettingSelect",
+            "entityName": "SettingSelect",
+            "location": "web/src/lib/components/shared-components/settings/setting-select.svelte:1"
+          },
+          "message": "Prop \"disabled\" in \"SettingSelect\" uses type \"unknown\" but other components use \"boolean\"",
+          "details": {
+            "expected": "boolean",
+            "actual": "unknown",
+            "usedIn": [
+              "QueueCardButton",
+              "QueueCard",
+              "Combobox"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.967Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:svelte:web/src/lib/components/shared-components/settings/setting-checkboxes.svelte:SettingCheckboxes:label",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/components/shared-components/settings/setting-checkboxes.svelte:SettingCheckboxes",
+            "entityName": "SettingCheckboxes",
+            "location": "web/src/lib/components/shared-components/settings/setting-checkboxes.svelte:1"
+          },
+          "message": "Prop \"label\" in \"SettingCheckboxes\" uses type \"unknown\" but other components use \"string\"",
+          "details": {
+            "expected": "string",
+            "actual": "unknown",
+            "usedIn": [
+              "RadioButton",
+              "GroupTab",
+              "PinCodeInput"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.967Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:svelte:web/src/lib/components/shared-components/settings/setting-checkboxes.svelte:SettingCheckboxes:isEdited",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/components/shared-components/settings/setting-checkboxes.svelte:SettingCheckboxes",
+            "entityName": "SettingCheckboxes",
+            "location": "web/src/lib/components/shared-components/settings/setting-checkboxes.svelte:1"
+          },
+          "message": "Prop \"isEdited\" in \"SettingCheckboxes\" uses type \"unknown\" but other components use \"boolean\"",
+          "details": {
+            "expected": "boolean",
+            "actual": "unknown",
+            "usedIn": [
+              "SettingTextarea",
+              "SettingSwitch",
+              "SettingInputField"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.967Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:svelte:web/src/lib/components/shared-components/settings/setting-checkboxes.svelte:SettingCheckboxes:disabled",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/components/shared-components/settings/setting-checkboxes.svelte:SettingCheckboxes",
+            "entityName": "SettingCheckboxes",
+            "location": "web/src/lib/components/shared-components/settings/setting-checkboxes.svelte:1"
+          },
+          "message": "Prop \"disabled\" in \"SettingCheckboxes\" uses type \"unknown\" but other components use \"boolean\"",
+          "details": {
+            "expected": "boolean",
+            "actual": "unknown",
+            "usedIn": [
+              "QueueCardButton",
+              "QueueCard",
+              "Combobox"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.967Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:svelte:web/src/lib/components/shared-components/map/map.svelte:Map:clickable",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/components/shared-components/map/map.svelte:Map",
+            "entityName": "Map",
+            "location": "web/src/lib/components/shared-components/map/map.svelte:1"
+          },
+          "message": "\"clickable\" in \"Map\" - 93% of click handlers use \"on...\" pattern",
+          "details": {
+            "suggestions": [
+              "Consider using \"onclickable\" for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.968Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:svelte:web/src/lib/components/shared-components/context-menu/context-menu.svelte:ContextMenu:id",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/components/shared-components/context-menu/context-menu.svelte:ContextMenu",
+            "entityName": "ContextMenu",
+            "location": "web/src/lib/components/shared-components/context-menu/context-menu.svelte:1"
+          },
+          "message": "Prop \"id\" in \"ContextMenu\" uses type \"string | undefined\" but other components use \"string\"",
+          "details": {
+            "expected": "string",
+            "actual": "string | undefined",
+            "usedIn": [
+              "RadioButton",
+              "ServerAboutItem",
+              "NumberRangeInput"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.968Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:svelte:web/src/lib/components/assets/thumbnail/thumbnail.svelte:Thumbnail:asset",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/components/assets/thumbnail/thumbnail.svelte:Thumbnail",
+            "entityName": "Thumbnail",
+            "location": "web/src/lib/components/assets/thumbnail/thumbnail.svelte:1"
+          },
+          "message": "Prop \"asset\" in \"Thumbnail\" uses type \"TimelineAsset\" but other components use \"AssetResponseDto\"",
+          "details": {
+            "expected": "AssetResponseDto",
+            "actual": "TimelineAsset",
+            "usedIn": [
+              "ProfileImageCropperModal",
+              "ImagePanoramaViewer",
+              "DetailPanel"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.968Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:svelte:web/src/lib/components/assets/thumbnail/image-thumbnail.svelte:ImageThumbnail:title",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/components/assets/thumbnail/image-thumbnail.svelte:ImageThumbnail",
+            "entityName": "ImageThumbnail",
+            "location": "web/src/lib/components/assets/thumbnail/image-thumbnail.svelte:1"
+          },
+          "message": "Prop \"title\" in \"ImageThumbnail\" uses type \"string | null\" but other components use \"string\"",
+          "details": {
+            "expected": "string",
+            "actual": "string | null",
+            "usedIn": [
+              "Skeleton",
+              "QrCodeModal",
+              "ToastAction"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.968Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:svelte:web/src/lib/components/asset-viewer/actions/set-visibility-action.svelte:SetVisibilityAction:asset",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/components/asset-viewer/actions/set-visibility-action.svelte:SetVisibilityAction",
+            "entityName": "SetVisibilityAction",
+            "location": "web/src/lib/components/asset-viewer/actions/set-visibility-action.svelte:1"
+          },
+          "message": "Prop \"asset\" in \"SetVisibilityAction\" uses type \"TimelineAsset\" but other components use \"AssetResponseDto\"",
+          "details": {
+            "expected": "AssetResponseDto",
+            "actual": "TimelineAsset",
+            "usedIn": [
+              "ProfileImageCropperModal",
+              "ImagePanoramaViewer",
+              "DetailPanel"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.968Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:svelte:web/src/lib/components/asset-viewer/actions/edit-action.svelte:EditAction:onAction",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "svelte:web/src/lib/components/asset-viewer/actions/edit-action.svelte:EditAction",
+            "entityName": "EditAction",
+            "location": "web/src/lib/components/asset-viewer/actions/edit-action.svelte:1"
+          },
+          "message": "Prop \"onAction\" in \"EditAction\" uses type \"() => void\" but other components use \"OnAction\"",
+          "details": {
+            "expected": "OnAction",
+            "actual": "() => void",
+            "usedIn": [
+              "AssetViewer",
+              "AssetViewerNavBar",
+              "UnstackAction"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:08.968Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/modals/ShortcutsModal.svelte:grid",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/modals/ShortcutsModal.svelte",
+            "entityName": "web/src/lib/modals/ShortcutsModal.svelte",
+            "location": "web/src/lib/modals/ShortcutsModal.svelte:64"
+          },
+          "message": "2 arbitrary grid templates found. Consider defining in theme.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary grid values",
+            "affectedFiles": [
+              "web/src/lib/modals/ShortcutsModal.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: grid-cols-[30%_70%] at line 64, grid-cols-[30%_70%] at line 85"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/modals/MapModal.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/modals/MapModal.svelte",
+            "entityName": "web/src/lib/modals/MapModal.svelte",
+            "location": "web/src/lib/modals/MapModal.svelte:19"
+          },
+          "message": "2 arbitrary size values found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary size values",
+            "affectedFiles": [
+              "web/src/lib/modals/MapModal.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: h-[75vh] at line 19, min-h-[300px] at line 19"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/modals/AssetSelectionChangeDateModal.svelte:grid",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/modals/AssetSelectionChangeDateModal.svelte",
+            "entityName": "web/src/lib/modals/AssetSelectionChangeDateModal.svelte",
+            "location": "web/src/lib/modals/AssetSelectionChangeDateModal.svelte:100"
+          },
+          "message": "1 arbitrary grid template found. Consider defining in theme.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary grid values",
+            "affectedFiles": [
+              "web/src/lib/modals/AssetSelectionChangeDateModal.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: grid-cols-[auto_1fr] at line 100"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/routes/auth/onboarding/+page.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/routes/auth/onboarding/+page.svelte",
+            "entityName": "web/src/routes/auth/onboarding/+page.svelte",
+            "location": "web/src/routes/auth/onboarding/+page.svelte:171"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "web/src/routes/auth/onboarding/+page.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: w-[min(100%,800px)] at line 171"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/elements/Dropdown.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/elements/Dropdown.svelte",
+            "entityName": "web/src/lib/elements/Dropdown.svelte",
+            "location": "web/src/lib/elements/Dropdown.svelte:110"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "web/src/lib/elements/Dropdown.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: max-h-[70vh] at line 110"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/elements/Dropdown.svelte:grid",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/elements/Dropdown.svelte",
+            "entityName": "web/src/lib/elements/Dropdown.svelte",
+            "location": "web/src/lib/elements/Dropdown.svelte:119"
+          },
+          "message": "1 arbitrary grid template found. Consider defining in theme.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary grid values",
+            "affectedFiles": [
+              "web/src/lib/elements/Dropdown.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: grid-cols-[36px_1fr] at line 119"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/routes/(user)/people/+page.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/routes/(user)/people/+page.svelte",
+            "entityName": "web/src/routes/(user)/people/+page.svelte",
+            "location": "web/src/routes/(user)/people/+page.svelte:370"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "web/src/routes/(user)/people/+page.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: min-h-[calc(66vh-11rem)] at line 370"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/routes/(user)/explore/+page.svelte:filter",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/routes/(user)/explore/+page.svelte",
+            "entityName": "web/src/routes/(user)/explore/+page.svelte",
+            "location": "web/src/routes/(user)/explore/+page.svelte:100"
+          },
+          "message": "1 arbitrary filter value found. Consider using theme filter values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary filter values",
+            "affectedFiles": [
+              "web/src/routes/(user)/explore/+page.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: backdrop-blur-[1px] at line 100"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/workflows/WorkflowSummary.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/workflows/WorkflowSummary.svelte",
+            "entityName": "web/src/lib/components/workflows/WorkflowSummary.svelte",
+            "location": "web/src/lib/components/workflows/WorkflowSummary.svelte:116"
+          },
+          "message": "5 arbitrary size values found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "5 arbitrary size values",
+            "affectedFiles": [
+              "web/src/lib/components/workflows/WorkflowSummary.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: text-[10px] at line 116, text-[10px] at line 131, text-[10px] at line 137"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/workflows/WorkflowJsonEditor.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/workflows/WorkflowJsonEditor.svelte",
+            "entityName": "web/src/lib/components/workflows/WorkflowJsonEditor.svelte",
+            "location": "web/src/lib/components/workflows/WorkflowJsonEditor.svelte:59"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "web/src/lib/components/workflows/WorkflowJsonEditor.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: h-[600px] at line 59"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/timeline/Scrubber.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/timeline/Scrubber.svelte",
+            "entityName": "web/src/lib/components/timeline/Scrubber.svelte",
+            "location": "web/src/lib/components/timeline/Scrubber.svelte:528"
+          },
+          "message": "3 arbitrary size values found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "3 arbitrary size values",
+            "affectedFiles": [
+              "web/src/lib/components/timeline/Scrubber.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: w-[0_0_8px_rgba(0,0,0,0.25)] at line 528, w-[0_0_8px_rgba(0,0,0,0.25)] at line 567, text-[13px] at line 591"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/timeline/Scrubber.svelte:visual",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/timeline/Scrubber.svelte",
+            "entityName": "web/src/lib/components/timeline/Scrubber.svelte",
+            "location": "web/src/lib/components/timeline/Scrubber.svelte:528"
+          },
+          "message": "2 arbitrary visual values found. Consider using theme opacity values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary visual values",
+            "affectedFiles": [
+              "web/src/lib/components/timeline/Scrubber.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: shadow-[0_0_8px_rgba(0,0,0,0.25)] at line 528, shadow-[0_0_8px_rgba(0,0,0,0.25)] at line 567"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/timeline/AssetLayout.svelte:css-property",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/timeline/AssetLayout.svelte",
+            "entityName": "web/src/lib/components/timeline/AssetLayout.svelte",
+            "location": "web/src/lib/components/timeline/AssetLayout.svelte:26"
+          },
+          "message": "1 arbitrary CSS property found. Consider using utility classes.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary css-property values",
+            "affectedFiles": [
+              "web/src/lib/components/timeline/AssetLayout.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: [asset: TimelineAsset] at line 26"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/sidebar/sidebar.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/sidebar/sidebar.svelte",
+            "entityName": "web/src/lib/components/sidebar/sidebar.svelte",
+            "location": "web/src/lib/components/sidebar/sidebar.svelte:42"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "web/src/lib/components/sidebar/sidebar.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: class:w-[min(100vw,16rem)] at line 42"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/shared-components/upload-panel.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/shared-components/upload-panel.svelte",
+            "entityName": "web/src/lib/components/shared-components/upload-panel.svelte",
+            "location": "web/src/lib/components/shared-components/upload-panel.svelte:122"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "web/src/lib/components/shared-components/upload-panel.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: max-h-[400px] at line 122"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/shared-components/upload-asset-preview.svelte:spacing",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/shared-components/upload-asset-preview.svelte",
+            "entityName": "web/src/lib/components/shared-components/upload-asset-preview.svelte",
+            "location": "web/src/lib/components/shared-components/upload-asset-preview.svelte:96"
+          },
+          "message": "1 arbitrary spacing value found. Use theme spacing instead.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary spacing values",
+            "affectedFiles": [
+              "web/src/lib/components/shared-components/upload-asset-preview.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: mt-[5px] at line 96"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/shared-components/upload-asset-preview.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/shared-components/upload-asset-preview.svelte",
+            "entityName": "web/src/lib/components/shared-components/upload-asset-preview.svelte",
+            "location": "web/src/lib/components/shared-components/upload-asset-preview.svelte:98"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "web/src/lib/components/shared-components/upload-asset-preview.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: text-[10px] at line 98"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/shared-components/navigation-loading-bar.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/shared-components/navigation-loading-bar.svelte",
+            "entityName": "web/src/lib/components/shared-components/navigation-loading-bar.svelte",
+            "location": "web/src/lib/components/shared-components/navigation-loading-bar.svelte:29"
+          },
+          "message": "2 arbitrary size values found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary size values",
+            "affectedFiles": [
+              "web/src/lib/components/shared-components/navigation-loading-bar.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: h-[3px] at line 29, h-[3px] at line 30"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/shared-components/control-app-bar.svelte:grid",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/shared-components/control-app-bar.svelte",
+            "entityName": "web/src/lib/components/shared-components/control-app-bar.svelte",
+            "location": "web/src/lib/components/shared-components/control-app-bar.svelte:72"
+          },
+          "message": "5 arbitrary grid templates found. Consider defining in theme.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "5 arbitrary grid values",
+            "affectedFiles": [
+              "web/src/lib/components/shared-components/control-app-bar.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: grid-cols-[100%] at line 72, md:grid-cols-[25%_50%_25%] at line 72, grid-cols-[10%_80%_10%] at line 73"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/shared-components/change-location.svelte:color",
+          "type": "hardcoded-value",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/shared-components/change-location.svelte",
+            "entityName": "web/src/lib/components/shared-components/change-location.svelte",
+            "location": "web/src/lib/components/shared-components/change-location.svelte:177"
+          },
+          "message": "2 hardcoded colors found. Use theme colors instead.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary color values",
+            "affectedFiles": [
+              "web/src/lib/components/shared-components/change-location.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary colors with theme colors: text-primary, bg-secondary, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: hover:dark:bg-[#232932] at line 177, focus:dark:bg-[#232932] at line 177"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/places-page/places-list.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/places-page/places-list.svelte",
+            "entityName": "web/src/lib/components/places-page/places-list.svelte",
+            "location": "web/src/lib/components/places-page/places-list.svelte:102"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "web/src/lib/components/places-page/places-list.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: min-h-[calc(66vh-11rem)] at line 102"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/places-page/places-list.svelte:css-property",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/places-page/places-list.svelte",
+            "entityName": "web/src/lib/components/places-page/places-list.svelte",
+            "location": "web/src/lib/components/places-page/places-list.svelte:30"
+          },
+          "message": "1 arbitrary CSS property found. Consider using utility classes.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary css-property values",
+            "affectedFiles": [
+              "web/src/lib/components/places-page/places-list.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: [option: string] at line 30"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/places-page/places-card-group.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/places-page/places-card-group.svelte",
+            "entityName": "web/src/lib/components/places-page/places-card-group.svelte",
+            "location": "web/src/lib/components/places-page/places-card-group.svelte:45"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "web/src/lib/components/places-page/places-card-group.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: w-[calc((100vw-(72px+5rem))/2)] at line 45"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/places-page/places-card-group.svelte:filter",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/places-page/places-card-group.svelte",
+            "entityName": "web/src/lib/components/places-page/places-card-group.svelte",
+            "location": "web/src/lib/components/places-page/places-card-group.svelte:55"
+          },
+          "message": "1 arbitrary filter value found. Consider using theme filter values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary filter values",
+            "affectedFiles": [
+              "web/src/lib/components/places-page/places-card-group.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: backdrop-blur-[1px] at line 55"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/pages/SharedLinkPage.svelte:spacing",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/pages/SharedLinkPage.svelte",
+            "entityName": "web/src/lib/components/pages/SharedLinkPage.svelte",
+            "location": "web/src/lib/components/pages/SharedLinkPage.svelte:71"
+          },
+          "message": "2 arbitrary spacing values found. Use theme spacing instead.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary spacing values",
+            "affectedFiles": [
+              "web/src/lib/components/pages/SharedLinkPage.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: max-md:pt-(--navbar-height-md) at line 71, pt-(--navbar-height) at line 71"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/onboarding-page/onboarding-theme.svelte:border",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/onboarding-page/onboarding-theme.svelte",
+            "entityName": "web/src/lib/components/onboarding-page/onboarding-theme.svelte",
+            "location": "web/src/lib/components/onboarding-page/onboarding-theme.svelte:15"
+          },
+          "message": "2 arbitrary border values found. Consider using theme border tokens.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary border values",
+            "affectedFiles": [
+              "web/src/lib/components/onboarding-page/onboarding-theme.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: border-[3px] at line 15, dark:border-[3px] at line 27"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/onboarding-page/onboarding-theme.svelte:layout",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/onboarding-page/onboarding-theme.svelte",
+            "entityName": "web/src/lib/components/onboarding-page/onboarding-theme.svelte",
+            "location": "web/src/lib/components/onboarding-page/onboarding-theme.svelte:15"
+          },
+          "message": "2 arbitrary layout values found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary layout values",
+            "affectedFiles": [
+              "web/src/lib/components/onboarding-page/onboarding-theme.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: order-[3px] at line 15, order-[3px] at line 27"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/memory-page/memory-viewer.svelte:spacing",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/memory-page/memory-viewer.svelte",
+            "entityName": "web/src/lib/components/memory-page/memory-viewer.svelte",
+            "location": "web/src/lib/components/memory-page/memory-viewer.svelte:439"
+          },
+          "message": "1 arbitrary spacing value found. Use theme spacing instead.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary spacing values",
+            "affectedFiles": [
+              "web/src/lib/components/memory-page/memory-viewer.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: ms-[-100%] at line 439"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/memory-page/memory-viewer.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/memory-page/memory-viewer.svelte",
+            "entityName": "web/src/lib/components/memory-page/memory-viewer.svelte",
+            "location": "web/src/lib/components/memory-page/memory-viewer.svelte:439"
+          },
+          "message": "6 arbitrary size values found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "6 arbitrary size values",
+            "affectedFiles": [
+              "web/src/lib/components/memory-page/memory-viewer.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: h-[calc(100vh-224px)] at line 439, md:h-[calc(100vh-180px)] at line 439, w-[300%] at line 439"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/faces-page/person-side-panel.svelte:color",
+          "type": "hardcoded-value",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/faces-page/person-side-panel.svelte",
+            "entityName": "web/src/lib/components/faces-page/person-side-panel.svelte",
+            "location": "web/src/lib/components/faces-page/person-side-panel.svelte:332"
+          },
+          "message": "1 hardcoded color found. Use theme colors instead.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary color values",
+            "affectedFiles": [
+              "web/src/lib/components/faces-page/person-side-panel.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary colors with theme colors: text-primary, bg-secondary, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: bg-[#d3d3d3] at line 332"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/faces-page/person-side-panel.svelte:spacing",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/faces-page/person-side-panel.svelte",
+            "entityName": "web/src/lib/components/faces-page/person-side-panel.svelte",
+            "location": "web/src/lib/components/faces-page/person-side-panel.svelte:305"
+          },
+          "message": "4 arbitrary spacing values found. Use theme spacing instead.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "4 arbitrary spacing values",
+            "affectedFiles": [
+              "web/src/lib/components/faces-page/person-side-panel.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: end-[3px] at line 305, top-[3px] at line 305, top-[3px] at line 329"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/faces-page/person-side-panel.svelte:transform",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/faces-page/person-side-panel.svelte",
+            "entityName": "web/src/lib/components/faces-page/person-side-panel.svelte",
+            "location": "web/src/lib/components/faces-page/person-side-panel.svelte:314"
+          },
+          "message": "8 arbitrary transform values found. Consider using theme transform values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "8 arbitrary transform values",
+            "affectedFiles": [
+              "web/src/lib/components/faces-page/person-side-panel.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: translate-x-[-50%] at line 314, translate-y-[-50%] at line 314, translate-x-[-50%] at line 324"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/album-page/albums-table-row.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/album-page/albums-table-row.svelte",
+            "entityName": "web/src/lib/components/album-page/albums-table-row.svelte",
+            "location": "web/src/lib/components/album-page/albums-table-row.svelte:39"
+          },
+          "message": "12 arbitrary size values found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "12 arbitrary size values",
+            "affectedFiles": [
+              "web/src/lib/components/album-page/albums-table-row.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: xl:w-[30%] at line 39, xl:w-[40%] at line 39, xl:w-[15%] at line 52"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/album-page/albums-list.svelte:css-property",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/album-page/albums-list.svelte",
+            "entityName": "web/src/lib/components/album-page/albums-list.svelte",
+            "location": "web/src/lib/components/album-page/albums-list.svelte:54"
+          },
+          "message": "1 arbitrary CSS property found. Consider using utility classes.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary css-property values",
+            "affectedFiles": [
+              "web/src/lib/components/album-page/albums-list.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: [option: string] at line 54"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/album-page/album-viewer.svelte:spacing",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/album-page/album-viewer.svelte",
+            "entityName": "web/src/lib/components/album-page/album-viewer.svelte",
+            "location": "web/src/lib/components/album-page/album-viewer.svelte:77"
+          },
+          "message": "2 arbitrary spacing values found. Use theme spacing instead.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary spacing values",
+            "affectedFiles": [
+              "web/src/lib/components/album-page/album-viewer.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: max-md:pt-(--navbar-height-md) at line 77, pt-(--navbar-height) at line 77"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/album-page/album-title.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/album-page/album-title.svelte",
+            "entityName": "web/src/lib/components/album-page/album-title.svelte",
+            "location": "web/src/lib/components/album-page/album-title.svelte:41"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "web/src/lib/components/album-page/album-title.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: w-[99%] at line 41"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/asset-viewer/ocr-bounding-box.svelte:border",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/asset-viewer/ocr-bounding-box.svelte",
+            "entityName": "web/src/lib/components/asset-viewer/ocr-bounding-box.svelte",
+            "location": "web/src/lib/components/asset-viewer/ocr-bounding-box.svelte:25"
+          },
+          "message": "1 arbitrary border value found. Consider using theme border tokens.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary border values",
+            "affectedFiles": [
+              "web/src/lib/components/asset-viewer/ocr-bounding-box.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: group-hover:border-[3px] at line 25"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/asset-viewer/ocr-bounding-box.svelte:layout",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/asset-viewer/ocr-bounding-box.svelte",
+            "entityName": "web/src/lib/components/asset-viewer/ocr-bounding-box.svelte",
+            "location": "web/src/lib/components/asset-viewer/ocr-bounding-box.svelte:25"
+          },
+          "message": "1 arbitrary layout value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary layout values",
+            "affectedFiles": [
+              "web/src/lib/components/asset-viewer/ocr-bounding-box.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: order-[3px] at line 25"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/asset-viewer/asset-viewer.svelte:grid",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/asset-viewer/asset-viewer.svelte",
+            "entityName": "web/src/lib/components/asset-viewer/asset-viewer.svelte",
+            "location": "web/src/lib/components/asset-viewer/asset-viewer.svelte:451"
+          },
+          "message": "1 arbitrary grid template found. Consider defining in theme.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary grid values",
+            "affectedFiles": [
+              "web/src/lib/components/asset-viewer/asset-viewer.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: grid-rows-[64px_1fr] at line 451"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/asset-viewer/asset-viewer.svelte:layout",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/asset-viewer/asset-viewer.svelte",
+            "entityName": "web/src/lib/components/asset-viewer/asset-viewer.svelte",
+            "location": "web/src/lib/components/asset-viewer/asset-viewer.svelte:499"
+          },
+          "message": "1 arbitrary layout value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary layout values",
+            "affectedFiles": [
+              "web/src/lib/components/asset-viewer/asset-viewer.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: z-[-1] at line 499"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/asset-viewer/activity-status.svelte:transform",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/asset-viewer/activity-status.svelte",
+            "entityName": "web/src/lib/components/asset-viewer/activity-status.svelte",
+            "location": "web/src/lib/components/asset-viewer/activity-status.svelte:30"
+          },
+          "message": "1 arbitrary transform value found. Consider using theme transform values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary transform values",
+            "affectedFiles": [
+              "web/src/lib/components/asset-viewer/activity-status.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: scale-x-[-1] at line 30"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/layouts/user-page-layout.svelte:spacing",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/layouts/user-page-layout.svelte",
+            "entityName": "web/src/lib/components/layouts/user-page-layout.svelte",
+            "location": "web/src/lib/components/layouts/user-page-layout.svelte:58"
+          },
+          "message": "2 arbitrary spacing values found. Use theme spacing instead.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary spacing values",
+            "affectedFiles": [
+              "web/src/lib/components/layouts/user-page-layout.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: pt-(--navbar-height) at line 58, max-md:pt-(--navbar-height-md) at line 59"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/layouts/user-page-layout.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/layouts/user-page-layout.svelte",
+            "entityName": "web/src/lib/components/layouts/user-page-layout.svelte",
+            "location": "web/src/lib/components/layouts/user-page-layout.svelte:46"
+          },
+          "message": "3 arbitrary size values found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "3 arbitrary size values",
+            "affectedFiles": [
+              "web/src/lib/components/layouts/user-page-layout.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: h-[calc(100%-(--spacing(16)))] at line 46, h-[calc(100dvh-var(--navbar-height))] at line 57, max-md:h-[calc(100dvh-var(--navbar-height-md))] at line 57"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/layouts/user-page-layout.svelte:grid",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/layouts/user-page-layout.svelte",
+            "entityName": "web/src/lib/components/layouts/user-page-layout.svelte",
+            "location": "web/src/lib/components/layouts/user-page-layout.svelte:56"
+          },
+          "message": "2 arbitrary grid templates found. Consider defining in theme.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary grid values",
+            "affectedFiles": [
+              "web/src/lib/components/layouts/user-page-layout.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: grid-cols-[--spacing(0)_auto] at line 56, sidebar:grid-cols-[--spacing(64)_auto] at line 56"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/layouts/ErrorLayout.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/layouts/ErrorLayout.svelte",
+            "entityName": "web/src/lib/components/layouts/ErrorLayout.svelte",
+            "location": "web/src/lib/components/layouts/ErrorLayout.svelte:44"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "web/src/lib/components/layouts/ErrorLayout.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: max-w-[95vw] at line 44"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/layouts/AuthPageLayout.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/layouts/AuthPageLayout.svelte",
+            "entityName": "web/src/lib/components/layouts/AuthPageLayout.svelte",
+            "location": "web/src/lib/components/layouts/AuthPageLayout.svelte:19"
+          },
+          "message": "2 arbitrary size values found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary size values",
+            "affectedFiles": [
+              "web/src/lib/components/layouts/AuthPageLayout.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: max-w-(--breakpoint-md) at line 19, h-[99%] at line 23"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/layouts/AuthPageLayout.svelte:filter",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/layouts/AuthPageLayout.svelte",
+            "entityName": "web/src/lib/components/layouts/AuthPageLayout.svelte",
+            "location": "web/src/lib/components/layouts/AuthPageLayout.svelte:23"
+          },
+          "message": "1 arbitrary filter value found. Consider using theme filter values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary filter values",
+            "affectedFiles": [
+              "web/src/lib/components/layouts/AuthPageLayout.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: backdrop-blur-[200px] at line 23"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/routes/admin/queues/[name]/+page.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/routes/admin/queues/[name]/+page.svelte",
+            "entityName": "web/src/routes/admin/queues/[name]/+page.svelte",
+            "location": "web/src/routes/admin/queues/[name]/+page.svelte:81"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "web/src/routes/admin/queues/[name]/+page.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: h-[300px] at line 81"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/routes/admin/users/[id]/+layout.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/routes/admin/users/[id]/+layout.svelte",
+            "entityName": "web/src/routes/admin/users/[id]/+layout.svelte",
+            "location": "web/src/routes/admin/users/[id]/+layout.svelte:201"
+          },
+          "message": "2 arbitrary size values found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary size values",
+            "affectedFiles": [
+              "web/src/routes/admin/users/[id]/+layout.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: h-[7px] at line 201, h-[7px] at line 202"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/utilities-page/duplicates/info-row.svelte:grid",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/utilities-page/duplicates/info-row.svelte",
+            "entityName": "web/src/lib/components/utilities-page/duplicates/info-row.svelte",
+            "location": "web/src/lib/components/utilities-page/duplicates/info-row.svelte:16"
+          },
+          "message": "1 arbitrary grid template found. Consider defining in theme.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary grid values",
+            "affectedFiles": [
+              "web/src/lib/components/utilities-page/duplicates/info-row.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: grid-cols-[25px_1fr] at line 16"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/utilities-page/duplicates/duplicate-asset.svelte:color",
+          "type": "hardcoded-value",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/utilities-page/duplicates/duplicate-asset.svelte",
+            "entityName": "web/src/lib/components/utilities-page/duplicates/duplicate-asset.svelte",
+            "location": "web/src/lib/components/utilities-page/duplicates/duplicate-asset.svelte:168"
+          },
+          "message": "1 hardcoded color found. Use theme colors instead.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary color values",
+            "affectedFiles": [
+              "web/src/lib/components/utilities-page/duplicates/duplicate-asset.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary colors with theme colors: text-primary, bg-secondary, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: dark:bg-[#001a06] at line 168"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/shared-components/tree/tree.svelte:spacing",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/shared-components/tree/tree.svelte",
+            "entityName": "web/src/lib/components/shared-components/tree/tree.svelte",
+            "location": "web/src/lib/components/shared-components/tree/tree.svelte:37"
+          },
+          "message": "1 arbitrary spacing value found. Use theme spacing instead.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary spacing values",
+            "affectedFiles": [
+              "web/src/lib/components/shared-components/tree/tree.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: ml-[1.5em] at line 37"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/shared-components/side-bar/supporter-badge.svelte:other",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/shared-components/side-bar/supporter-badge.svelte",
+            "entityName": "web/src/lib/components/shared-components/side-bar/supporter-badge.svelte",
+            "location": "web/src/lib/components/shared-components/side-bar/supporter-badge.svelte:25"
+          },
+          "message": "1 other arbitrary value found. Review for theme consistency.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary other values",
+            "affectedFiles": [
+              "web/src/lib/components/shared-components/side-bar/supporter-badge.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: content-[''] at line 25"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/shared-components/side-bar/server-status.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/shared-components/side-bar/server-status.svelte",
+            "entityName": "web/src/lib/components/shared-components/side-bar/server-status.svelte",
+            "location": "web/src/lib/components/shared-components/side-bar/server-status.svelte:109"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "web/src/lib/components/shared-components/side-bar/server-status.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: text-[11px] at line 109"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/shared-components/side-bar/recent-albums.svelte:timing",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/shared-components/side-bar/recent-albums.svelte",
+            "entityName": "web/src/lib/components/shared-components/side-bar/recent-albums.svelte",
+            "location": "web/src/lib/components/shared-components/side-bar/recent-albums.svelte:31"
+          },
+          "message": "1 arbitrary timing value found. Consider using theme transitions.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary timing values",
+            "affectedFiles": [
+              "web/src/lib/components/shared-components/side-bar/recent-albums.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: transition-[padding] at line 31"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/shared-components/purchasing/server-purchase-option-card.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/shared-components/purchasing/server-purchase-option-card.svelte",
+            "entityName": "web/src/lib/components/shared-components/purchasing/server-purchase-option-card.svelte",
+            "location": "web/src/lib/components/shared-components/purchasing/server-purchase-option-card.svelte:11"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "web/src/lib/components/shared-components/purchasing/server-purchase-option-card.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: w-[min(375px,100%)] at line 11"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/shared-components/purchasing/server-purchase-option-card.svelte:grid",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/shared-components/purchasing/server-purchase-option-card.svelte",
+            "entityName": "web/src/lib/components/shared-components/purchasing/server-purchase-option-card.svelte",
+            "location": "web/src/lib/components/shared-components/purchasing/server-purchase-option-card.svelte:25"
+          },
+          "message": "3 arbitrary grid templates found. Consider defining in theme.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "3 arbitrary grid values",
+            "affectedFiles": [
+              "web/src/lib/components/shared-components/purchasing/server-purchase-option-card.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: grid-cols-[36px_auto] at line 25, grid-cols-[36px_auto] at line 30, grid-cols-[36px_auto] at line 35"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/shared-components/purchasing/individual-purchase-option-card.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/shared-components/purchasing/individual-purchase-option-card.svelte",
+            "entityName": "web/src/lib/components/shared-components/purchasing/individual-purchase-option-card.svelte",
+            "location": "web/src/lib/components/shared-components/purchasing/individual-purchase-option-card.svelte:11"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "web/src/lib/components/shared-components/purchasing/individual-purchase-option-card.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: w-[min(375px,100%)] at line 11"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/shared-components/purchasing/individual-purchase-option-card.svelte:grid",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/shared-components/purchasing/individual-purchase-option-card.svelte",
+            "entityName": "web/src/lib/components/shared-components/purchasing/individual-purchase-option-card.svelte",
+            "location": "web/src/lib/components/shared-components/purchasing/individual-purchase-option-card.svelte:25"
+          },
+          "message": "3 arbitrary grid templates found. Consider defining in theme.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "3 arbitrary grid values",
+            "affectedFiles": [
+              "web/src/lib/components/shared-components/purchasing/individual-purchase-option-card.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: grid-cols-[36px_auto] at line 25, grid-cols-[36px_auto] at line 30, grid-cols-[36px_auto] at line 35"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/shared-components/settings/setting-textarea.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/shared-components/settings/setting-textarea.svelte",
+            "entityName": "web/src/lib/components/shared-components/settings/setting-textarea.svelte",
+            "location": "web/src/lib/components/shared-components/settings/setting-textarea.svelte:42"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "web/src/lib/components/shared-components/settings/setting-textarea.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: text-[10px] at line 42"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/shared-components/settings/setting-switch.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/shared-components/settings/setting-switch.svelte",
+            "entityName": "web/src/lib/components/shared-components/settings/setting-switch.svelte",
+            "location": "web/src/lib/components/shared-components/settings/setting-switch.svelte:44"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "web/src/lib/components/shared-components/settings/setting-switch.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: text-[10px] at line 44"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/shared-components/settings/setting-select.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/shared-components/settings/setting-select.svelte",
+            "entityName": "web/src/lib/components/shared-components/settings/setting-select.svelte",
+            "location": "web/src/lib/components/shared-components/settings/setting-select.svelte:48"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "web/src/lib/components/shared-components/settings/setting-select.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: text-[10px] at line 48"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/shared-components/settings/setting-input-field.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/shared-components/settings/setting-input-field.svelte",
+            "entityName": "web/src/lib/components/shared-components/settings/setting-input-field.svelte",
+            "location": "web/src/lib/components/shared-components/settings/setting-input-field.svelte:92"
+          },
+          "message": "2 arbitrary size values found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary size values",
+            "affectedFiles": [
+              "web/src/lib/components/shared-components/settings/setting-input-field.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: text-[10px] at line 92, min-w-[50px] at line 131"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/shared-components/settings/setting-dropdown.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/shared-components/settings/setting-dropdown.svelte",
+            "entityName": "web/src/lib/components/shared-components/settings/setting-dropdown.svelte",
+            "location": "web/src/lib/components/shared-components/settings/setting-dropdown.svelte:38"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "web/src/lib/components/shared-components/settings/setting-dropdown.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: text-[10px] at line 38"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/shared-components/settings/setting-combobox.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/shared-components/settings/setting-combobox.svelte",
+            "entityName": "web/src/lib/components/shared-components/settings/setting-combobox.svelte",
+            "location": "web/src/lib/components/shared-components/settings/setting-combobox.svelte:38"
+          },
+          "message": "2 arbitrary size values found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary size values",
+            "affectedFiles": [
+              "web/src/lib/components/shared-components/settings/setting-combobox.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: text-[10px] at line 38, max-w-[300px] at line 46"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/shared-components/settings/setting-checkboxes.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/shared-components/settings/setting-checkboxes.svelte",
+            "entityName": "web/src/lib/components/shared-components/settings/setting-checkboxes.svelte",
+            "location": "web/src/lib/components/shared-components/settings/setting-checkboxes.svelte:41"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "web/src/lib/components/shared-components/settings/setting-checkboxes.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: text-[10px] at line 41"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/shared-components/map/map.svelte:transform",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/shared-components/map/map.svelte",
+            "entityName": "web/src/lib/components/shared-components/map/map.svelte",
+            "location": "web/src/lib/components/shared-components/map/map.svelte:381"
+          },
+          "message": "1 arbitrary transform value found. Consider using theme transform values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary transform values",
+            "affectedFiles": [
+              "web/src/lib/components/shared-components/map/map.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: -translate-y-[50%] at line 381"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/shared-components/progress-bar/progress-bar.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/shared-components/progress-bar/progress-bar.svelte",
+            "entityName": "web/src/lib/components/shared-components/progress-bar/progress-bar.svelte",
+            "location": "web/src/lib/components/shared-components/progress-bar/progress-bar.svelte:94"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "web/src/lib/components/shared-components/progress-bar/progress-bar.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: h-[3px] at line 94"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/shared-components/navigation-bar/notification-panel.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/shared-components/navigation-bar/notification-panel.svelte",
+            "entityName": "web/src/lib/components/shared-components/navigation-bar/notification-panel.svelte",
+            "location": "web/src/lib/components/shared-components/navigation-bar/notification-panel.svelte:69"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "web/src/lib/components/shared-components/navigation-bar/notification-panel.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: w-[min(360px,100vw-50px)] at line 69"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/shared-components/navigation-bar/notification-item.svelte:grid",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/shared-components/navigation-bar/notification-item.svelte",
+            "entityName": "web/src/lib/components/shared-components/navigation-bar/notification-item.svelte",
+            "location": "web/src/lib/components/shared-components/navigation-bar/notification-item.svelte:108"
+          },
+          "message": "1 arbitrary grid template found. Consider defining in theme.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary grid values",
+            "affectedFiles": [
+              "web/src/lib/components/shared-components/navigation-bar/notification-item.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: grid-cols-[56px_1fr_32px] at line 108"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/shared-components/navigation-bar/navigation-bar.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/shared-components/navigation-bar/navigation-bar.svelte",
+            "entityName": "web/src/lib/components/shared-components/navigation-bar/navigation-bar.svelte",
+            "location": "web/src/lib/components/shared-components/navigation-bar/navigation-bar.svelte:54"
+          },
+          "message": "3 arbitrary size values found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "3 arbitrary size values",
+            "affectedFiles": [
+              "web/src/lib/components/shared-components/navigation-bar/navigation-bar.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: max-md:h-(--navbar-height-md) at line 54, h-(--navbar-height) at line 54, text-[10px] at line 151"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/shared-components/navigation-bar/navigation-bar.svelte:grid",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/shared-components/navigation-bar/navigation-bar.svelte",
+            "entityName": "web/src/lib/components/shared-components/navigation-bar/navigation-bar.svelte",
+            "location": "web/src/lib/components/shared-components/navigation-bar/navigation-bar.svelte:57"
+          },
+          "message": "2 arbitrary grid templates found. Consider defining in theme.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary grid values",
+            "affectedFiles": [
+              "web/src/lib/components/shared-components/navigation-bar/navigation-bar.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: grid-cols-[--spacing(32)_auto] at line 57, sidebar:grid-cols-[--spacing(64)_auto] at line 57"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/shared-components/navigation-bar/account-info-panel.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/shared-components/navigation-bar/account-info-panel.svelte",
+            "entityName": "web/src/lib/components/shared-components/navigation-bar/account-info-panel.svelte",
+            "location": "web/src/lib/components/shared-components/navigation-bar/account-info-panel.svelte:35"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "web/src/lib/components/shared-components/navigation-bar/account-info-panel.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: w-[min(360px,100vw-50px)] at line 35"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/assets/thumbnail/video-thumbnail.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/assets/thumbnail/video-thumbnail.svelte",
+            "entityName": "web/src/lib/components/assets/thumbnail/video-thumbnail.svelte",
+            "location": "web/src/lib/components/assets/thumbnail/video-thumbnail.svelte:89"
+          },
+          "message": "2 arbitrary size values found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary size values",
+            "affectedFiles": [
+              "web/src/lib/components/assets/thumbnail/video-thumbnail.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: w-[1px_1px_6px_rgb(0_0_0)] at line 89, w-[1px_1px_6px_rgb(0_0_0)] at line 104"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/assets/thumbnail/video-thumbnail.svelte:visual",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/assets/thumbnail/video-thumbnail.svelte",
+            "entityName": "web/src/lib/components/assets/thumbnail/video-thumbnail.svelte",
+            "location": "web/src/lib/components/assets/thumbnail/video-thumbnail.svelte:89"
+          },
+          "message": "2 arbitrary visual values found. Consider using theme opacity values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary visual values",
+            "affectedFiles": [
+              "web/src/lib/components/assets/thumbnail/video-thumbnail.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: shadow-[1px_1px_6px_rgb(0_0_0)] at line 89, shadow-[1px_1px_6px_rgb(0_0_0)] at line 104"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/assets/thumbnail/video-thumbnail.svelte:other",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/assets/thumbnail/video-thumbnail.svelte",
+            "entityName": "web/src/lib/components/assets/thumbnail/video-thumbnail.svelte",
+            "location": "web/src/lib/components/assets/thumbnail/video-thumbnail.svelte:104"
+          },
+          "message": "1 other arbitrary value found. Review for theme consistency.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary other values",
+            "affectedFiles": [
+              "web/src/lib/components/assets/thumbnail/video-thumbnail.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: drop-shadow-[1px_1px_6px_rgb(0_0_0)] at line 104"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/assets/thumbnail/thumbnail.svelte:color",
+          "type": "hardcoded-value",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/assets/thumbnail/thumbnail.svelte",
+            "entityName": "web/src/lib/components/assets/thumbnail/thumbnail.svelte",
+            "location": "web/src/lib/components/assets/thumbnail/thumbnail.svelte:424"
+          },
+          "message": "2 hardcoded colors found. Use theme colors instead.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary color values",
+            "affectedFiles": [
+              "web/src/lib/components/assets/thumbnail/thumbnail.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary colors with theme colors: text-primary, bg-secondary, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: bg-[#D9DCEF] at line 424, dark:bg-[#232932] at line 424"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/assets/thumbnail/thumbnail.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/assets/thumbnail/thumbnail.svelte",
+            "entityName": "web/src/lib/components/assets/thumbnail/thumbnail.svelte",
+            "location": "web/src/lib/components/assets/thumbnail/thumbnail.svelte:277"
+          },
+          "message": "2 arbitrary size values found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary size values",
+            "affectedFiles": [
+              "web/src/lib/components/assets/thumbnail/thumbnail.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: max-w-[50%] at line 277, max-w-[100%] at line 278"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/assets/thumbnail/thumbnail.svelte:transform",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/assets/thumbnail/thumbnail.svelte",
+            "entityName": "web/src/lib/components/assets/thumbnail/thumbnail.svelte",
+            "location": "web/src/lib/components/assets/thumbnail/thumbnail.svelte:248"
+          },
+          "message": "1 arbitrary transform value found. Consider using theme transform values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary transform values",
+            "affectedFiles": [
+              "web/src/lib/components/assets/thumbnail/thumbnail.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: scale-[0.85] at line 248"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/assets/thumbnail/image-thumbnail.svelte:transform",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/assets/thumbnail/image-thumbnail.svelte",
+            "entityName": "web/src/lib/components/assets/thumbnail/image-thumbnail.svelte",
+            "location": "web/src/lib/components/assets/thumbnail/image-thumbnail.svelte:102"
+          },
+          "message": "2 arbitrary transform values found. Consider using theme transform values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary transform values",
+            "affectedFiles": [
+              "web/src/lib/components/assets/thumbnail/image-thumbnail.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: translate-x-[-50%] at line 102, translate-y-[-50%] at line 102"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/asset-viewer/face-editor/face-editor.svelte:spacing",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/asset-viewer/face-editor/face-editor.svelte",
+            "entityName": "web/src/lib/components/asset-viewer/face-editor/face-editor.svelte",
+            "location": "web/src/lib/components/asset-viewer/face-editor/face-editor.svelte:317"
+          },
+          "message": "2 arbitrary spacing values found. Use theme spacing instead.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary spacing values",
+            "affectedFiles": [
+              "web/src/lib/components/asset-viewer/face-editor/face-editor.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: top-[calc(50%-250px)] at line 317, start-[calc(50%-125px)] at line 317"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/lib/components/asset-viewer/face-editor/face-editor.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/lib/components/asset-viewer/face-editor/face-editor.svelte",
+            "entityName": "web/src/lib/components/asset-viewer/face-editor/face-editor.svelte",
+            "location": "web/src/lib/components/asset-viewer/face-editor/face-editor.svelte:317"
+          },
+          "message": "2 arbitrary size values found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary size values",
+            "affectedFiles": [
+              "web/src/lib/components/asset-viewer/face-editor/face-editor.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: max-w-[250px] at line 317, w-[250px] at line 317"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/routes/(user)/utilities/workflows/[workflowId]/+page.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/routes/(user)/utilities/workflows/[workflowId]/+page.svelte",
+            "entityName": "web/src/routes/(user)/utilities/workflows/[workflowId]/+page.svelte",
+            "location": "web/src/routes/(user)/utilities/workflows/[workflowId]/+page.svelte:414"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "web/src/routes/(user)/utilities/workflows/[workflowId]/+page.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: w-[98%] at line 414"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/routes/(user)/tags/[[photos=photos]]/[[assetId=id]]/+page.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/routes/(user)/tags/[[photos=photos]]/[[assetId=id]]/+page.svelte",
+            "entityName": "web/src/routes/(user)/tags/[[photos=photos]]/[[assetId=id]]/+page.svelte",
+            "location": "web/src/routes/(user)/tags/[[photos=photos]]/[[assetId=id]]/+page.svelte:95"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "web/src/routes/(user)/tags/[[photos=photos]]/[[assetId=id]]/+page.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: h-[calc(100%-(--spacing(20)))] at line 95"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/routes/(user)/search/[[photos=photos]]/[[assetId=id]]/+page.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/routes/(user)/search/[[photos=photos]]/[[assetId=id]]/+page.svelte",
+            "entityName": "web/src/routes/(user)/search/[[photos=photos]]/[[assetId=id]]/+page.svelte",
+            "location": "web/src/routes/(user)/search/[[photos=photos]]/[[assetId=id]]/+page.svelte:333"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "web/src/routes/(user)/search/[[photos=photos]]/[[assetId=id]]/+page.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: min-h-[calc(66vh-11rem)] at line 333"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/routes/(user)/folders/[[photos=photos]]/[[assetId=id]]/+page.svelte:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/routes/(user)/folders/[[photos=photos]]/[[assetId=id]]/+page.svelte",
+            "entityName": "web/src/routes/(user)/folders/[[photos=photos]]/[[assetId=id]]/+page.svelte",
+            "location": "web/src/routes/(user)/folders/[[photos=photos]]/[[assetId=id]]/+page.svelte:95"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "web/src/routes/(user)/folders/[[photos=photos]]/[[assetId=id]]/+page.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: h-[calc(100%-(--spacing(25)))] at line 95"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/routes/(user)/partners/[userId]/[[photos=photos]]/[[assetId=id]]/+page.svelte:spacing",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/routes/(user)/partners/[userId]/[[photos=photos]]/[[assetId=id]]/+page.svelte",
+            "entityName": "web/src/routes/(user)/partners/[userId]/[[photos=photos]]/[[assetId=id]]/+page.svelte",
+            "location": "web/src/routes/(user)/partners/[userId]/[[photos=photos]]/[[assetId=id]]/+page.svelte:39"
+          },
+          "message": "2 arbitrary spacing values found. Use theme spacing instead.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary spacing values",
+            "affectedFiles": [
+              "web/src/routes/(user)/partners/[userId]/[[photos=photos]]/[[assetId=id]]/+page.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: max-md:pt-(--navbar-height-md) at line 39, pt-(--navbar-height) at line 39"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/routes/(user)/people/[personId]/[[photos=photos]]/[[assetId=id]]/+page.svelte:color",
+          "type": "hardcoded-value",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/routes/(user)/people/[personId]/[[photos=photos]]/[[assetId=id]]/+page.svelte",
+            "entityName": "web/src/routes/(user)/people/[personId]/[[photos=photos]]/[[assetId=id]]/+page.svelte",
+            "location": "web/src/routes/(user)/people/[personId]/[[photos=photos]]/[[assetId=id]]/+page.svelte:437"
+          },
+          "message": "2 hardcoded colors found. Use theme colors instead.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary color values",
+            "affectedFiles": [
+              "web/src/routes/(user)/people/[personId]/[[photos=photos]]/[[assetId=id]]/+page.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary colors with theme colors: text-primary, bg-secondary, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: hover:dark:bg-[#232932] at line 437, focus:dark:bg-[#232932] at line 437"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/routes/(user)/people/[personId]/[[photos=photos]]/[[assetId=id]]/+page.svelte:spacing",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/routes/(user)/people/[personId]/[[photos=photos]]/[[assetId=id]]/+page.svelte",
+            "entityName": "web/src/routes/(user)/people/[personId]/[[photos=photos]]/[[assetId=id]]/+page.svelte",
+            "location": "web/src/routes/(user)/people/[personId]/[[photos=photos]]/[[assetId=id]]/+page.svelte:340"
+          },
+          "message": "2 arbitrary spacing values found. Use theme spacing instead.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary spacing values",
+            "affectedFiles": [
+              "web/src/routes/(user)/people/[personId]/[[photos=photos]]/[[assetId=id]]/+page.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: md:pt-(--navbar-height-md) at line 340, pt-(--navbar-height) at line 340"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:web/src/routes/(user)/albums/[albumId=id]/[[photos=photos]]/[[assetId=id]]/+page.svelte:spacing",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:web/src/routes/(user)/albums/[albumId=id]/[[photos=photos]]/[[assetId=id]]/+page.svelte",
+            "entityName": "web/src/routes/(user)/albums/[albumId=id]/[[photos=photos]]/[[assetId=id]]/+page.svelte",
+            "location": "web/src/routes/(user)/albums/[albumId=id]/[[photos=photos]]/[[assetId=id]]/+page.svelte:353"
+          },
+          "message": "2 arbitrary spacing values found. Use theme spacing instead.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary spacing values",
+            "affectedFiles": [
+              "web/src/routes/(user)/albums/[albumId=id]/[[photos=photos]]/[[assetId=id]]/+page.svelte"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: max-md:pt-(--navbar-height-md) at line 353, pt-(--navbar-height) at line 353"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:docs/src/components/timeline.tsx:spacing",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:docs/src/components/timeline.tsx",
+            "entityName": "docs/src/components/timeline.tsx",
+            "location": "docs/src/components/timeline.tsx:38"
+          },
+          "message": "4 arbitrary spacing values found. Use theme spacing instead.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "4 arbitrary spacing values",
+            "affectedFiles": [
+              "docs/src/components/timeline.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: top-[50%] at line 38, bottom-[50%] at line 38, top-[50%] at line 45"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:docs/src/components/timeline.tsx:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:docs/src/components/timeline.tsx",
+            "entityName": "docs/src/components/timeline.tsx",
+            "location": "docs/src/components/timeline.tsx:34"
+          },
+          "message": "2 arbitrary size values found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary size values",
+            "affectedFiles": [
+              "docs/src/components/timeline.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: w-[700px] at line 34, max-w-[90vw] at line 34"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:docs/src/components/timeline.tsx:transform",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:docs/src/components/timeline.tsx",
+            "entityName": "docs/src/components/timeline.tsx",
+            "location": "docs/src/components/timeline.tsx:45"
+          },
+          "message": "2 arbitrary transform values found. Consider using theme transform values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary transform values",
+            "affectedFiles": [
+              "docs/src/components/timeline.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: translate-y-[-50%] at line 45, translate-x-[-50%] at line 45"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:06:11.357Z"
+        }
+      ]
+    }
+  },
+  "completedAt": "2026-01-20T23:06:11.393Z",
+  "durationMs": 9234
+}

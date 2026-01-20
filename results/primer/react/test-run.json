@@ -1,5 +1,5 @@
 {
-  "id": "primer-react-1767164268516",
+  "id": "primer-react-1768950053187",
   "repo": {
     "url": "https://github.com/primer/react",
     "owner": "primer",
@@ -33,28 +33,2778 @@
       }
     },
     "discoveredAt": "2025-12-31T05:28:01.526Z",
-    "lastTestedAt": "2025-12-31T06:47:46.985Z"
+    "lastTestedAt": "2026-01-01T02:39:28.780Z"
   },
   "status": "completed",
-  "startedAt": "2025-12-31T06:57:48.516Z",
-  "buoyVersion": "0.0.1",
+  "startedAt": "2026-01-20T23:00:53.187Z",
+  "buoyVersion": "0.2.19",
   "configGenerated": false,
   "buoyOutput": {
     "scan": {
-      "components": 325,
-      "tokens": 0,
+      "components": 577,
+      "tokens": 8,
       "sources": []
     },
-    "status": {
-      "coverage": {}
-    },
     "drift": {
-      "total": 0,
-      "byType": {},
-      "bySeverity": {},
-      "signals": []
+      "total": 151,
+      "byType": {
+        "naming-inconsistency": 145,
+        "deprecated-pattern": 2,
+        "semantic-mismatch": 3,
+        "hardcoded-value": 1
+      },
+      "bySeverity": {
+        "info": 146,
+        "warning": 5
+      },
+      "signals": [
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/UnderlinePanels.tsx:UnderlinePanels.Tab",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/UnderlinePanels.tsx:UnderlinePanels.Tab",
+            "entityName": "UnderlinePanels.Tab",
+            "location": "packages/styled-react/src/components/UnderlinePanels.tsx:1"
+          },
+          "message": "Component \"UnderlinePanels.Tab\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/UnderlinePanels.tsx:UnderlinePanels.Panel",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/UnderlinePanels.tsx:UnderlinePanels.Panel",
+            "entityName": "UnderlinePanels.Panel",
+            "location": "packages/styled-react/src/components/UnderlinePanels.tsx:1"
+          },
+          "message": "Component \"UnderlinePanels.Panel\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/UnderlineNav.tsx:UnderlineNav.Item",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/UnderlineNav.tsx:UnderlineNav.Item",
+            "entityName": "UnderlineNav.Item",
+            "location": "packages/styled-react/src/components/UnderlineNav.tsx:1"
+          },
+          "message": "Component \"UnderlineNav.Item\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/Timeline.tsx:Timeline.Item",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/Timeline.tsx:Timeline.Item",
+            "entityName": "Timeline.Item",
+            "location": "packages/styled-react/src/components/Timeline.tsx:1"
+          },
+          "message": "Component \"Timeline.Item\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/Timeline.tsx:Timeline.Badge",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/Timeline.tsx:Timeline.Badge",
+            "entityName": "Timeline.Badge",
+            "location": "packages/styled-react/src/components/Timeline.tsx:1"
+          },
+          "message": "Component \"Timeline.Badge\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/Timeline.tsx:Timeline.Body",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/Timeline.tsx:Timeline.Body",
+            "entityName": "Timeline.Body",
+            "location": "packages/styled-react/src/components/Timeline.tsx:1"
+          },
+          "message": "Component \"Timeline.Body\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/Timeline.tsx:Timeline.Break",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/Timeline.tsx:Timeline.Break",
+            "entityName": "Timeline.Break",
+            "location": "packages/styled-react/src/components/Timeline.tsx:1"
+          },
+          "message": "Component \"Timeline.Break\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/TextInput.tsx:TextInput.Action",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/TextInput.tsx:TextInput.Action",
+            "entityName": "TextInput.Action",
+            "location": "packages/styled-react/src/components/TextInput.tsx:1"
+          },
+          "message": "Component \"TextInput.Action\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/SubNav.tsx:SubNav.Link",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/SubNav.tsx:SubNav.Link",
+            "entityName": "SubNav.Link",
+            "location": "packages/styled-react/src/components/SubNav.tsx:1"
+          },
+          "message": "Component \"SubNav.Link\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/SegmentedControl.tsx:SegmentedControl.Button",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/SegmentedControl.tsx:SegmentedControl.Button",
+            "entityName": "SegmentedControl.Button",
+            "location": "packages/styled-react/src/components/SegmentedControl.tsx:1"
+          },
+          "message": "Component \"SegmentedControl.Button\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/SegmentedControl.tsx:SegmentedControl.IconButton",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/SegmentedControl.tsx:SegmentedControl.IconButton",
+            "entityName": "SegmentedControl.IconButton",
+            "location": "packages/styled-react/src/components/SegmentedControl.tsx:1"
+          },
+          "message": "Component \"SegmentedControl.IconButton\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/RadioGroup.tsx:RadioGroup.Label",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/RadioGroup.tsx:RadioGroup.Label",
+            "entityName": "RadioGroup.Label",
+            "location": "packages/styled-react/src/components/RadioGroup.tsx:1"
+          },
+          "message": "Component \"RadioGroup.Label\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/RadioGroup.tsx:RadioGroup.Caption",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/RadioGroup.tsx:RadioGroup.Caption",
+            "entityName": "RadioGroup.Caption",
+            "location": "packages/styled-react/src/components/RadioGroup.tsx:1"
+          },
+          "message": "Component \"RadioGroup.Caption\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/RadioGroup.tsx:RadioGroup.Validation",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/RadioGroup.tsx:RadioGroup.Validation",
+            "entityName": "RadioGroup.Validation",
+            "location": "packages/styled-react/src/components/RadioGroup.tsx:1"
+          },
+          "message": "Component \"RadioGroup.Validation\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/PageHeader.tsx:PageHeader.Actions",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/PageHeader.tsx:PageHeader.Actions",
+            "entityName": "PageHeader.Actions",
+            "location": "packages/styled-react/src/components/PageHeader.tsx:1"
+          },
+          "message": "Component \"PageHeader.Actions\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/PageHeader.tsx:PageHeader.ContextArea",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/PageHeader.tsx:PageHeader.ContextArea",
+            "entityName": "PageHeader.ContextArea",
+            "location": "packages/styled-react/src/components/PageHeader.tsx:1"
+          },
+          "message": "Component \"PageHeader.ContextArea\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/PageHeader.tsx:PageHeader.ParentLink",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/PageHeader.tsx:PageHeader.ParentLink",
+            "entityName": "PageHeader.ParentLink",
+            "location": "packages/styled-react/src/components/PageHeader.tsx:1"
+          },
+          "message": "Component \"PageHeader.ParentLink\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/PageHeader.tsx:PageHeader.ContextBar",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/PageHeader.tsx:PageHeader.ContextBar",
+            "entityName": "PageHeader.ContextBar",
+            "location": "packages/styled-react/src/components/PageHeader.tsx:1"
+          },
+          "message": "Component \"PageHeader.ContextBar\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/PageHeader.tsx:PageHeader.TitleArea",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/PageHeader.tsx:PageHeader.TitleArea",
+            "entityName": "PageHeader.TitleArea",
+            "location": "packages/styled-react/src/components/PageHeader.tsx:1"
+          },
+          "message": "Component \"PageHeader.TitleArea\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/PageHeader.tsx:PageHeader.ContextAreaActions",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/PageHeader.tsx:PageHeader.ContextAreaActions",
+            "entityName": "PageHeader.ContextAreaActions",
+            "location": "packages/styled-react/src/components/PageHeader.tsx:1"
+          },
+          "message": "Component \"PageHeader.ContextAreaActions\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/PageHeader.tsx:PageHeader.LeadingAction",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/PageHeader.tsx:PageHeader.LeadingAction",
+            "entityName": "PageHeader.LeadingAction",
+            "location": "packages/styled-react/src/components/PageHeader.tsx:1"
+          },
+          "message": "Component \"PageHeader.LeadingAction\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/PageHeader.tsx:PageHeader.Breadcrumbs",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/PageHeader.tsx:PageHeader.Breadcrumbs",
+            "entityName": "PageHeader.Breadcrumbs",
+            "location": "packages/styled-react/src/components/PageHeader.tsx:1"
+          },
+          "message": "Component \"PageHeader.Breadcrumbs\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/PageHeader.tsx:PageHeader.LeadingVisual",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/PageHeader.tsx:PageHeader.LeadingVisual",
+            "entityName": "PageHeader.LeadingVisual",
+            "location": "packages/styled-react/src/components/PageHeader.tsx:1"
+          },
+          "message": "Component \"PageHeader.LeadingVisual\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/PageHeader.tsx:PageHeader.Title",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/PageHeader.tsx:PageHeader.Title",
+            "entityName": "PageHeader.Title",
+            "location": "packages/styled-react/src/components/PageHeader.tsx:1"
+          },
+          "message": "Component \"PageHeader.Title\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/PageHeader.tsx:PageHeader.TrailingVisual",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/PageHeader.tsx:PageHeader.TrailingVisual",
+            "entityName": "PageHeader.TrailingVisual",
+            "location": "packages/styled-react/src/components/PageHeader.tsx:1"
+          },
+          "message": "Component \"PageHeader.TrailingVisual\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/PageHeader.tsx:PageHeader.Description",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/PageHeader.tsx:PageHeader.Description",
+            "entityName": "PageHeader.Description",
+            "location": "packages/styled-react/src/components/PageHeader.tsx:1"
+          },
+          "message": "Component \"PageHeader.Description\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/PageHeader.tsx:PageHeader.TrailingAction",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/PageHeader.tsx:PageHeader.TrailingAction",
+            "entityName": "PageHeader.TrailingAction",
+            "location": "packages/styled-react/src/components/PageHeader.tsx:1"
+          },
+          "message": "Component \"PageHeader.TrailingAction\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/NavList.tsx:NavList.Item",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/NavList.tsx:NavList.Item",
+            "entityName": "NavList.Item",
+            "location": "packages/styled-react/src/components/NavList.tsx:1"
+          },
+          "message": "Component \"NavList.Item\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/NavList.tsx:NavList.Group",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/NavList.tsx:NavList.Group",
+            "entityName": "NavList.Group",
+            "location": "packages/styled-react/src/components/NavList.tsx:1"
+          },
+          "message": "Component \"NavList.Group\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/NavList.tsx:NavList.GroupHeading",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/NavList.tsx:NavList.GroupHeading",
+            "entityName": "NavList.GroupHeading",
+            "location": "packages/styled-react/src/components/NavList.tsx:1"
+          },
+          "message": "Component \"NavList.GroupHeading\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/NavList.tsx:NavList.LeadingVisual",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/NavList.tsx:NavList.LeadingVisual",
+            "entityName": "NavList.LeadingVisual",
+            "location": "packages/styled-react/src/components/NavList.tsx:1"
+          },
+          "message": "Component \"NavList.LeadingVisual\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/NavList.tsx:NavList.SubNav",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/NavList.tsx:NavList.SubNav",
+            "entityName": "NavList.SubNav",
+            "location": "packages/styled-react/src/components/NavList.tsx:1"
+          },
+          "message": "Component \"NavList.SubNav\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/NavList.tsx:NavList.Divider",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/NavList.tsx:NavList.Divider",
+            "entityName": "NavList.Divider",
+            "location": "packages/styled-react/src/components/NavList.tsx:1"
+          },
+          "message": "Component \"NavList.Divider\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/NavList.tsx:NavList.TrailingVisual",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/NavList.tsx:NavList.TrailingVisual",
+            "entityName": "NavList.TrailingVisual",
+            "location": "packages/styled-react/src/components/NavList.tsx:1"
+          },
+          "message": "Component \"NavList.TrailingVisual\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/NavList.tsx:NavList.TrailingAction",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/NavList.tsx:NavList.TrailingAction",
+            "entityName": "NavList.TrailingAction",
+            "location": "packages/styled-react/src/components/NavList.tsx:1"
+          },
+          "message": "Component \"NavList.TrailingAction\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/NavList.tsx:NavList.GroupExpand",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/NavList.tsx:NavList.GroupExpand",
+            "entityName": "NavList.GroupExpand",
+            "location": "packages/styled-react/src/components/NavList.tsx:1"
+          },
+          "message": "Component \"NavList.GroupExpand\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/Header.tsx:Header.Item",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/Header.tsx:Header.Item",
+            "entityName": "Header.Item",
+            "location": "packages/styled-react/src/components/Header.tsx:1"
+          },
+          "message": "Component \"Header.Item\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/Header.tsx:Header.Link",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/Header.tsx:Header.Link",
+            "entityName": "Header.Link",
+            "location": "packages/styled-react/src/components/Header.tsx:1"
+          },
+          "message": "Component \"Header.Link\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/Dialog.tsx:Dialog.Buttons",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/Dialog.tsx:Dialog.Buttons",
+            "entityName": "Dialog.Buttons",
+            "location": "packages/styled-react/src/components/Dialog.tsx:1"
+          },
+          "message": "Component \"Dialog.Buttons\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/Dialog.tsx:Dialog.Header",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/Dialog.tsx:Dialog.Header",
+            "entityName": "Dialog.Header",
+            "location": "packages/styled-react/src/components/Dialog.tsx:1"
+          },
+          "message": "Component \"Dialog.Header\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/Dialog.tsx:Dialog.Body",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/Dialog.tsx:Dialog.Body",
+            "entityName": "Dialog.Body",
+            "location": "packages/styled-react/src/components/Dialog.tsx:1"
+          },
+          "message": "Component \"Dialog.Body\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/Dialog.tsx:Dialog.Footer",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/Dialog.tsx:Dialog.Footer",
+            "entityName": "Dialog.Footer",
+            "location": "packages/styled-react/src/components/Dialog.tsx:1"
+          },
+          "message": "Component \"Dialog.Footer\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/DataTable.tsx:Table.Container",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/DataTable.tsx:Table.Container",
+            "entityName": "Table.Container",
+            "location": "packages/styled-react/src/components/DataTable.tsx:1"
+          },
+          "message": "Component \"Table.Container\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/CheckboxGroup.tsx:CheckboxGroup.Label",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/CheckboxGroup.tsx:CheckboxGroup.Label",
+            "entityName": "CheckboxGroup.Label",
+            "location": "packages/styled-react/src/components/CheckboxGroup.tsx:1"
+          },
+          "message": "Component \"CheckboxGroup.Label\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/CheckboxGroup.tsx:CheckboxGroup.Caption",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/CheckboxGroup.tsx:CheckboxGroup.Caption",
+            "entityName": "CheckboxGroup.Caption",
+            "location": "packages/styled-react/src/components/CheckboxGroup.tsx:1"
+          },
+          "message": "Component \"CheckboxGroup.Caption\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/CheckboxGroup.tsx:CheckboxGroup.Validation",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/CheckboxGroup.tsx:CheckboxGroup.Validation",
+            "entityName": "CheckboxGroup.Validation",
+            "location": "packages/styled-react/src/components/CheckboxGroup.tsx:1"
+          },
+          "message": "Component \"CheckboxGroup.Validation\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/Breadcrumbs.tsx:Breadcrumbs.Item",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/Breadcrumbs.tsx:Breadcrumbs.Item",
+            "entityName": "Breadcrumbs.Item",
+            "location": "packages/styled-react/src/components/Breadcrumbs.tsx:1"
+          },
+          "message": "Component \"Breadcrumbs.Item\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/Autocomplete.tsx:Autocomplete.Context",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/Autocomplete.tsx:Autocomplete.Context",
+            "entityName": "Autocomplete.Context",
+            "location": "packages/styled-react/src/components/Autocomplete.tsx:1"
+          },
+          "message": "Component \"Autocomplete.Context\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/Autocomplete.tsx:Autocomplete.Input",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/Autocomplete.tsx:Autocomplete.Input",
+            "entityName": "Autocomplete.Input",
+            "location": "packages/styled-react/src/components/Autocomplete.tsx:1"
+          },
+          "message": "Component \"Autocomplete.Input\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/Autocomplete.tsx:Autocomplete.Menu",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/Autocomplete.tsx:Autocomplete.Menu",
+            "entityName": "Autocomplete.Menu",
+            "location": "packages/styled-react/src/components/Autocomplete.tsx:1"
+          },
+          "message": "Component \"Autocomplete.Menu\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/Autocomplete.tsx:Autocomplete.Overlay",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/Autocomplete.tsx:Autocomplete.Overlay",
+            "entityName": "Autocomplete.Overlay",
+            "location": "packages/styled-react/src/components/Autocomplete.tsx:1"
+          },
+          "message": "Component \"Autocomplete.Overlay\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/ActionMenu.tsx:ActionMenu.Button",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/ActionMenu.tsx:ActionMenu.Button",
+            "entityName": "ActionMenu.Button",
+            "location": "packages/styled-react/src/components/ActionMenu.tsx:1"
+          },
+          "message": "Component \"ActionMenu.Button\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/ActionMenu.tsx:ActionMenu.Anchor",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/ActionMenu.tsx:ActionMenu.Anchor",
+            "entityName": "ActionMenu.Anchor",
+            "location": "packages/styled-react/src/components/ActionMenu.tsx:1"
+          },
+          "message": "Component \"ActionMenu.Anchor\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/ActionMenu.tsx:ActionMenu.Overlay",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/ActionMenu.tsx:ActionMenu.Overlay",
+            "entityName": "ActionMenu.Overlay",
+            "location": "packages/styled-react/src/components/ActionMenu.tsx:1"
+          },
+          "message": "Component \"ActionMenu.Overlay\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/ActionMenu.tsx:ActionMenu.Divider",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/ActionMenu.tsx:ActionMenu.Divider",
+            "entityName": "ActionMenu.Divider",
+            "location": "packages/styled-react/src/components/ActionMenu.tsx:1"
+          },
+          "message": "Component \"ActionMenu.Divider\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/ActionList.tsx:ActionList.Item",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/ActionList.tsx:ActionList.Item",
+            "entityName": "ActionList.Item",
+            "location": "packages/styled-react/src/components/ActionList.tsx:1"
+          },
+          "message": "Component \"ActionList.Item\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/ActionList.tsx:ActionList.LinkItem",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/ActionList.tsx:ActionList.LinkItem",
+            "entityName": "ActionList.LinkItem",
+            "location": "packages/styled-react/src/components/ActionList.tsx:1"
+          },
+          "message": "Component \"ActionList.LinkItem\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/ActionList.tsx:ActionList.Group",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/ActionList.tsx:ActionList.Group",
+            "entityName": "ActionList.Group",
+            "location": "packages/styled-react/src/components/ActionList.tsx:1"
+          },
+          "message": "Component \"ActionList.Group\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/ActionList.tsx:ActionList.GroupHeading",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/ActionList.tsx:ActionList.GroupHeading",
+            "entityName": "ActionList.GroupHeading",
+            "location": "packages/styled-react/src/components/ActionList.tsx:1"
+          },
+          "message": "Component \"ActionList.GroupHeading\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/ActionList.tsx:ActionList.Divider",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/ActionList.tsx:ActionList.Divider",
+            "entityName": "ActionList.Divider",
+            "location": "packages/styled-react/src/components/ActionList.tsx:1"
+          },
+          "message": "Component \"ActionList.Divider\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/ActionList.tsx:ActionList.Description",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/ActionList.tsx:ActionList.Description",
+            "entityName": "ActionList.Description",
+            "location": "packages/styled-react/src/components/ActionList.tsx:1"
+          },
+          "message": "Component \"ActionList.Description\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/ActionList.tsx:ActionList.LeadingVisual",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/ActionList.tsx:ActionList.LeadingVisual",
+            "entityName": "ActionList.LeadingVisual",
+            "location": "packages/styled-react/src/components/ActionList.tsx:1"
+          },
+          "message": "Component \"ActionList.LeadingVisual\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/ActionList.tsx:ActionList.TrailingVisual",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/ActionList.tsx:ActionList.TrailingVisual",
+            "entityName": "ActionList.TrailingVisual",
+            "location": "packages/styled-react/src/components/ActionList.tsx:1"
+          },
+          "message": "Component \"ActionList.TrailingVisual\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/ActionList.tsx:ActionList.Heading",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/ActionList.tsx:ActionList.Heading",
+            "entityName": "ActionList.Heading",
+            "location": "packages/styled-react/src/components/ActionList.tsx:1"
+          },
+          "message": "Component \"ActionList.Heading\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/ActionList.tsx:ActionList.TrailingAction",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/ActionList.tsx:ActionList.TrailingAction",
+            "entityName": "ActionList.TrailingAction",
+            "location": "packages/styled-react/src/components/ActionList.tsx:1"
+          },
+          "message": "Component \"ActionList.TrailingAction\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/utils/test-helpers.tsx:global.ResizeObserver",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/utils/test-helpers.tsx:global.ResizeObserver",
+            "entityName": "global.ResizeObserver",
+            "location": "packages/react/src/utils/test-helpers.tsx:1"
+          },
+          "message": "Component \"global.ResizeObserver\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/utils/test-helpers.tsx:global.CSS",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/utils/test-helpers.tsx:global.CSS",
+            "entityName": "global.CSS",
+            "location": "packages/react/src/utils/test-helpers.tsx:1"
+          },
+          "message": "Component \"global.CSS\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/utils/test-helpers.tsx:global.TextEncoder",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/utils/test-helpers.tsx:global.TextEncoder",
+            "entityName": "global.TextEncoder",
+            "location": "packages/react/src/utils/test-helpers.tsx:1"
+          },
+          "message": "Component \"global.TextEncoder\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/deprecated/ActionMenu.tsx:ActionMenu.Divider",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/deprecated/ActionMenu.tsx:ActionMenu.Divider",
+            "entityName": "ActionMenu.Divider",
+            "location": "packages/react/src/deprecated/ActionMenu.tsx:1"
+          },
+          "message": "Component \"ActionMenu.Divider\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/deprecated/ActionMenu.tsx:ActionMenu.Item",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/deprecated/ActionMenu.tsx:ActionMenu.Item",
+            "entityName": "ActionMenu.Item",
+            "location": "packages/react/src/deprecated/ActionMenu.tsx:1"
+          },
+          "message": "Component \"ActionMenu.Item\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/TreeView/TreeView.tsx:TreeView.Item",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/TreeView/TreeView.tsx:TreeView.Item",
+            "entityName": "TreeView.Item",
+            "location": "packages/react/src/TreeView/TreeView.tsx:189"
+          },
+          "message": "Component \"TreeView.Item\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/TreeView/TreeView.tsx:TreeView.SubTree",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/TreeView/TreeView.tsx:TreeView.SubTree",
+            "entityName": "TreeView.SubTree",
+            "location": "packages/react/src/TreeView/TreeView.tsx:464"
+          },
+          "message": "Component \"TreeView.SubTree\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/TreeView/TreeView.tsx:TreeView.LeadingAction",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/TreeView/TreeView.tsx:TreeView.LeadingAction",
+            "entityName": "TreeView.LeadingAction",
+            "location": "packages/react/src/TreeView/TreeView.tsx:717"
+          },
+          "message": "Component \"TreeView.LeadingAction\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/TreeView/TreeView.tsx:TreeView.LeadingVisual",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/TreeView/TreeView.tsx:TreeView.LeadingVisual",
+            "entityName": "TreeView.LeadingVisual",
+            "location": "packages/react/src/TreeView/TreeView.tsx:672"
+          },
+          "message": "Component \"TreeView.LeadingVisual\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/TreeView/TreeView.tsx:TreeView.TrailingVisual",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/TreeView/TreeView.tsx:TreeView.TrailingVisual",
+            "entityName": "TreeView.TrailingVisual",
+            "location": "packages/react/src/TreeView/TreeView.tsx:693"
+          },
+          "message": "Component \"TreeView.TrailingVisual\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/TreeView/TreeView.tsx:TreeView.DirectoryIcon",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/TreeView/TreeView.tsx:TreeView.DirectoryIcon",
+            "entityName": "TreeView.DirectoryIcon",
+            "location": "packages/react/src/TreeView/TreeView.tsx:878"
+          },
+          "message": "Component \"TreeView.DirectoryIcon\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/TreeView/TreeView.tsx:TreeView.ErrorDialog",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/TreeView/TreeView.tsx:TreeView.ErrorDialog",
+            "entityName": "TreeView.ErrorDialog",
+            "location": "packages/react/src/TreeView/TreeView.tsx:898"
+          },
+          "message": "Component \"TreeView.ErrorDialog\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.413Z"
+        },
+        {
+          "id": "drift:deprecated-pattern:react:packages/react/src/TabNav/TabNav.tsx:TabNav",
+          "type": "deprecated-pattern",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/TabNav/TabNav.tsx:TabNav",
+            "entityName": "TabNav",
+            "location": "packages/react/src/TabNav/TabNav.tsx:17"
+          },
+          "message": "Component \"TabNav\" is marked as deprecated",
+          "details": {
+            "suggestions": [
+              "Migrate to recommended alternative"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/SplitPageLayout/SplitPageLayout.tsx:SplitPageLayout.Header",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/SplitPageLayout/SplitPageLayout.tsx:SplitPageLayout.Header",
+            "entityName": "SplitPageLayout.Header",
+            "location": "packages/react/src/SplitPageLayout/SplitPageLayout.tsx:38"
+          },
+          "message": "Component \"SplitPageLayout.Header\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/SplitPageLayout/SplitPageLayout.tsx:SplitPageLayout.Content",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/SplitPageLayout/SplitPageLayout.tsx:SplitPageLayout.Content",
+            "entityName": "SplitPageLayout.Content",
+            "location": "packages/react/src/SplitPageLayout/SplitPageLayout.tsx:54"
+          },
+          "message": "Component \"SplitPageLayout.Content\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/SplitPageLayout/SplitPageLayout.tsx:SplitPageLayout.Pane",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/SplitPageLayout/SplitPageLayout.tsx:SplitPageLayout.Pane",
+            "entityName": "SplitPageLayout.Pane",
+            "location": "packages/react/src/SplitPageLayout/SplitPageLayout.tsx:69"
+          },
+          "message": "Component \"SplitPageLayout.Pane\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/SplitPageLayout/SplitPageLayout.tsx:SplitPageLayout.Footer",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/SplitPageLayout/SplitPageLayout.tsx:SplitPageLayout.Footer",
+            "entityName": "SplitPageLayout.Footer",
+            "location": "packages/react/src/SplitPageLayout/SplitPageLayout.tsx:93"
+          },
+          "message": "Component \"SplitPageLayout.Footer\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/SelectPanel/SelectPanel.tsx:SelectPanel.SecondaryActionButton",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/SelectPanel/SelectPanel.tsx:SelectPanel.SecondaryActionButton",
+            "entityName": "SelectPanel.SecondaryActionButton",
+            "location": "packages/react/src/SelectPanel/SelectPanel.tsx:1"
+          },
+          "message": "Component \"SelectPanel.SecondaryActionButton\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/SelectPanel/SelectPanel.tsx:SelectPanel.SecondaryActionLink",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/SelectPanel/SelectPanel.tsx:SelectPanel.SecondaryActionLink",
+            "entityName": "SelectPanel.SecondaryActionLink",
+            "location": "packages/react/src/SelectPanel/SelectPanel.tsx:1"
+          },
+          "message": "Component \"SelectPanel.SecondaryActionLink\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/SegmentedControl/SegmentedControl.tsx:SegmentedControl.Button",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/SegmentedControl/SegmentedControl.tsx:SegmentedControl.Button",
+            "entityName": "SegmentedControl.Button",
+            "location": "packages/react/src/SegmentedControl/SegmentedControl.tsx:1"
+          },
+          "message": "Component \"SegmentedControl.Button\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/SegmentedControl/SegmentedControl.tsx:SegmentedControl.IconButton",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/SegmentedControl/SegmentedControl.tsx:SegmentedControl.IconButton",
+            "entityName": "SegmentedControl.IconButton",
+            "location": "packages/react/src/SegmentedControl/SegmentedControl.tsx:1"
+          },
+          "message": "Component \"SegmentedControl.IconButton\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/PageLayout/PageLayout.tsx:PageLayout.Header",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/PageLayout/PageLayout.tsx:PageLayout.Header",
+            "entityName": "PageLayout.Header",
+            "location": "packages/react/src/PageLayout/PageLayout.tsx:446"
+          },
+          "message": "Component \"PageLayout.Header\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/PageLayout/PageLayout.tsx:PageLayout.Content",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/PageLayout/PageLayout.tsx:PageLayout.Content",
+            "entityName": "PageLayout.Content",
+            "location": "packages/react/src/PageLayout/PageLayout.tsx:537"
+          },
+          "message": "Component \"PageLayout.Content\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/PageLayout/PageLayout.tsx:PageLayout.Pane",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/PageLayout/PageLayout.tsx:PageLayout.Pane",
+            "entityName": "PageLayout.Pane",
+            "location": "packages/react/src/PageLayout/PageLayout.tsx:635"
+          },
+          "message": "Component \"PageLayout.Pane\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/PageLayout/PageLayout.tsx:PageLayout.Footer",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/PageLayout/PageLayout.tsx:PageLayout.Footer",
+            "entityName": "PageLayout.Footer",
+            "location": "packages/react/src/PageLayout/PageLayout.tsx:902"
+          },
+          "message": "Component \"PageLayout.Footer\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/PageHeader/PageHeader.tsx:PageHeader.ContextArea",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/PageHeader/PageHeader.tsx:PageHeader.ContextArea",
+            "entityName": "PageHeader.ContextArea",
+            "location": "packages/react/src/PageHeader/PageHeader.tsx:124"
+          },
+          "message": "Component \"PageHeader.ContextArea\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/PageHeader/PageHeader.tsx:PageHeader.ParentLink",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/PageHeader/PageHeader.tsx:PageHeader.ParentLink",
+            "entityName": "PageHeader.ParentLink",
+            "location": "packages/react/src/PageHeader/PageHeader.tsx:147"
+          },
+          "message": "Component \"PageHeader.ParentLink\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/PageHeader/PageHeader.tsx:PageHeader.ContextBar",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/PageHeader/PageHeader.tsx:PageHeader.ContextBar",
+            "entityName": "PageHeader.ContextBar",
+            "location": "packages/react/src/PageHeader/PageHeader.tsx:173"
+          },
+          "message": "Component \"PageHeader.ContextBar\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/PageHeader/PageHeader.tsx:PageHeader.TitleArea",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/PageHeader/PageHeader.tsx:PageHeader.TitleArea",
+            "entityName": "PageHeader.TitleArea",
+            "location": "packages/react/src/PageHeader/PageHeader.tsx:206"
+          },
+          "message": "Component \"PageHeader.TitleArea\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/PageHeader/PageHeader.tsx:PageHeader.ContextAreaActions",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/PageHeader/PageHeader.tsx:PageHeader.ContextAreaActions",
+            "entityName": "PageHeader.ContextAreaActions",
+            "location": "packages/react/src/PageHeader/PageHeader.tsx:187"
+          },
+          "message": "Component \"PageHeader.ContextAreaActions\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/PageHeader/PageHeader.tsx:PageHeader.LeadingAction",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/PageHeader/PageHeader.tsx:PageHeader.LeadingAction",
+            "entityName": "PageHeader.LeadingAction",
+            "location": "packages/react/src/PageHeader/PageHeader.tsx:227"
+          },
+          "message": "Component \"PageHeader.LeadingAction\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/PageHeader/PageHeader.tsx:PageHeader.Breadcrumbs",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/PageHeader/PageHeader.tsx:PageHeader.Breadcrumbs",
+            "entityName": "PageHeader.Breadcrumbs",
+            "location": "packages/react/src/PageHeader/PageHeader.tsx:246"
+          },
+          "message": "Component \"PageHeader.Breadcrumbs\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/PageHeader/PageHeader.tsx:PageHeader.LeadingVisual",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/PageHeader/PageHeader.tsx:PageHeader.LeadingVisual",
+            "entityName": "PageHeader.LeadingVisual",
+            "location": "packages/react/src/PageHeader/PageHeader.tsx:259"
+          },
+          "message": "Component \"PageHeader.LeadingVisual\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/PageHeader/PageHeader.tsx:PageHeader.Title",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/PageHeader/PageHeader.tsx:PageHeader.Title",
+            "entityName": "PageHeader.Title",
+            "location": "packages/react/src/PageHeader/PageHeader.tsx:275"
+          },
+          "message": "Component \"PageHeader.Title\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/PageHeader/PageHeader.tsx:PageHeader.TrailingVisual",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/PageHeader/PageHeader.tsx:PageHeader.TrailingVisual",
+            "entityName": "PageHeader.TrailingVisual",
+            "location": "packages/react/src/PageHeader/PageHeader.tsx:290"
+          },
+          "message": "Component \"PageHeader.TrailingVisual\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/PageHeader/PageHeader.tsx:PageHeader.TrailingAction",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/PageHeader/PageHeader.tsx:PageHeader.TrailingAction",
+            "entityName": "PageHeader.TrailingAction",
+            "location": "packages/react/src/PageHeader/PageHeader.tsx:306"
+          },
+          "message": "Component \"PageHeader.TrailingAction\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/PageHeader/PageHeader.tsx:PageHeader.Actions",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/PageHeader/PageHeader.tsx:PageHeader.Actions",
+            "entityName": "PageHeader.Actions",
+            "location": "packages/react/src/PageHeader/PageHeader.tsx:324"
+          },
+          "message": "Component \"PageHeader.Actions\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/PageHeader/PageHeader.tsx:PageHeader.Description",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/PageHeader/PageHeader.tsx:PageHeader.Description",
+            "entityName": "PageHeader.Description",
+            "location": "packages/react/src/PageHeader/PageHeader.tsx:333"
+          },
+          "message": "Component \"PageHeader.Description\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/PageHeader/PageHeader.tsx:PageHeader.Navigation",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/PageHeader/PageHeader.tsx:PageHeader.Navigation",
+            "entityName": "PageHeader.Navigation",
+            "location": "packages/react/src/PageHeader/PageHeader.tsx:348"
+          },
+          "message": "Component \"PageHeader.Navigation\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/NavList/NavList.tsx:NavList.Description",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/NavList/NavList.tsx:NavList.Description",
+            "entityName": "NavList.Description",
+            "location": "packages/react/src/NavList/NavList.tsx:1"
+          },
+          "message": "Component \"NavList.Description\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/NavList/NavList.tsx:NavList.Item",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/NavList/NavList.tsx:NavList.Item",
+            "entityName": "NavList.Item",
+            "location": "packages/react/src/NavList/NavList.tsx:56"
+          },
+          "message": "Component \"NavList.Item\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/NavList/NavList.tsx:NavList.SubNav",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/NavList/NavList.tsx:NavList.SubNav",
+            "entityName": "NavList.SubNav",
+            "location": "packages/react/src/NavList/NavList.tsx:178"
+          },
+          "message": "Component \"NavList.SubNav\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/NavList/NavList.tsx:NavList.LeadingVisual",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/NavList/NavList.tsx:NavList.LeadingVisual",
+            "entityName": "NavList.LeadingVisual",
+            "location": "packages/react/src/NavList/NavList.tsx:1"
+          },
+          "message": "Component \"NavList.LeadingVisual\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/NavList/NavList.tsx:NavList.TrailingVisual",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/NavList/NavList.tsx:NavList.TrailingVisual",
+            "entityName": "NavList.TrailingVisual",
+            "location": "packages/react/src/NavList/NavList.tsx:1"
+          },
+          "message": "Component \"NavList.TrailingVisual\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/NavList/NavList.tsx:NavList.TrailingAction",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/NavList/NavList.tsx:NavList.TrailingAction",
+            "entityName": "NavList.TrailingAction",
+            "location": "packages/react/src/NavList/NavList.tsx:1"
+          },
+          "message": "Component \"NavList.TrailingAction\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/NavList/NavList.tsx:NavList.Divider",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/NavList/NavList.tsx:NavList.Divider",
+            "entityName": "NavList.Divider",
+            "location": "packages/react/src/NavList/NavList.tsx:1"
+          },
+          "message": "Component \"NavList.Divider\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/NavList/NavList.tsx:NavList.Group",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/NavList/NavList.tsx:NavList.Group",
+            "entityName": "NavList.Group",
+            "location": "packages/react/src/NavList/NavList.tsx:247"
+          },
+          "message": "Component \"NavList.Group\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/NavList/NavList.tsx:NavList.GroupExpand",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/NavList/NavList.tsx:NavList.GroupExpand",
+            "entityName": "NavList.GroupExpand",
+            "location": "packages/react/src/NavList/NavList.tsx:281"
+          },
+          "message": "Component \"NavList.GroupExpand\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/NavList/NavList.tsx:NavList.GroupHeading",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/NavList/NavList.tsx:NavList.GroupHeading",
+            "entityName": "NavList.GroupHeading",
+            "location": "packages/react/src/NavList/NavList.tsx:372"
+          },
+          "message": "Component \"NavList.GroupHeading\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:react:packages/react/src/KeybindingHint/KeybindingHint.tsx:Kbd:children",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/KeybindingHint/KeybindingHint.tsx:Kbd",
+            "entityName": "Kbd",
+            "location": "packages/react/src/KeybindingHint/KeybindingHint.tsx:11"
+          },
+          "message": "Prop \"children\" in \"Kbd\" uses type \"ReactNode\" but other components use \"unknown\"",
+          "details": {
+            "expected": "unknown",
+            "actual": "ReactNode",
+            "usedIn": [
+              "VisuallyHidden",
+              "ThemeProvider",
+              "SideNav"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:react:packages/react/src/KeybindingHint/KeybindingHint.tsx:Kbd:className",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/KeybindingHint/KeybindingHint.tsx:Kbd",
+            "entityName": "Kbd",
+            "location": "packages/react/src/KeybindingHint/KeybindingHint.tsx:11"
+          },
+          "message": "Prop \"className\" in \"Kbd\" uses type \"string\" but other components use \"unknown\"",
+          "details": {
+            "expected": "unknown",
+            "actual": "string",
+            "usedIn": [
+              "VisuallyHidden",
+              "SideNav",
+              "SideNavLink"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:react:packages/react/src/FilteredActionList/FilteredActionListLoaders.tsx:FilteredActionListBodyLoader:height",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/FilteredActionList/FilteredActionListLoaders.tsx:FilteredActionListBodyLoader",
+            "entityName": "FilteredActionListBodyLoader",
+            "location": "packages/react/src/FilteredActionList/FilteredActionListLoaders.tsx:27"
+          },
+          "message": "Prop \"height\" in \"FilteredActionListBodyLoader\" uses type \"number\" but other components use \"unknown\"",
+          "details": {
+            "expected": "unknown",
+            "actual": "number",
+            "usedIn": [
+              "Placeholder",
+              "Panel",
+              "PopoverContent"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:hardcoded-value:react:packages/react/src/FilteredActionList/FilteredActionListLoaders.tsx:LoadingSkeleton:spacing",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/FilteredActionList/FilteredActionListLoaders.tsx:LoadingSkeleton",
+            "entityName": "LoadingSkeleton",
+            "location": "packages/react/src/FilteredActionList/FilteredActionListLoaders.tsx:54"
+          },
+          "message": "Component \"LoadingSkeleton\" has 3 hardcoded size values: 16px, 16px, 10px",
+          "details": {
+            "suggestions": [
+              "Consider using spacing tokens for consistency"
+            ],
+            "affectedFiles": [
+              "width: 16px (line 60)",
+              "height: 16px (line 60)",
+              "height: 10px (line 62)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/Dialog/Dialog.tsx:Dialog.Header",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/Dialog/Dialog.tsx:Dialog.Header",
+            "entityName": "Dialog.Header",
+            "location": "packages/react/src/Dialog/Dialog.tsx:371"
+          },
+          "message": "Component \"Dialog.Header\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/Dialog/Dialog.tsx:Dialog.Title",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/Dialog/Dialog.tsx:Dialog.Title",
+            "entityName": "Dialog.Title",
+            "location": "packages/react/src/Dialog/Dialog.tsx:378"
+          },
+          "message": "Component \"Dialog.Title\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/Dialog/Dialog.tsx:Dialog.Subtitle",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/Dialog/Dialog.tsx:Dialog.Subtitle",
+            "entityName": "Dialog.Subtitle",
+            "location": "packages/react/src/Dialog/Dialog.tsx:385"
+          },
+          "message": "Component \"Dialog.Subtitle\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/Dialog/Dialog.tsx:Dialog.Body",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/Dialog/Dialog.tsx:Dialog.Body",
+            "entityName": "Dialog.Body",
+            "location": "packages/react/src/Dialog/Dialog.tsx:395"
+          },
+          "message": "Component \"Dialog.Body\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/Dialog/Dialog.tsx:Dialog.Footer",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/Dialog/Dialog.tsx:Dialog.Footer",
+            "entityName": "Dialog.Footer",
+            "location": "packages/react/src/Dialog/Dialog.tsx:403"
+          },
+          "message": "Component \"Dialog.Footer\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/Dialog/Dialog.tsx:Dialog.Buttons",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/Dialog/Dialog.tsx:Dialog.Buttons",
+            "entityName": "Dialog.Buttons",
+            "location": "packages/react/src/Dialog/Dialog.tsx:408"
+          },
+          "message": "Component \"Dialog.Buttons\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/Dialog/Dialog.tsx:Dialog.CloseButton",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/Dialog/Dialog.tsx:Dialog.CloseButton",
+            "entityName": "Dialog.CloseButton",
+            "location": "packages/react/src/Dialog/Dialog.tsx:442"
+          },
+          "message": "Component \"Dialog.CloseButton\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/Details/Details.tsx:Details.Summary",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/Details/Details.tsx:Details.Summary",
+            "entityName": "Details.Summary",
+            "location": "packages/react/src/Details/Details.tsx:47"
+          },
+          "message": "Component \"Details.Summary\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/Breadcrumbs/Breadcrumbs.tsx:Breadcrumb.Item",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/Breadcrumbs/Breadcrumbs.tsx:Breadcrumb.Item",
+            "entityName": "Breadcrumb.Item",
+            "location": "packages/react/src/Breadcrumbs/Breadcrumbs.tsx:1"
+          },
+          "message": "Component \"Breadcrumb.Item\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.414Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/Blankslate/index.tsx:BlankslateContainer.Visual",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/Blankslate/index.tsx:BlankslateContainer.Visual",
+            "entityName": "BlankslateContainer.Visual",
+            "location": "packages/react/src/Blankslate/index.tsx:1"
+          },
+          "message": "Component \"BlankslateContainer.Visual\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.415Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/Blankslate/index.tsx:BlankslateContainer.Heading",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/Blankslate/index.tsx:BlankslateContainer.Heading",
+            "entityName": "BlankslateContainer.Heading",
+            "location": "packages/react/src/Blankslate/index.tsx:1"
+          },
+          "message": "Component \"BlankslateContainer.Heading\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.415Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/Blankslate/index.tsx:BlankslateContainer.Description",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/Blankslate/index.tsx:BlankslateContainer.Description",
+            "entityName": "BlankslateContainer.Description",
+            "location": "packages/react/src/Blankslate/index.tsx:1"
+          },
+          "message": "Component \"BlankslateContainer.Description\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.415Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/Blankslate/index.tsx:BlankslateContainer.PrimaryAction",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/Blankslate/index.tsx:BlankslateContainer.PrimaryAction",
+            "entityName": "BlankslateContainer.PrimaryAction",
+            "location": "packages/react/src/Blankslate/index.tsx:1"
+          },
+          "message": "Component \"BlankslateContainer.PrimaryAction\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.415Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/Blankslate/index.tsx:BlankslateContainer.SecondaryAction",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/Blankslate/index.tsx:BlankslateContainer.SecondaryAction",
+            "entityName": "BlankslateContainer.SecondaryAction",
+            "location": "packages/react/src/Blankslate/index.tsx:1"
+          },
+          "message": "Component \"BlankslateContainer.SecondaryAction\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.415Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/ActionMenu/ActionMenu.tsx:ActionMenu.Button",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/ActionMenu/ActionMenu.tsx:ActionMenu.Button",
+            "entityName": "ActionMenu.Button",
+            "location": "packages/react/src/ActionMenu/ActionMenu.tsx:1"
+          },
+          "message": "Component \"ActionMenu.Button\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.415Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/ActionMenu/ActionMenu.tsx:ActionMenu.Anchor",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/ActionMenu/ActionMenu.tsx:ActionMenu.Anchor",
+            "entityName": "ActionMenu.Anchor",
+            "location": "packages/react/src/ActionMenu/ActionMenu.tsx:185"
+          },
+          "message": "Component \"ActionMenu.Anchor\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.415Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/ActionMenu/ActionMenu.tsx:ActionMenu.Overlay",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/ActionMenu/ActionMenu.tsx:ActionMenu.Overlay",
+            "entityName": "ActionMenu.Overlay",
+            "location": "packages/react/src/ActionMenu/ActionMenu.tsx:266"
+          },
+          "message": "Component \"ActionMenu.Overlay\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.415Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/ActionMenu/ActionMenu.tsx:ActionMenu.Divider",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/ActionMenu/ActionMenu.tsx:ActionMenu.Divider",
+            "entityName": "ActionMenu.Divider",
+            "location": "packages/react/src/ActionMenu/ActionMenu.tsx:1"
+          },
+          "message": "Component \"ActionMenu.Divider\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.415Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/deprecated/TabNav.tsx:TabNav.Link",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/deprecated/TabNav.tsx:TabNav.Link",
+            "entityName": "TabNav.Link",
+            "location": "packages/styled-react/src/components/deprecated/TabNav.tsx:1"
+          },
+          "message": "Component \"TabNav.Link\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.415Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/deprecated/DialogV1.tsx:Dialog.Header",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/deprecated/DialogV1.tsx:Dialog.Header",
+            "entityName": "Dialog.Header",
+            "location": "packages/styled-react/src/components/deprecated/DialogV1.tsx:1"
+          },
+          "message": "Component \"Dialog.Header\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.415Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/deprecated/ActionList.tsx:ActionList.Item",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/deprecated/ActionList.tsx:ActionList.Item",
+            "entityName": "ActionList.Item",
+            "location": "packages/styled-react/src/components/deprecated/ActionList.tsx:1"
+          },
+          "message": "Component \"ActionList.Item\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.415Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/deprecated/ActionList.tsx:ActionList.Group",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/deprecated/ActionList.tsx:ActionList.Group",
+            "entityName": "ActionList.Group",
+            "location": "packages/styled-react/src/components/deprecated/ActionList.tsx:1"
+          },
+          "message": "Component \"ActionList.Group\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.415Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/styled-react/src/components/deprecated/ActionList.tsx:ActionList.Divider",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/styled-react/src/components/deprecated/ActionList.tsx:ActionList.Divider",
+            "entityName": "ActionList.Divider",
+            "location": "packages/styled-react/src/components/deprecated/ActionList.tsx:1"
+          },
+          "message": "Component \"ActionList.Divider\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.415Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/experimental/SelectPanel2/SelectPanel.tsx:SelectPanel.Button",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/experimental/SelectPanel2/SelectPanel.tsx:SelectPanel.Button",
+            "entityName": "SelectPanel.Button",
+            "location": "packages/react/src/experimental/SelectPanel2/SelectPanel.tsx:1"
+          },
+          "message": "Component \"SelectPanel.Button\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.415Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/experimental/SelectPanel2/SelectPanel.tsx:SelectPanel.Header",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/experimental/SelectPanel2/SelectPanel.tsx:SelectPanel.Header",
+            "entityName": "SelectPanel.Header",
+            "location": "packages/react/src/experimental/SelectPanel2/SelectPanel.tsx:1"
+          },
+          "message": "Component \"SelectPanel.Header\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.415Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/experimental/SelectPanel2/SelectPanel.tsx:SelectPanel.SearchInput",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/experimental/SelectPanel2/SelectPanel.tsx:SelectPanel.SearchInput",
+            "entityName": "SelectPanel.SearchInput",
+            "location": "packages/react/src/experimental/SelectPanel2/SelectPanel.tsx:1"
+          },
+          "message": "Component \"SelectPanel.SearchInput\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.415Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/experimental/SelectPanel2/SelectPanel.tsx:SelectPanel.Footer",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/experimental/SelectPanel2/SelectPanel.tsx:SelectPanel.Footer",
+            "entityName": "SelectPanel.Footer",
+            "location": "packages/react/src/experimental/SelectPanel2/SelectPanel.tsx:1"
+          },
+          "message": "Component \"SelectPanel.Footer\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.415Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/experimental/SelectPanel2/SelectPanel.tsx:SelectPanel.Loading",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/experimental/SelectPanel2/SelectPanel.tsx:SelectPanel.Loading",
+            "entityName": "SelectPanel.Loading",
+            "location": "packages/react/src/experimental/SelectPanel2/SelectPanel.tsx:1"
+          },
+          "message": "Component \"SelectPanel.Loading\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.415Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/experimental/SelectPanel2/SelectPanel.tsx:SelectPanel.Message",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/experimental/SelectPanel2/SelectPanel.tsx:SelectPanel.Message",
+            "entityName": "SelectPanel.Message",
+            "location": "packages/react/src/experimental/SelectPanel2/SelectPanel.tsx:1"
+          },
+          "message": "Component \"SelectPanel.Message\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.415Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/react/src/experimental/SelectPanel2/SelectPanel.tsx:SelectPanel.SecondaryAction",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/experimental/SelectPanel2/SelectPanel.tsx:SelectPanel.SecondaryAction",
+            "entityName": "SelectPanel.SecondaryAction",
+            "location": "packages/react/src/experimental/SelectPanel2/SelectPanel.tsx:1"
+          },
+          "message": "Component \"SelectPanel.SecondaryAction\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.415Z"
+        },
+        {
+          "id": "drift:deprecated-pattern:react:packages/react/src/deprecated/FilteredSearch/FilteredSearch.tsx:FilteredSearch",
+          "type": "deprecated-pattern",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/react/src/deprecated/FilteredSearch/FilteredSearch.tsx:FilteredSearch",
+            "entityName": "FilteredSearch",
+            "location": "packages/react/src/deprecated/FilteredSearch/FilteredSearch.tsx:10"
+          },
+          "message": "Component \"FilteredSearch\" is marked as deprecated",
+          "details": {
+            "suggestions": [
+              "Migrate to recommended alternative"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.415Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/doc-gen/src/__tests__/fixtures/NestedComponent.tsx:NestedComponent.SubComponent",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/doc-gen/src/__tests__/fixtures/NestedComponent.tsx:NestedComponent.SubComponent",
+            "entityName": "NestedComponent.SubComponent",
+            "location": "packages/doc-gen/src/__tests__/fixtures/NestedComponent.tsx:3"
+          },
+          "message": "Component \"NestedComponent.SubComponent\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.415Z"
+        },
+        {
+          "id": "drift:naming-inconsistency:react:packages/doc-gen/src/__tests__/fixtures/NestedComponent.tsx:NestedComponent.SubComponent2",
+          "type": "naming-inconsistency",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "react:packages/doc-gen/src/__tests__/fixtures/NestedComponent.tsx:NestedComponent.SubComponent2",
+            "entityName": "NestedComponent.SubComponent2",
+            "location": "packages/doc-gen/src/__tests__/fixtures/NestedComponent.tsx:7"
+          },
+          "message": "Component \"NestedComponent.SubComponent2\" uses other but 75% of components use PascalCase",
+          "details": {
+            "suggestions": [
+              "Consider renaming to match project convention (PascalCase)"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:00:56.415Z"
+        }
+      ]
     }
   },
-  "completedAt": "2025-12-31T06:57:52.824Z",
-  "durationMs": 4308
+  "completedAt": "2026-01-20T23:00:56.672Z",
+  "durationMs": 3485
 }

@@ -1,0 +1,191 @@
+{
+  "id": "koel-koel-1768949707831",
+  "repo": {
+    "url": "https://github.com/koel/koel",
+    "owner": "koel",
+    "name": "koel",
+    "description": "Music streaming solution that works.",
+    "stars": 16937,
+    "forks": 2079,
+    "defaultBranch": "master",
+    "lastCommit": "2026-01-11T18:12:23.000Z",
+    "language": "PHP",
+    "topics": [
+      "audio",
+      "hacktoberfest",
+      "laravel",
+      "music",
+      "music-player",
+      "streaming",
+      "vue"
+    ],
+    "designSystemSignals": [
+      "tailwind-theme"
+    ],
+    "activitySignals": [
+      "recent-commits",
+      "high-stars"
+    ],
+    "score": {
+      "total": 5,
+      "designSystem": 2,
+      "activity": 3,
+      "breakdown": {
+        "tailwind-theme": 2,
+        "recent-commits": 2,
+        "high-stars": 1
+      }
+    },
+    "discoveredAt": "2026-01-18T20:34:19.313Z",
+    "lastTestedAt": "2026-01-20T22:49:15.929Z"
+  },
+  "status": "completed",
+  "startedAt": "2026-01-20T22:55:07.831Z",
+  "buoyVersion": "0.2.19",
+  "configGenerated": false,
+  "buoyOutput": {
+    "scan": {
+      "components": 272,
+      "tokens": 0,
+      "sources": []
+    },
+    "drift": {
+      "total": 5,
+      "byType": {
+        "semantic-mismatch": 5
+      },
+      "bySeverity": {
+        "warning": 5
+      },
+      "signals": [
+        {
+          "id": "drift:semantic-mismatch:vue:resources/assets/js/components/user/UserAvatar.vue:UserAvatar:user",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "vue:resources/assets/js/components/user/UserAvatar.vue:UserAvatar",
+            "entityName": "UserAvatar",
+            "location": "resources/assets/js/components/user/UserAvatar.vue:1"
+          },
+          "message": "Prop \"user\" in \"UserAvatar\" uses type \"Pick<User, 'name' | 'avatar'>\" but other components use \"User\"",
+          "details": {
+            "expected": "User",
+            "actual": "Pick<User, 'name' | 'avatar'>",
+            "usedIn": [
+              "UserContextMenu",
+              "UserCard",
+              "EditUserForm"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T22:55:13.164Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:vue:resources/assets/js/components/ui/ScreenHeader.vue:ScreenHeader:layout",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "vue:resources/assets/js/components/ui/ScreenHeader.vue:ScreenHeader",
+            "entityName": "ScreenHeader",
+            "location": "resources/assets/js/components/ui/ScreenHeader.vue:1"
+          },
+          "message": "Prop \"layout\" in \"ScreenHeader\" uses type \"ScreenHeaderLayout\n  disabled?: boolean\" but other components use \"CardLayout\"",
+          "details": {
+            "expected": "CardLayout",
+            "actual": "ScreenHeaderLayout\n  disabled?: boolean",
+            "usedIn": [
+              "RadioStationCardSkeleton",
+              "RadioStationCard",
+              "PodcastCard"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T22:55:13.164Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:vue:resources/assets/js/components/ui/AlbumArtOverlay.vue:AlbumArtOverlay:album",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "vue:resources/assets/js/components/ui/AlbumArtOverlay.vue:AlbumArtOverlay",
+            "entityName": "AlbumArtOverlay",
+            "location": "resources/assets/js/components/ui/AlbumArtOverlay.vue:1"
+          },
+          "message": "Prop \"album\" in \"AlbumArtOverlay\" uses type \"Album['id']\" but other components use \"Album\"",
+          "details": {
+            "expected": "Album",
+            "actual": "Album['id']",
+            "usedIn": [
+              "EditAlbumForm",
+              "AlbumTrackListItem",
+              "AlbumTrackList"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T22:55:13.164Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:vue:resources/assets/js/components/album/AlbumCard.vue:AlbumCard:album",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "vue:resources/assets/js/components/album/AlbumCard.vue:AlbumCard",
+            "entityName": "AlbumCard",
+            "location": "resources/assets/js/components/album/AlbumCard.vue:1"
+          },
+          "message": "Prop \"album\" in \"AlbumCard\" uses type \"Album\n  layout?: CardLayout\n  showReleaseYear?: boolean\" but other components use \"Album\"",
+          "details": {
+            "expected": "Album",
+            "actual": "Album\n  layout?: CardLayout\n  showReleaseYear?: boolean",
+            "usedIn": [
+              "EditAlbumForm",
+              "AlbumTrackListItem",
+              "AlbumTrackList"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T22:55:13.164Z"
+        },
+        {
+          "id": "drift:semantic-mismatch:vue:resources/assets/js/components/embed/widget/audio-player/EmbedAudioPlayerNextButton.vue:EmbedAudioPlayerNextButton:playable",
+          "type": "semantic-mismatch",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "vue:resources/assets/js/components/embed/widget/audio-player/EmbedAudioPlayerNextButton.vue:EmbedAudioPlayerNextButton",
+            "entityName": "EmbedAudioPlayerNextButton",
+            "location": "resources/assets/js/components/embed/widget/audio-player/EmbedAudioPlayerNextButton.vue:1"
+          },
+          "message": "Prop \"playable\" in \"EmbedAudioPlayerNextButton\" uses type \"Playable | null\" but other components use \"Playable\"",
+          "details": {
+            "expected": "Playable",
+            "actual": "Playable | null",
+            "usedIn": [
+              "PlayableThumbnail",
+              "UpNext",
+              "EmbedAudioPlayerProgressBar"
+            ],
+            "suggestions": [
+              "Standardize prop types across components for consistency"
+            ]
+          },
+          "detectedAt": "2026-01-20T22:55:13.164Z"
+        }
+      ]
+    }
+  },
+  "completedAt": "2026-01-20T22:55:13.264Z",
+  "durationMs": 5433
+}

@@ -1,0 +1,28 @@
+{
+  "repo": {
+    "url": "https://github.com/immich-app/immich",
+    "name": "immich",
+    "owner": "immich-app"
+  },
+  "score": 5,
+  "testedAt": "2026-01-20T23:06:11.393Z",
+  "buoyVersion": "0.2.19",
+  "designSystemSources": [],
+  "scan": {
+    "components": 332,
+    "tokens": 0,
+    "coverage": {}
+  },
+  "drift": {
+    "total": 132,
+    "byType": {
+      "semantic-mismatch": 37,
+      "hardcoded-value": 94,
+      "naming-inconsistency": 1
+    },
+    "bySeverity": {
+      "warning": 42,
+      "info": 90
+    }
+  }
+}

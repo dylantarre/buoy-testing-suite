@@ -1,0 +1,50 @@
+{
+  "id": "primer-css-1768797785093",
+  "repo": {
+    "url": "https://github.com/primer/css",
+    "owner": "primer",
+    "name": "css",
+    "description": "Primer is GitHub's design system. This is the CSS implementation",
+    "stars": 12868,
+    "forks": 1277,
+    "defaultBranch": "main",
+    "lastCommit": "2026-01-16T21:18:17.000Z",
+    "language": "SCSS",
+    "topics": [
+      "css",
+      "design-system",
+      "design-systems",
+      "framework",
+      "meta",
+      "primer",
+      "primer-css",
+      "sass",
+      "styleguide",
+      "ui-components"
+    ],
+    "designSystemSignals": [],
+    "activitySignals": [
+      "recent-commits",
+      "contributing-guide",
+      "high-stars"
+    ],
+    "score": {
+      "total": 5,
+      "designSystem": 0,
+      "activity": 5,
+      "breakdown": {
+        "recent-commits": 2,
+        "contributing-guide": 2,
+        "high-stars": 1
+      }
+    },
+    "discoveredAt": "2026-01-19T02:34:52.845Z"
+  },
+  "status": "failed",
+  "startedAt": "2026-01-19T04:43:05.093Z",
+  "buoyVersion": "0.2.5",
+  "configGenerated": false,
+  "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CXG8Cqvs2tY5at7M2G84f\"}",
+  "completedAt": "2026-01-19T04:43:07.472Z",
+  "durationMs": 2379
+}

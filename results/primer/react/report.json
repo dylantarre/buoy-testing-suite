@@ -5,17 +5,25 @@
     "owner": "primer"
   },
   "score": 5,
-  "testedAt": "2025-12-31T06:57:52.824Z",
-  "buoyVersion": "0.0.1",
+  "testedAt": "2026-01-20T23:00:56.672Z",
+  "buoyVersion": "0.2.19",
   "designSystemSources": [],
   "scan": {
-    "components": 325,
-    "tokens": 0,
+    "components": 577,
+    "tokens": 8,
     "coverage": {}
   },
   "drift": {
-    "total": 0,
-    "byType": {},
-    "bySeverity": {}
+    "total": 151,
+    "byType": {
+      "naming-inconsistency": 145,
+      "deprecated-pattern": 2,
+      "semantic-mismatch": 3,
+      "hardcoded-value": 1
+    },
+    "bySeverity": {
+      "info": 146,
+      "warning": 5
+    }
   }
 }

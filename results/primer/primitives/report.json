@@ -1,0 +1,21 @@
+{
+  "repo": {
+    "url": "https://github.com/primer/primitives",
+    "name": "primitives",
+    "owner": "primer"
+  },
+  "score": 5,
+  "testedAt": "2026-01-19T04:24:58.443Z",
+  "buoyVersion": "0.2.5",
+  "designSystemSources": [],
+  "scan": {
+    "components": 0,
+    "tokens": 0,
+    "coverage": {}
+  },
+  "drift": {
+    "total": 0,
+    "byType": {},
+    "bySeverity": {}
+  }
+}

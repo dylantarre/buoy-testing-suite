@@ -184,55 +184,20 @@ export class BuoyRunner {
   }
 
   /**
-   * Ensure Buoy config exists
+   * Ensure Buoy config exists - now relies on zero-config mode for auto-detection
+   * Zero-config supports React, Vue (including Laravel paths), Svelte, Angular, etc.
    */
   private async ensureBuoyConfig(repoPath: string): Promise<boolean> {
     const configPath = join(repoPath, 'buoy.config.mjs');
 
+    // If config exists, leave it alone
     if (existsSync(configPath)) {
       return false;
     }
 
-    // Run buoy init --auto
-    try {
-      await this.execCommand(this.buoyPath, ['init', '--yes'], repoPath);
-      return true;
-    } catch {
-      // If init fails, create config with comprehensive monorepo patterns
-      const repoName = repoPath.split('/').pop() || 'unknown';
-      const fallbackConfig = `export default {
-  project: { name: '${repoName}' },
-  sources: {
-    react: {
-      enabled: true,
-      include: [
-        // Standard locations
-        'src/**/*.tsx',
-        'src/**/*.jsx',
-        'app/**/*.tsx',
-        'components/**/*.tsx',
-        'lib/**/*.tsx',
-        // Monorepo packages
-        'packages/*/src/**/*.tsx',
-        'packages/*/*/src/**/*.tsx',
-        'packages/@*/src/**/*.tsx',
-        'packages/@*/*/src/**/*.tsx',
-        // Apps directory
-        'apps/*/src/**/*.tsx',
-        'apps/*/**/*.tsx',
-        // Registry patterns (shadcn-ui)
-        'apps/*/registry/**/*.tsx',
-        // Libs (Nx)
-        'libs/*/src/**/*.tsx',
-      ],
-      exclude: ['**/*.test.*', '**/*.spec.*', '**/*.stories.*', '**/node_modules/**'],
-    },
-  },
-};
-`;
-      await writeFile(configPath, fallbackConfig);
-      return true;
-    }
+    // Let buoy's zero-config mode handle auto-detection
+    // This supports multiple frameworks without requiring Claude API
+    return false;
   }
 
   /**

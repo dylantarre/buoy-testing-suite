@@ -8,8 +8,9 @@ import { readdir } from 'fs/promises';
 import { existsSync } from 'fs';
 import { GitHubSearcher, RegistryManager } from './discovery/index.js';
 import { BuoyRunner, RepoCache } from './execution/index.js';
-import { JsonReporter, MarkdownReporter, PromptBuilder } from './reporting/index.js';
+import { JsonReporter, MarkdownReporter, PromptBuilder, PublicStatsGenerator } from './reporting/index.js';
 import { Assessor } from './assessment/index.js';
+import { GroundTruthScanner } from './assessment/ground-truth.js';
 import { MIN_SCORE_THRESHOLD } from './types.js';
 import type { TestRun } from './types.js';
 
@@ -21,8 +22,8 @@ const getResultsDir = () => join(process.cwd(), 'results');
 const getRegistryPath = () => join(process.cwd(), 'registry', 'repos.json');
 
 program
-  .name('buoy-test')
-  .description('Test harness for stress-testing Buoy against real-world design systems')
+  .name('buoy-lab')
+  .description('Research platform for testing Buoy and gathering design system statistics')
   .version('0.1.0');
 
 // ============================================================================
@@ -76,6 +77,66 @@ discoverCmd
     // Save to registry
     const registry = new RegistryManager(getRegistryPath());
     const { added, updated } = await registry.addRepos(filtered);
+
+    console.log(chalk.green(`\nRegistry updated: ${added} added, ${updated} updated`));
+  });
+
+discoverCmd
+  .command('apps')
+  .description('Search GitHub for apps (not libraries) that will have design drift')
+  .option('--min-stars <n>', 'Minimum star count', '20')
+  .option('--max-results <n>', 'Maximum repos to find', '100')
+  .option('--page <n>', 'Search results page (for pagination)', '1')
+  .action(async (options) => {
+    const token = process.env['GITHUB_TOKEN'];
+    if (!token) {
+      console.error(chalk.red('Error: GITHUB_TOKEN environment variable required'));
+      process.exit(1);
+    }
+
+    const page = parseInt(options.page, 10);
+    console.log(chalk.blue(`Searching GitHub for apps with potential design drift (page ${page})...`));
+    console.log(chalk.dim('(Excluding design system libraries)\n'));
+
+    const searcher = new GitHubSearcher({
+      token,
+      minStars: parseInt(options.minStars, 10),
+      maxResults: parseInt(options.maxResults, 10),
+    });
+
+    const repos = await searcher.searchForApps({
+      page,
+      onProgress: (completed, total, phase) => {
+        if (phase === 'search') {
+          process.stdout.write(`\r  Searching: ${completed}/${total} queries`);
+        } else {
+          process.stdout.write(`\r  Enriching: ${completed}/${total} repos  `);
+        }
+      },
+    });
+
+    console.log(chalk.green(`\n\nFound ${repos.length} apps:\n`));
+
+    for (const repo of repos.slice(0, 20)) {
+      console.log(
+        `  ${chalk.bold(repo.owner + '/' + repo.name)} ` +
+          chalk.dim(`(score: ${repo.score.total}, stars: ${repo.stars})`)
+      );
+      console.log(
+        `    Signals: ${[...repo.designSystemSignals, ...repo.activitySignals].join(', ')}`
+      );
+      if (repo.description) {
+        console.log(chalk.dim(`    ${repo.description.slice(0, 80)}${repo.description.length > 80 ? '...' : ''}`));
+      }
+    }
+
+    if (repos.length > 20) {
+      console.log(chalk.dim(`\n  ... and ${repos.length - 20} more`));
+    }
+
+    // Save to registry
+    const registry = new RegistryManager(getRegistryPath());
+    const { added, updated } = await registry.addRepos(repos);
 
     console.log(chalk.green(`\nRegistry updated: ${added} added, ${updated} updated`));
   });
@@ -215,6 +276,7 @@ runCmd
   .description('Test a single repo (format: owner/name)')
   .option('--buoy-path <path>', 'Path to Buoy CLI', 'buoy')
   .option('--timeout <ms>', 'Timeout per repo in ms', '300000')
+  .option('--no-ground-truth', 'Skip AI-based ground truth establishment (faster, no API needed)')
   .action(async (repo, options) => {
     const [owner, name] = repo.split('/');
     if (!owner || !name) {
@@ -239,9 +301,10 @@ runCmd
       resultsDir: getResultsDir(),
       buoyPath: options.buoyPath,
       timeoutMs: parseInt(options.timeout, 10),
+      autoGroundTruth: options.groundTruth !== false,
     });
 
-    const { testRun, outputPath } = await runner.runOnRepo(repoData);
+    const { testRun, outputPath, groundTruth, coverage } = await runner.runOnRepo(repoData);
 
     // Generate reports
     const jsonReporter = new JsonReporter({ resultsDir: getResultsDir() });
@@ -257,6 +320,22 @@ runCmd
 
     // Mark as tested in registry
     await registry.markTested(repoData.url);
+
+    // Show coverage if available
+    if (coverage && groundTruth) {
+      console.log('');
+      console.log(chalk.bold('Coverage vs Ground Truth:'));
+      console.log(`  Components: ${testRun.buoyOutput?.scan?.components ?? 0}/${groundTruth.components.total} (${(coverage.components * 100).toFixed(0)}%)`);
+      console.log(`  Tokens: ${testRun.buoyOutput?.scan?.tokens ?? 0}/${groundTruth.tokens.total} (${(coverage.tokens * 100).toFixed(0)}%)`);
+
+      if (coverage.isComplete) {
+        console.log(chalk.green.bold('\n✓ COMPLETE - 100% coverage reached!'));
+      } else {
+        const compGap = groundTruth.components.total - (testRun.buoyOutput?.scan?.components ?? 0);
+        const tokGap = groundTruth.tokens.total - (testRun.buoyOutput?.scan?.tokens ?? 0);
+        console.log(chalk.yellow(`\n○ Gaps: ${compGap} components, ${tokGap} tokens to reach 100%`));
+      }
+    }
 
     // Print summary
     console.log(chalk.green(`\nTest completed: ${testRun.status}`));
@@ -274,7 +353,8 @@ runCmd
   .option('--untested', 'Only test repos that haven\'t been tested')
   .option('--buoy-path <path>', 'Path to Buoy CLI', 'buoy')
   .option('--timeout <ms>', 'Timeout per repo in ms', '300000')
-  .option('--concurrency <n>', 'Number of repos to test in parallel', '1')
+  .option('--concurrency <n>', 'Number of repos to test in parallel', '3')
+  .option('--no-ground-truth', 'Skip AI-based ground truth establishment (faster, no API needed)')
   .action(async (options) => {
     const registry = new RegistryManager(getRegistryPath());
 
@@ -298,6 +378,7 @@ runCmd
       resultsDir: getResultsDir(),
       buoyPath: options.buoyPath,
       timeoutMs: parseInt(options.timeout, 10),
+      autoGroundTruth: options.groundTruth !== false,  // --no-ground-truth sets this to false
     });
 
     const jsonReporter = new JsonReporter({ resultsDir: getResultsDir() });
@@ -307,10 +388,24 @@ runCmd
       reposDir: getReposDir(),
     });
 
+    const concurrency = parseInt(options.concurrency, 10);
+    const activeRepos = new Set<string>();
+
+    console.log(chalk.cyan(`\nRunning with concurrency: ${concurrency}`));
+
     const results = await runner.runOnRepos(repos, {
-      concurrency: parseInt(options.concurrency, 10),
+      concurrency,
+      onStart: (repo, index, total) => {
+        const repoName = `${repo.owner}/${repo.name}`;
+        activeRepos.add(repoName);
+        if (concurrency > 1) {
+          console.log(chalk.blue(`[${index}/${total}] Starting: ${repoName}`));
+        } else {
+          console.log(chalk.blue(`\n[${index}/${total}] Scanning ${repoName}...`));
+        }
+      },
       onProgress: (completed, total) => {
-        console.log(chalk.dim(`  Progress: ${completed}/${total}`));
+        console.log(chalk.green(`✓ ${completed}/${total} complete`));
       },
     });
 
@@ -607,6 +702,203 @@ assessCmd
     console.log(`\nResults saved to: ${resultsDir}`);
   });
 
+// ============================================================================
+// Ground Truth / Baseline Commands
+// ============================================================================
+
+const baselineCmd = program.command('baseline').description('Establish ground truth for repos');
+
+baselineCmd
+  .command('<repo>')
+  .description('Establish ground truth for a repo using AI consensus')
+  .option('-n, --scans <n>', 'Number of parallel scans for consensus', '3')
+  .option('--model <model>', 'Claude model to use', 'claude-sonnet-4-20250514')
+  .action(async (repo: string, options: { scans: string; model: string }) => {
+    const [owner, name] = repo.split('/');
+    if (!owner || !name) {
+      console.error(chalk.red('Error: Repo must be in format owner/name'));
+      process.exit(1);
+    }
+
+    const scanner = new GroundTruthScanner({
+      reposDir: getReposDir(),
+      resultsDir: getResultsDir(),
+      scanCount: parseInt(options.scans, 10),
+      model: options.model,
+    });
+
+    console.log(chalk.blue(`Establishing ground truth for ${repo}...`));
+    console.log(chalk.dim(`Using ${options.scans} parallel scans for consensus`));
+
+    try {
+      const groundTruth = await scanner.scan(owner, name);
+
+      console.log(chalk.green('\nGround Truth Established:'));
+      console.log(`  Components: ${groundTruth.components.total} (range: ${groundTruth.components.min}-${groundTruth.components.max})`);
+      console.log(`  Tokens: ${groundTruth.tokens.total} (range: ${groundTruth.tokens.min}-${groundTruth.tokens.max})`);
+      console.log(`  Consensus: ${(groundTruth.consensus * 100).toFixed(1)}%`);
+      console.log(`  Confidence: ${(groundTruth.confidence * 100).toFixed(1)}%`);
+      console.log(`  Patterns: ${groundTruth.patterns.join(', ')}`);
+      console.log(chalk.dim(`\nSaved to results/${owner}/${name}/ground-truth.json`));
+    } catch (error) {
+      console.error(chalk.red(`Error: ${error instanceof Error ? error.message : error}`));
+      process.exit(1);
+    }
+  });
+
+baselineCmd
+  .command('all')
+  .description('Establish ground truth for all repos in registry')
+  .option('-n, --scans <n>', 'Number of parallel scans for consensus', '3')
+  .option('--top <n>', 'Only process top N repos', '10')
+  .action(async (options: { scans: string; top: string }) => {
+    const registry = new RegistryManager(getRegistryPath());
+    const repos = await registry.getTopRepos(parseInt(options.top, 10));
+
+    console.log(chalk.blue(`Establishing ground truth for ${repos.length} repos...`));
+
+    const scanner = new GroundTruthScanner({
+      reposDir: getReposDir(),
+      resultsDir: getResultsDir(),
+      scanCount: parseInt(options.scans, 10),
+    });
+
+    for (const repo of repos) {
+      try {
+        console.log(chalk.dim(`\n${repo.owner}/${repo.name}...`));
+        await scanner.scan(repo.owner, repo.name);
+      } catch (error) {
+        console.error(chalk.red(`  Error: ${error instanceof Error ? error.message : error}`));
+      }
+    }
+
+    console.log(chalk.green('\nGround truth established for all repos.'));
+  });
+
+// ============================================================================
+// Progress / Completion Commands
+// ============================================================================
+
+program
+  .command('progress')
+  .description('Show progress towards completion')
+  .option('--check-complete', 'Check if testing suite is complete')
+  .action(async (options: { checkComplete?: boolean }) => {
+    const resultsDir = getResultsDir();
+    const { readFile: rf } = await import('fs/promises');
+
+    // Collect all results
+    const results: Array<{
+      repo: string;
+      detected: { components: number; tokens: number };
+      groundTruth: { components: number; tokens: number } | null;
+      coverage: { components: number; tokens: number };
+      isComplete: boolean;
+    }> = [];
+
+    const owners = await readdir(resultsDir);
+    for (const owner of owners) {
+      const ownerPath = join(resultsDir, owner);
+      try {
+        const repos = await readdir(ownerPath);
+        for (const repo of repos) {
+          const testRunPath = join(ownerPath, repo, 'test-run.json');
+          const groundTruthPath = join(ownerPath, repo, 'ground-truth.json');
+
+          if (existsSync(testRunPath)) {
+            const testRun = JSON.parse(await rf(testRunPath, 'utf-8'));
+            const detected = {
+              components: testRun.buoyOutput?.scan?.components ?? 0,
+              tokens: testRun.buoyOutput?.scan?.tokens ?? 0,
+            };
+
+            let groundTruth = null;
+            let coverage = { components: 0, tokens: 0 };
+            let isComplete = false;
+
+            if (existsSync(groundTruthPath)) {
+              const gt = JSON.parse(await rf(groundTruthPath, 'utf-8'));
+              groundTruth = {
+                components: gt.components.total,
+                tokens: gt.tokens.total,
+              };
+              coverage = {
+                components: groundTruth.components > 0 ? detected.components / groundTruth.components : 1,
+                tokens: groundTruth.tokens > 0 ? detected.tokens / groundTruth.tokens : 1,
+              };
+              isComplete = coverage.components >= 1.0 && coverage.tokens >= 1.0;
+            }
+
+            results.push({
+              repo: `${owner}/${repo}`,
+              detected,
+              groundTruth,
+              coverage,
+              isComplete,
+            });
+          }
+        }
+      } catch {
+        // Skip non-directories
+      }
+    }
+
+    // Display results
+    console.log(chalk.bold('\nProgress Report\n'));
+
+    const complete = results.filter(r => r.isComplete);
+    const incomplete = results.filter(r => !r.isComplete && r.groundTruth);
+    const noGroundTruth = results.filter(r => !r.groundTruth);
+
+    console.log(`Total repos: ${results.length}`);
+    console.log(`  ${chalk.green('✓')} Complete (100%): ${complete.length}`);
+    console.log(`  ${chalk.yellow('◐')} In progress: ${incomplete.length}`);
+    console.log(`  ${chalk.dim('○')} No ground truth: ${noGroundTruth.length}`);
+
+    if (incomplete.length > 0) {
+      console.log(chalk.bold('\nIn Progress:'));
+      for (const r of incomplete) {
+        const compPct = (r.coverage.components * 100).toFixed(0);
+        const tokPct = (r.coverage.tokens * 100).toFixed(0);
+        console.log(`  ${r.repo}: ${compPct}% components, ${tokPct}% tokens`);
+      }
+    }
+
+    if (noGroundTruth.length > 0 && noGroundTruth.length <= 10) {
+      console.log(chalk.bold('\nNeed Ground Truth:'));
+      for (const r of noGroundTruth) {
+        console.log(`  ${r.repo}: ${r.detected.components} components, ${r.detected.tokens} tokens detected`);
+      }
+      console.log(chalk.dim('\nRun: ./dist/cli.js baseline <repo> to establish ground truth'));
+    }
+
+    // Check if complete
+    if (options.checkComplete) {
+      const allComplete = results.length > 0 &&
+        noGroundTruth.length === 0 &&
+        complete.length === results.length;
+
+      if (allComplete) {
+        console.log(chalk.green.bold('\n✓ TESTING SUITE COMPLETE'));
+        console.log('All repos have reached 100% detection coverage.');
+        process.exit(0);
+      } else {
+        console.log(chalk.yellow('\n○ NOT COMPLETE'));
+        if (noGroundTruth.length > 0) {
+          console.log(`  ${noGroundTruth.length} repos need ground truth`);
+        }
+        if (incomplete.length > 0) {
+          console.log(`  ${incomplete.length} repos below 100% coverage`);
+        }
+        process.exit(1);
+      }
+    }
+  });
+
+// ============================================================================
+// Assessment Commands (continued)
+// ============================================================================
+
 assessCmd
   .command('summary')
   .description('Generate aggregate assessment summary')
@@ -675,6 +967,109 @@ assessCmd
     }
     for (const [cat, count] of Object.entries(byCategory).sort((a, b) => b[1] - a[1])) {
       console.log(`  ${cat}: ${count}`);
+    }
+  });
+
+// ============================================================================
+// Stats Commands - Public statistics for State of Design Systems
+// ============================================================================
+
+const statsCmd = program.command('stats').description('Generate public statistics for State of Design Systems report');
+
+statsCmd
+  .command('generate')
+  .description('Generate public statistics from test results')
+  .option('--output <path>', 'Output path for JSON file')
+  .option('--json', 'Output raw JSON to stdout')
+  .option('--markdown', 'Output markdown summary')
+  .action(async (options) => {
+    const generator = new PublicStatsGenerator({
+      resultsDir: getResultsDir(),
+      reposDir: getReposDir(),
+    });
+
+    if (options.json) {
+      const stats = await generator.generateStats();
+      console.log(JSON.stringify(stats, null, 2));
+      return;
+    }
+
+    if (options.markdown) {
+      const markdown = await generator.generateMarkdownSummary();
+      console.log(markdown);
+      return;
+    }
+
+    console.log(chalk.blue('Generating public statistics...'));
+
+    const outputPath = await generator.saveStats(options.output);
+    const stats = await generator.generateStats();
+
+    console.log(chalk.green(`\nStatistics generated!`));
+
+    // Scan status breakdown
+    console.log(chalk.bold('\nScan Status:'));
+    console.log(`  Total attempted: ${stats.scanStatus.total}`);
+    console.log(`  ${chalk.green('Successful:')} ${stats.scanStatus.successful} (${Math.round(stats.scanStatus.successful / stats.scanStatus.total * 100)}%)`);
+    console.log(`  ${chalk.red('Failed:')} ${stats.scanStatus.failed} (${Math.round(stats.scanStatus.failed / stats.scanStatus.total * 100)}%)`);
+    if (Object.keys(stats.scanStatus.failureReasons).length > 0) {
+      console.log(chalk.dim('  Failure reasons:'));
+      for (const [reason, count] of Object.entries(stats.scanStatus.failureReasons)) {
+        console.log(chalk.dim(`    ${reason}: ${count}`));
+      }
+    }
+
+    console.log(chalk.bold('\nDrift Statistics (from successful scans):'));
+    console.log(`  Repos analyzed: ${stats.reposScanned}`);
+    console.log(`  Mean drift: ${stats.stats.hardcodedColors.mean}`);
+    console.log(`  Median drift: ${stats.stats.hardcodedColors.median}`);
+    console.log(`  10th percentile: ${stats.stats.hardcodedColors.p10}`);
+    console.log(`  90th percentile: ${stats.stats.hardcodedColors.p90}`);
+
+    console.log(chalk.bold('\nToken adoption impact:'));
+    console.log(`  With tokens: ${Math.round(stats.stats.tokenAdoption.withTokens)} avg drift`);
+    console.log(`  Without tokens: ${Math.round(stats.stats.tokenAdoption.withoutTokens)} avg drift`);
+
+    console.log(chalk.bold('\nBy framework:'));
+    const frameworks = Object.entries(stats.stats.byFramework)
+      .sort((a, b) => b[1].count - a[1].count)
+      .slice(0, 5);
+    for (const [framework, data] of frameworks) {
+      console.log(`  ${framework}: ${data.count} repos, ${data.avgDrift} avg drift`);
+    }
+
+    console.log(chalk.green(`\nSaved to: ${outputPath}`));
+  });
+
+statsCmd
+  .command('export')
+  .description('Export statistics for buoy.design')
+  .option('--format <format>', 'Output format (json, markdown)', 'json')
+  .option('--output <path>', 'Output file path')
+  .action(async (options) => {
+    const generator = new PublicStatsGenerator({
+      resultsDir: getResultsDir(),
+      reposDir: getReposDir(),
+    });
+
+    if (options.format === 'markdown') {
+      const markdown = await generator.generateMarkdownSummary();
+      if (options.output) {
+        const { writeFile: wf } = await import('fs/promises');
+        await wf(options.output, markdown);
+        console.log(chalk.green(`Markdown exported to: ${options.output}`));
+      } else {
+        console.log(markdown);
+      }
+    } else {
+      const stats = await generator.generateStats();
+      if (options.output) {
+        const { writeFile: wf } = await import('fs/promises');
+        await wf(options.output, JSON.stringify(stats, null, 2));
+        console.log(chalk.green(`JSON exported to: ${options.output}`));
+      } else {
+        console.log(JSON.stringify(stats, null, 2));
+      }
     }
   });
 

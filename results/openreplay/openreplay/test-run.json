@@ -1,0 +1,1575 @@
+{
+  "id": "openreplay-openreplay-1768950739121",
+  "repo": {
+    "url": "https://github.com/openreplay/openreplay",
+    "owner": "openreplay",
+    "name": "openreplay",
+    "description": "Session replay, cobrowsing and product analytics you can self-host. Best for reproducing issues and iterating on your product.",
+    "stars": 11662,
+    "forks": 679,
+    "defaultBranch": "main",
+    "lastCommit": "2026-01-16T16:36:35.000Z",
+    "language": "TypeScript",
+    "topics": [
+      "analytics",
+      "angular",
+      "devtools",
+      "feature-flags",
+      "ios",
+      "javascript",
+      "nextjs",
+      "product-analytics",
+      "react",
+      "react-native",
+      "real-user-monitoring",
+      "session-replay",
+      "svelte",
+      "typescript",
+      "vue",
+      "web-vitals"
+    ],
+    "designSystemSignals": [],
+    "activitySignals": [
+      "recent-commits",
+      "contributing-guide",
+      "high-stars"
+    ],
+    "score": {
+      "total": 5,
+      "designSystem": 0,
+      "activity": 5,
+      "breakdown": {
+        "recent-commits": 2,
+        "contributing-guide": 2,
+        "high-stars": 1
+      }
+    },
+    "discoveredAt": "2026-01-18T20:36:07.380Z",
+    "lastTestedAt": "2026-01-18T21:02:10.341Z"
+  },
+  "status": "completed",
+  "startedAt": "2026-01-20T23:12:19.121Z",
+  "buoyVersion": "0.2.19",
+  "configGenerated": false,
+  "buoyOutput": {
+    "scan": {
+      "components": 0,
+      "tokens": 0,
+      "sources": []
+    },
+    "drift": {
+      "total": 60,
+      "byType": {
+        "hardcoded-value": 60
+      },
+      "bySeverity": {
+        "info": 51,
+        "warning": 9
+      },
+      "signals": [
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/withRecaptcha.tsx:css-property",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/withRecaptcha.tsx",
+            "entityName": "frontend/app/withRecaptcha.tsx",
+            "location": "frontend/app/withRecaptcha.tsx:16"
+          },
+          "message": "1 arbitrary CSS property found. Consider using utility classes.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary css-property values",
+            "affectedFiles": [
+              "frontend/app/withRecaptcha.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: [key: string] at line 16"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.877Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/IssuesSummary/IssueSessionsModal.tsx:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/IssuesSummary/IssueSessionsModal.tsx",
+            "entityName": "frontend/app/components/IssuesSummary/IssueSessionsModal.tsx",
+            "location": "frontend/app/components/IssuesSummary/IssueSessionsModal.tsx:104"
+          },
+          "message": "3 arbitrary size values found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "3 arbitrary size values",
+            "affectedFiles": [
+              "frontend/app/components/IssuesSummary/IssueSessionsModal.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: w-[300px] at line 104, h-[300px] at line 143, h-[21px] at line 189"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.877Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/DataManagement/FilterEntriesModal.tsx:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/DataManagement/FilterEntriesModal.tsx",
+            "entityName": "frontend/app/components/DataManagement/FilterEntriesModal.tsx",
+            "location": "frontend/app/components/DataManagement/FilterEntriesModal.tsx:50"
+          },
+          "message": "2 arbitrary size values found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary size values",
+            "affectedFiles": [
+              "frontend/app/components/DataManagement/FilterEntriesModal.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: min-w-[300px] at line 50, max-h-[500px] at line 62"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.877Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/Charts/SankeyChart.tsx:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/Charts/SankeyChart.tsx",
+            "entityName": "frontend/app/components/Charts/SankeyChart.tsx",
+            "location": "frontend/app/components/Charts/SankeyChart.tsx:443"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "frontend/app/components/Charts/SankeyChart.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: min-w-[600px] at line 443"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.877Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/Charts/PieChart.tsx:css-property",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/Charts/PieChart.tsx",
+            "entityName": "frontend/app/components/Charts/PieChart.tsx",
+            "location": "frontend/app/components/Charts/PieChart.tsx:15"
+          },
+          "message": "1 arbitrary CSS property found. Consider using utility classes.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary css-property values",
+            "affectedFiles": [
+              "frontend/app/components/Charts/PieChart.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: [seriesName: string] at line 15"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.877Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/Charts/ColumnChart.tsx:css-property",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/Charts/ColumnChart.tsx",
+            "entityName": "frontend/app/components/Charts/ColumnChart.tsx",
+            "location": "frontend/app/components/Charts/ColumnChart.tsx:12"
+          },
+          "message": "1 arbitrary CSS property found. Consider using utility classes.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary css-property values",
+            "affectedFiles": [
+              "frontend/app/components/Charts/ColumnChart.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: [seriesName: string] at line 12"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.877Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/Alerts/AlertForm.tsx:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/Alerts/AlertForm.tsx",
+            "entityName": "frontend/app/components/Alerts/AlertForm.tsx",
+            "location": "frontend/app/components/Alerts/AlertForm.tsx:262"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "frontend/app/components/Alerts/AlertForm.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: min-w-[60px] at line 262"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.877Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/ui/Pagination/Pagination.tsx:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/ui/Pagination/Pagination.tsx",
+            "entityName": "frontend/app/components/ui/Pagination/Pagination.tsx",
+            "location": "frontend/app/components/ui/Pagination/Pagination.tsx:82"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "frontend/app/components/ui/Pagination/Pagination.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: min-w-[50px] at line 82"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.877Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/ui/Input/Input.tsx:css-property",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/ui/Input/Input.tsx",
+            "entityName": "frontend/app/components/ui/Input/Input.tsx",
+            "location": "frontend/app/components/ui/Input/Input.tsx:15"
+          },
+          "message": "1 arbitrary CSS property found. Consider using utility classes.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary css-property values",
+            "affectedFiles": [
+              "frontend/app/components/ui/Input/Input.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: [x: string] at line 15"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.877Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/ui/Form/Form.tsx:css-property",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/ui/Form/Form.tsx",
+            "entityName": "frontend/app/components/ui/Form/Form.tsx",
+            "location": "frontend/app/components/ui/Form/Form.tsx:6"
+          },
+          "message": "2 arbitrary CSS properties found. Consider using utility classes.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary css-property values",
+            "affectedFiles": [
+              "frontend/app/components/ui/Form/Form.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: [x: string] at line 6, [x: string] at line 11"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.877Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/ui/Checkbox/Checkbox.tsx:css-property",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/ui/Checkbox/Checkbox.tsx",
+            "entityName": "frontend/app/components/ui/Checkbox/Checkbox.tsx",
+            "location": "frontend/app/components/ui/Checkbox/Checkbox.tsx:7"
+          },
+          "message": "1 arbitrary CSS property found. Consider using utility classes.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary css-property values",
+            "affectedFiles": [
+              "frontend/app/components/ui/Checkbox/Checkbox.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: [x: string] at line 7"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/ui/Button/Button.tsx:css-property",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/ui/Button/Button.tsx",
+            "entityName": "frontend/app/components/ui/Button/Button.tsx",
+            "location": "frontend/app/components/ui/Button/Button.tsx:25"
+          },
+          "message": "1 arbitrary CSS property found. Consider using utility classes.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary css-property values",
+            "affectedFiles": [
+              "frontend/app/components/ui/Button/Button.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: [x: string] at line 25"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/shared/SessionItem/SessionItem.tsx:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/shared/SessionItem/SessionItem.tsx",
+            "entityName": "frontend/app/components/shared/SessionItem/SessionItem.tsx",
+            "location": "frontend/app/components/shared/SessionItem/SessionItem.tsx:307"
+          },
+          "message": "4 arbitrary size values found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "4 arbitrary size values",
+            "affectedFiles": [
+              "frontend/app/components/shared/SessionItem/SessionItem.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: lg:w-[40%] at line 307, max-w-[260px] at line 307, w-[40%] at line 355"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/shared/SelectDateRange/SelectDateRange.tsx:css-property",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/shared/SelectDateRange/SelectDateRange.tsx",
+            "entityName": "frontend/app/components/shared/SelectDateRange/SelectDateRange.tsx",
+            "location": "frontend/app/components/shared/SelectDateRange/SelectDateRange.tsx:31"
+          },
+          "message": "2 arbitrary CSS properties found. Consider using utility classes.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary css-property values",
+            "affectedFiles": [
+              "frontend/app/components/shared/SelectDateRange/SelectDateRange.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: [start: string, end?: string] at line 31, [x: string] at line 32"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/shared/Select/Select.tsx:css-property",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/shared/Select/Select.tsx",
+            "entityName": "frontend/app/components/shared/Select/Select.tsx",
+            "location": "frontend/app/components/shared/Select/Select.tsx:18"
+          },
+          "message": "1 arbitrary CSS property found. Consider using utility classes.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary css-property values",
+            "affectedFiles": [
+              "frontend/app/components/shared/Select/Select.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: [x: string] at line 18"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/Kai/components/ChatMsg.tsx:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/Kai/components/ChatMsg.tsx",
+            "entityName": "frontend/app/components/Kai/components/ChatMsg.tsx",
+            "location": "frontend/app/components/Kai/components/ChatMsg.tsx:202"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "frontend/app/components/Kai/components/ChatMsg.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: max-w-[60svw] at line 202"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/Kai/components/ChatInput.tsx:color",
+          "type": "hardcoded-value",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/Kai/components/ChatInput.tsx",
+            "entityName": "frontend/app/components/Kai/components/ChatInput.tsx",
+            "location": "frontend/app/components/Kai/components/ChatInput.tsx:153"
+          },
+          "message": "2 hardcoded colors found. Use theme colors instead.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary color values",
+            "affectedFiles": [
+              "frontend/app/components/Kai/components/ChatInput.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary colors with theme colors: text-primary, bg-secondary, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: bg-[#fff] at line 153, text-[#fff] at line 162"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/Kai/components/ChatHeader.tsx:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/Kai/components/ChatHeader.tsx",
+            "entityName": "frontend/app/components/Kai/components/ChatHeader.tsx",
+            "location": "frontend/app/components/Kai/components/ChatHeader.tsx:41"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "frontend/app/components/Kai/components/ChatHeader.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: max-w-[80%] at line 41"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/Session_/PageInsightsPanel/PageInsightsPanel.tsx:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/Session_/PageInsightsPanel/PageInsightsPanel.tsx",
+            "entityName": "frontend/app/components/Session_/PageInsightsPanel/PageInsightsPanel.tsx",
+            "location": "frontend/app/components/Session_/PageInsightsPanel/PageInsightsPanel.tsx:85"
+          },
+          "message": "2 arbitrary size values found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary size values",
+            "affectedFiles": [
+              "frontend/app/components/Session_/PageInsightsPanel/PageInsightsPanel.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: w-[176px] at line 85, max-w-[270px] at line 93"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/Session_/Inspector/AttrView.tsx:css-property",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/Session_/Inspector/AttrView.tsx",
+            "entityName": "frontend/app/components/Session_/Inspector/AttrView.tsx",
+            "location": "frontend/app/components/Session_/Inspector/AttrView.tsx:15"
+          },
+          "message": "2 arbitrary CSS properties found. Consider using utility classes.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary css-property values",
+            "affectedFiles": [
+              "frontend/app/components/Session_/Inspector/AttrView.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: [key: string] at line 15, [A-Za-z0-9:-] at line 50"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/Session_/EventsBlock/EventsBlock.tsx:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/Session_/EventsBlock/EventsBlock.tsx",
+            "entityName": "frontend/app/components/Session_/EventsBlock/EventsBlock.tsx",
+            "location": "frontend/app/components/Session_/EventsBlock/EventsBlock.tsx:243"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "frontend/app/components/Session_/EventsBlock/EventsBlock.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: h-[57px] at line 243"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/Session_/EventsBlock/EventGroupWrapper.tsx:spacing",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/Session_/EventsBlock/EventGroupWrapper.tsx",
+            "entityName": "frontend/app/components/Session_/EventsBlock/EventGroupWrapper.tsx",
+            "location": "frontend/app/components/Session_/EventsBlock/EventGroupWrapper.tsx:200"
+          },
+          "message": "1 arbitrary spacing value found. Use theme spacing instead.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary spacing values",
+            "affectedFiles": [
+              "frontend/app/components/Session_/EventsBlock/EventGroupWrapper.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: gap-[10.5px] at line 200"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/Session_/EventsBlock/EventGroupWrapper.tsx:border",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/Session_/EventsBlock/EventGroupWrapper.tsx",
+            "entityName": "frontend/app/components/Session_/EventsBlock/EventGroupWrapper.tsx",
+            "location": "frontend/app/components/Session_/EventsBlock/EventGroupWrapper.tsx:198"
+          },
+          "message": "1 arbitrary border value found. Consider using theme border tokens.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary border values",
+            "affectedFiles": [
+              "frontend/app/components/Session_/EventsBlock/EventGroupWrapper.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: rounded-[3px] at line 198"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/Funnels/FunnelWidget/FunnelTable.tsx:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/Funnels/FunnelWidget/FunnelTable.tsx",
+            "entityName": "frontend/app/components/Funnels/FunnelWidget/FunnelTable.tsx",
+            "location": "frontend/app/components/Funnels/FunnelWidget/FunnelTable.tsx:71"
+          },
+          "message": "3 arbitrary size values found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "3 arbitrary size values",
+            "affectedFiles": [
+              "frontend/app/components/Funnels/FunnelWidget/FunnelTable.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: max-w-[500px] at line 71, h-[38px] at line 143, w-[38px] at line 143"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/DataManagement/Activity/EventDetailsModal.tsx:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/DataManagement/Activity/EventDetailsModal.tsx",
+            "entityName": "frontend/app/components/DataManagement/Activity/EventDetailsModal.tsx",
+            "location": "frontend/app/components/DataManagement/Activity/EventDetailsModal.tsx:217"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "frontend/app/components/DataManagement/Activity/EventDetailsModal.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: w-[150px] at line 217"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/Dashboard/Widgets/ListWithIcons.tsx:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/Dashboard/Widgets/ListWithIcons.tsx",
+            "entityName": "frontend/app/components/Dashboard/Widgets/ListWithIcons.tsx",
+            "location": "frontend/app/components/Dashboard/Widgets/ListWithIcons.tsx:38"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "frontend/app/components/Dashboard/Widgets/ListWithIcons.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: w-[95%] at line 38"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/Dashboard/Widgets/CardSessionsByList.tsx:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/Dashboard/Widgets/CardSessionsByList.tsx",
+            "entityName": "frontend/app/components/Dashboard/Widgets/CardSessionsByList.tsx",
+            "location": "frontend/app/components/Dashboard/Widgets/CardSessionsByList.tsx:84"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "frontend/app/components/Dashboard/Widgets/CardSessionsByList.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: w-[90%] at line 84"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/Charts/SunburstChart/DroppedSessions.tsx:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/Charts/SunburstChart/DroppedSessions.tsx",
+            "entityName": "frontend/app/components/Charts/SunburstChart/DroppedSessions.tsx",
+            "location": "frontend/app/components/Charts/SunburstChart/DroppedSessions.tsx:54"
+          },
+          "message": "3 arbitrary size values found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "3 arbitrary size values",
+            "affectedFiles": [
+              "frontend/app/components/Charts/SunburstChart/DroppedSessions.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: max-h-[500px] at line 54, max-h-[500px] at line 79, w-[260px] at line 98"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/Client/Projects/Projects.tsx:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/Client/Projects/Projects.tsx",
+            "entityName": "frontend/app/components/Client/Projects/Projects.tsx",
+            "location": "frontend/app/components/Client/Projects/Projects.tsx:99"
+          },
+          "message": "2 arbitrary size values found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary size values",
+            "affectedFiles": [
+              "frontend/app/components/Client/Projects/Projects.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: h-[92px] at line 99, md:h-[46px] at line 99"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/Client/ExportedVideos/ExportedVideoRow.tsx:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/Client/ExportedVideos/ExportedVideoRow.tsx",
+            "entityName": "frontend/app/components/Client/ExportedVideos/ExportedVideoRow.tsx",
+            "location": "frontend/app/components/Client/ExportedVideos/ExportedVideoRow.tsx:26"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "frontend/app/components/Client/ExportedVideos/ExportedVideoRow.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: h-[55px] at line 26"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/shared/SessionItem/MetaItem/MetaItem.tsx:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/shared/SessionItem/MetaItem/MetaItem.tsx",
+            "entityName": "frontend/app/components/shared/SessionItem/MetaItem/MetaItem.tsx",
+            "location": "frontend/app/components/shared/SessionItem/MetaItem/MetaItem.tsx:25"
+          },
+          "message": "2 arbitrary size values found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary size values",
+            "affectedFiles": [
+              "frontend/app/components/shared/SessionItem/MetaItem/MetaItem.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: w-[1px] at line 25, min-h-[17px] at line 25"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/shared/Filters/FilterValue/ValueAutoComplete.tsx:css-property",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/shared/Filters/FilterValue/ValueAutoComplete.tsx",
+            "entityName": "frontend/app/components/shared/Filters/FilterValue/ValueAutoComplete.tsx",
+            "location": "frontend/app/components/shared/Filters/FilterValue/ValueAutoComplete.tsx:40"
+          },
+          "message": "1 arbitrary CSS property found. Consider using utility classes.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary css-property values",
+            "affectedFiles": [
+              "frontend/app/components/shared/Filters/FilterValue/ValueAutoComplete.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: [key: string] at line 40"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/shared/Filters/FilterModal/FilterModal.tsx:spacing",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/shared/Filters/FilterModal/FilterModal.tsx",
+            "entityName": "frontend/app/components/shared/Filters/FilterModal/FilterModal.tsx",
+            "location": "frontend/app/components/shared/Filters/FilterModal/FilterModal.tsx:99"
+          },
+          "message": "2 arbitrary spacing values found. Use theme spacing instead.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary spacing values",
+            "affectedFiles": [
+              "frontend/app/components/shared/Filters/FilterModal/FilterModal.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: mx-[2vw] at line 99, mx-[2vw] at line 109"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/shared/Filters/FilterModal/FilterModal.tsx:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/shared/Filters/FilterModal/FilterModal.tsx",
+            "entityName": "frontend/app/components/shared/Filters/FilterModal/FilterModal.tsx",
+            "location": "frontend/app/components/shared/Filters/FilterModal/FilterModal.tsx:99"
+          },
+          "message": "6 arbitrary size values found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "6 arbitrary size values",
+            "affectedFiles": [
+              "frontend/app/components/shared/Filters/FilterModal/FilterModal.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: w-[90vw] at line 99, md:w-[490px] at line 99, h-[200px] at line 99"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/shared/Filters/FilterModal/FilterModal.tsx:grid",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/shared/Filters/FilterModal/FilterModal.tsx",
+            "entityName": "frontend/app/components/shared/Filters/FilterModal/FilterModal.tsx",
+            "location": "frontend/app/components/shared/Filters/FilterModal/FilterModal.tsx:109"
+          },
+          "message": "1 arbitrary grid template found. Consider defining in theme.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary grid values",
+            "affectedFiles": [
+              "frontend/app/components/shared/Filters/FilterModal/FilterModal.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: grid-rows-[auto_1fr] at line 109"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/shared/Filters/FilterList/UnifiedFilterList.tsx:spacing",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/shared/Filters/FilterList/UnifiedFilterList.tsx",
+            "entityName": "frontend/app/components/shared/Filters/FilterList/UnifiedFilterList.tsx",
+            "location": "frontend/app/components/shared/Filters/FilterList/UnifiedFilterList.tsx:218"
+          },
+          "message": "1 arbitrary spacing value found. Use theme spacing instead.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary spacing values",
+            "affectedFiles": [
+              "frontend/app/components/shared/Filters/FilterList/UnifiedFilterList.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: pt-[4px] at line 218"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/shared/Filters/FilterList/FilterList.tsx:color",
+          "type": "hardcoded-value",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/shared/Filters/FilterList/FilterList.tsx",
+            "entityName": "frontend/app/components/shared/Filters/FilterList/FilterList.tsx",
+            "location": "frontend/app/components/shared/Filters/FilterList/FilterList.tsx:274"
+          },
+          "message": "1 hardcoded color found. Use theme colors instead.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary color values",
+            "affectedFiles": [
+              "frontend/app/components/shared/Filters/FilterList/FilterList.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary colors with theme colors: text-primary, bg-secondary, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: bg-[#f6f6f6] at line 274"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/shared/Filters/FilterItem/FilterItem.tsx:spacing",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/shared/Filters/FilterItem/FilterItem.tsx",
+            "entityName": "frontend/app/components/shared/Filters/FilterItem/FilterItem.tsx",
+            "location": "frontend/app/components/shared/Filters/FilterItem/FilterItem.tsx:200"
+          },
+          "message": "3 arbitrary spacing values found. Use theme spacing instead.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "3 arbitrary spacing values",
+            "affectedFiles": [
+              "frontend/app/components/shared/Filters/FilterItem/FilterItem.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: ml-[1.75rem] at line 200, ml-[0.75rem] at line 201, mt-[2px] at line 222"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/shared/Filters/FilterAutoComplete/FilterAutoComplete.tsx:css-property",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/shared/Filters/FilterAutoComplete/FilterAutoComplete.tsx",
+            "entityName": "frontend/app/components/shared/Filters/FilterAutoComplete/FilterAutoComplete.tsx",
+            "location": "frontend/app/components/shared/Filters/FilterAutoComplete/FilterAutoComplete.tsx:26"
+          },
+          "message": "1 arbitrary CSS property found. Consider using utility classes.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary css-property values",
+            "affectedFiles": [
+              "frontend/app/components/shared/Filters/FilterAutoComplete/FilterAutoComplete.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: [key: string] at line 26"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/shared/DevTools/TimeTable/TimeTable.tsx:css-property",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/shared/DevTools/TimeTable/TimeTable.tsx",
+            "entityName": "frontend/app/components/shared/DevTools/TimeTable/TimeTable.tsx",
+            "location": "frontend/app/components/shared/DevTools/TimeTable/TimeTable.tsx:31"
+          },
+          "message": "1 arbitrary CSS property found. Consider using utility classes.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary css-property values",
+            "affectedFiles": [
+              "frontend/app/components/shared/DevTools/TimeTable/TimeTable.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: [key: string] at line 31"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/shared/DevTools/LongTaskPanel/TaskTimeline.tsx:color",
+          "type": "hardcoded-value",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/shared/DevTools/LongTaskPanel/TaskTimeline.tsx",
+            "entityName": "frontend/app/components/shared/DevTools/LongTaskPanel/TaskTimeline.tsx",
+            "location": "frontend/app/components/shared/DevTools/LongTaskPanel/TaskTimeline.tsx:7"
+          },
+          "message": "4 hardcoded colors found. Use theme colors instead.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "4 arbitrary color values",
+            "affectedFiles": [
+              "frontend/app/components/shared/DevTools/LongTaskPanel/TaskTimeline.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary colors with theme colors: text-primary, bg-secondary, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: bg-[#CC0000] at line 7, bg-[#EFB100] at line 8, bg-[#66a299] at line 9"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/Spots/SpotPlayer/components/MobileControlOverlay.tsx:color",
+          "type": "hardcoded-value",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/Spots/SpotPlayer/components/MobileControlOverlay.tsx",
+            "entityName": "frontend/app/components/Spots/SpotPlayer/components/MobileControlOverlay.tsx",
+            "location": "frontend/app/components/Spots/SpotPlayer/components/MobileControlOverlay.tsx:68"
+          },
+          "message": "1 hardcoded color found. Use theme colors instead.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary color values",
+            "affectedFiles": [
+              "frontend/app/components/Spots/SpotPlayer/components/MobileControlOverlay.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary colors with theme colors: text-primary, bg-secondary, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: bg-[rgba(0,0,0,0.1)] at line 68"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/Session/Player/ReplayPlayer/PlayerBlockHeader.tsx:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/Session/Player/ReplayPlayer/PlayerBlockHeader.tsx",
+            "entityName": "frontend/app/components/Session/Player/ReplayPlayer/PlayerBlockHeader.tsx",
+            "location": "frontend/app/components/Session/Player/ReplayPlayer/PlayerBlockHeader.tsx:90"
+          },
+          "message": "3 arbitrary size values found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "3 arbitrary size values",
+            "affectedFiles": [
+              "frontend/app/components/Session/Player/ReplayPlayer/PlayerBlockHeader.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: lg:h-[50px] at line 90, w-[1px] at line 103, lg:h-[50px] at line 103"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/Session/Player/ClipPlayer/ClipPlayerContent.tsx:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/Session/Player/ClipPlayer/ClipPlayerContent.tsx",
+            "entityName": "frontend/app/components/Session/Player/ClipPlayer/ClipPlayerContent.tsx",
+            "location": "frontend/app/components/Session/Player/ClipPlayer/ClipPlayerContent.tsx:75"
+          },
+          "message": "4 arbitrary size values found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "4 arbitrary size values",
+            "affectedFiles": [
+              "frontend/app/components/Session/Player/ClipPlayer/ClipPlayerContent.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: max-h-[${outerHeight}px] at line 75, h-[${outerHeight}px] at line 75, max-h-[${innerHeight}px] at line 81"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/Session_/Player/Overlay/PlayIconLayer.tsx:color",
+          "type": "hardcoded-value",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/Session_/Player/Overlay/PlayIconLayer.tsx",
+            "entityName": "frontend/app/components/Session_/Player/Overlay/PlayIconLayer.tsx",
+            "location": "frontend/app/components/Session_/Player/Overlay/PlayIconLayer.tsx:87"
+          },
+          "message": "1 hardcoded color found. Use theme colors instead.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary color values",
+            "affectedFiles": [
+              "frontend/app/components/Session_/Player/Overlay/PlayIconLayer.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary colors with theme colors: text-primary, bg-secondary, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: bg-[rgba(0,0,0,0.1)] at line 87"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/Session_/Player/Controls/EventsList.tsx:color",
+          "type": "hardcoded-value",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/Session_/Player/Controls/EventsList.tsx",
+            "entityName": "frontend/app/components/Session_/Player/Controls/EventsList.tsx",
+            "location": "frontend/app/components/Session_/Player/Controls/EventsList.tsx:45"
+          },
+          "message": "5 hardcoded colors found. Use theme colors instead.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "5 arbitrary color values",
+            "affectedFiles": [
+              "frontend/app/components/Session_/Player/Controls/EventsList.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary colors with theme colors: text-primary, bg-secondary, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: bg-[#f0a930] at line 45, bg-[#394eff] at line 45, bg-[#ff5454] at line 59"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/Session_/Player/Controls/EventsList.tsx:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/Session_/Player/Controls/EventsList.tsx",
+            "entityName": "frontend/app/components/Session_/Player/Controls/EventsList.tsx",
+            "location": "frontend/app/components/Session_/Player/Controls/EventsList.tsx:45"
+          },
+          "message": "5 arbitrary size values found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "5 arbitrary size values",
+            "affectedFiles": [
+              "frontend/app/components/Session_/Player/Controls/EventsList.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: w-[2px] at line 45, h-[10px] at line 45, h-[10px] at line 59"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/Session_/Player/Controls/EventsList.tsx:layout",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/Session_/Player/Controls/EventsList.tsx",
+            "entityName": "frontend/app/components/Session_/Player/Controls/EventsList.tsx",
+            "location": "frontend/app/components/Session_/Player/Controls/EventsList.tsx:45"
+          },
+          "message": "3 arbitrary layout values found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "3 arbitrary layout values",
+            "affectedFiles": [
+              "frontend/app/components/Session_/Player/Controls/EventsList.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: z-[4] at line 45, z-[3] at line 59, z-[3] at line 84"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/DataManagement/UsersEvents/components/UserPropertiesModal.tsx:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/DataManagement/UsersEvents/components/UserPropertiesModal.tsx",
+            "entityName": "frontend/app/components/DataManagement/UsersEvents/components/UserPropertiesModal.tsx",
+            "location": "frontend/app/components/DataManagement/UsersEvents/components/UserPropertiesModal.tsx:146"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "frontend/app/components/DataManagement/UsersEvents/components/UserPropertiesModal.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: w-[150px] at line 146"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/Dashboard/components/WidgetDateRange/WidgetDateRange.tsx:css-property",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/Dashboard/components/WidgetDateRange/WidgetDateRange.tsx",
+            "entityName": "frontend/app/components/Dashboard/components/WidgetDateRange/WidgetDateRange.tsx",
+            "location": "frontend/app/components/Dashboard/components/WidgetDateRange/WidgetDateRange.tsx:76"
+          },
+          "message": "1 arbitrary CSS property found. Consider using utility classes.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary css-property values",
+            "affectedFiles": [
+              "frontend/app/components/Dashboard/components/WidgetDateRange/WidgetDateRange.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: [start: string, end?: string] at line 76"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/Dashboard/components/DashboardWidgetGrid/DashboardWidgetGrid.tsx:css-property",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/Dashboard/components/DashboardWidgetGrid/DashboardWidgetGrid.tsx",
+            "entityName": "frontend/app/components/Dashboard/components/DashboardWidgetGrid/DashboardWidgetGrid.tsx",
+            "location": "frontend/app/components/Dashboard/components/DashboardWidgetGrid/DashboardWidgetGrid.tsx:56"
+          },
+          "message": "1 arbitrary CSS property found. Consider using utility classes.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary css-property values",
+            "affectedFiles": [
+              "frontend/app/components/Dashboard/components/DashboardWidgetGrid/DashboardWidgetGrid.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: [key: number] at line 56"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/Dashboard/components/DashboardList/Header.tsx:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/Dashboard/components/DashboardList/Header.tsx",
+            "entityName": "frontend/app/components/Dashboard/components/DashboardList/Header.tsx",
+            "location": "frontend/app/components/Dashboard/components/DashboardList/Header.tsx:25"
+          },
+          "message": "2 arbitrary size values found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary size values",
+            "affectedFiles": [
+              "frontend/app/components/Dashboard/components/DashboardList/Header.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: min-w-[160px] at line 25, md:min-w-[300px] at line 25"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/Dashboard/components/Alerts/AlertsView.tsx:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/Dashboard/components/Alerts/AlertsView.tsx",
+            "entityName": "frontend/app/components/Dashboard/components/Alerts/AlertsView.tsx",
+            "location": "frontend/app/components/Dashboard/components/Alerts/AlertsView.tsx:49"
+          },
+          "message": "2 arbitrary size values found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary size values",
+            "affectedFiles": [
+              "frontend/app/components/Dashboard/components/Alerts/AlertsView.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: min-w-[200px] at line 49, md:min-w-[300px] at line 49"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/shared/SessionsTabOverview/components/SessionSort/SessionSort.tsx:spacing",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/shared/SessionsTabOverview/components/SessionSort/SessionSort.tsx",
+            "entityName": "frontend/app/components/shared/SessionsTabOverview/components/SessionSort/SessionSort.tsx",
+            "location": "frontend/app/components/shared/SessionsTabOverview/components/SessionSort/SessionSort.tsx:73"
+          },
+          "message": "1 arbitrary spacing value found. Use theme spacing instead.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary spacing values",
+            "affectedFiles": [
+              "frontend/app/components/shared/SessionsTabOverview/components/SessionSort/SessionSort.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: px-[7px] at line 73"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/shared/FetchDetailsModal/components/FetchTabs/FetchTimings.tsx:color",
+          "type": "hardcoded-value",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/shared/FetchDetailsModal/components/FetchTabs/FetchTimings.tsx",
+            "entityName": "frontend/app/components/shared/FetchDetailsModal/components/FetchTabs/FetchTimings.tsx",
+            "location": "frontend/app/components/shared/FetchDetailsModal/components/FetchTabs/FetchTimings.tsx:35"
+          },
+          "message": "7 hardcoded colors found. Use theme colors instead.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "7 arbitrary color values",
+            "affectedFiles": [
+              "frontend/app/components/shared/FetchDetailsModal/components/FetchTabs/FetchTimings.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary colors with theme colors: text-primary, bg-secondary, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: border-[#666] at line 35, bg-[#c3c3c3] at line 46, bg-[#12546C] at line 52"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/shared/FetchDetailsModal/components/FetchTabs/FetchTimings.tsx:layout",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/shared/FetchDetailsModal/components/FetchTabs/FetchTimings.tsx",
+            "entityName": "frontend/app/components/shared/FetchDetailsModal/components/FetchTabs/FetchTimings.tsx",
+            "location": "frontend/app/components/shared/FetchDetailsModal/components/FetchTabs/FetchTimings.tsx:35"
+          },
+          "message": "1 arbitrary layout value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary layout values",
+            "affectedFiles": [
+              "frontend/app/components/shared/FetchDetailsModal/components/FetchTabs/FetchTimings.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: order-[#666] at line 35"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/Session_/Player/Controls/components/ZoomDragLayer.tsx:color",
+          "type": "hardcoded-value",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/Session_/Player/Controls/components/ZoomDragLayer.tsx",
+            "entityName": "frontend/app/components/Session_/Player/Controls/components/ZoomDragLayer.tsx",
+            "location": "frontend/app/components/Session_/Player/Controls/components/ZoomDragLayer.tsx:239"
+          },
+          "message": "2 hardcoded colors found. Use theme colors instead.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary color values",
+            "affectedFiles": [
+              "frontend/app/components/Session_/Player/Controls/components/ZoomDragLayer.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary colors with theme colors: text-primary, bg-secondary, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: bg-[#FCC100] at line 239, bg-[#FCC100] at line 308"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/Dashboard/components/Funnels/FunnelIssuesList/FunnelIssuesList.tsx:css-property",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/Dashboard/components/Funnels/FunnelIssuesList/FunnelIssuesList.tsx",
+            "entityName": "frontend/app/components/Dashboard/components/Funnels/FunnelIssuesList/FunnelIssuesList.tsx",
+            "location": "frontend/app/components/Dashboard/components/Funnels/FunnelIssuesList/FunnelIssuesList.tsx:128"
+          },
+          "message": "2 arbitrary CSS properties found. Consider using utility classes.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary css-property values",
+            "affectedFiles": [
+              "frontend/app/components/Dashboard/components/Funnels/FunnelIssuesList/FunnelIssuesList.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: [x: string] at line 128, [x: string] at line 128"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/Dashboard/components/Alerts/AlertForm/Condition.tsx:size",
+          "type": "hardcoded-value",
+          "severity": "info",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/Dashboard/components/Alerts/AlertForm/Condition.tsx",
+            "entityName": "frontend/app/components/Dashboard/components/Alerts/AlertForm/Condition.tsx",
+            "location": "frontend/app/components/Dashboard/components/Alerts/AlertForm/Condition.tsx:119"
+          },
+          "message": "1 arbitrary size value found. Consider using theme values.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "1 arbitrary size values",
+            "affectedFiles": [
+              "frontend/app/components/Dashboard/components/Alerts/AlertForm/Condition.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary values with theme tokens: p-4, gap-2, w-full, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: min-w-[60px] at line 119"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        },
+        {
+          "id": "drift:hardcoded-value:tailwind:frontend/app/components/Dashboard/components/DashboardList/NewDashModal/Examples/PerfBreakdown.tsx:color",
+          "type": "hardcoded-value",
+          "severity": "warning",
+          "source": {
+            "entityType": "component",
+            "entityId": "tailwind:frontend/app/components/Dashboard/components/DashboardList/NewDashModal/Examples/PerfBreakdown.tsx",
+            "entityName": "frontend/app/components/Dashboard/components/DashboardList/NewDashModal/Examples/PerfBreakdown.tsx",
+            "location": "frontend/app/components/Dashboard/components/DashboardList/NewDashModal/Examples/PerfBreakdown.tsx:88"
+          },
+          "message": "2 hardcoded colors found. Use theme colors instead.",
+          "details": {
+            "expected": "Use Tailwind theme tokens",
+            "actual": "2 arbitrary color values",
+            "affectedFiles": [
+              "frontend/app/components/Dashboard/components/DashboardList/NewDashModal/Examples/PerfBreakdown.tsx"
+            ],
+            "suggestions": [
+              "Replace arbitrary colors with theme colors: text-primary, bg-secondary, etc.",
+              "Add missing values to tailwind.config.js theme.extend if needed",
+              "Examples: bg-[#E2E4F6] at line 88, bg-[#A7BFFF] at line 92"
+            ]
+          },
+          "detectedAt": "2026-01-20T23:12:28.878Z"
+        }
+      ]
+    }
+  },
+  "completedAt": "2026-01-20T23:12:28.912Z",
+  "durationMs": 9791
+}

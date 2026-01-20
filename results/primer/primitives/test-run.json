@@ -1,0 +1,43 @@
+{
+  "id": "primer-primitives-1768796695913",
+  "repo": {
+    "url": "https://github.com/primer/primitives",
+    "owner": "primer",
+    "name": "primitives",
+    "description": "Color, typography, and spacing primitives in json.",
+    "stars": 369,
+    "forks": 58,
+    "defaultBranch": "main",
+    "lastCommit": "2026-01-16T21:25:07.000Z",
+    "language": "TypeScript",
+    "topics": [
+      "design-system",
+      "design-tokens",
+      "style-dictionary"
+    ],
+    "designSystemSignals": [],
+    "activitySignals": [
+      "recent-commits",
+      "contributing-guide",
+      "high-stars"
+    ],
+    "score": {
+      "total": 5,
+      "designSystem": 0,
+      "activity": 5,
+      "breakdown": {
+        "recent-commits": 2,
+        "contributing-guide": 2,
+        "high-stars": 1
+      }
+    },
+    "discoveredAt": "2026-01-19T01:12:00.941Z"
+  },
+  "status": "failed",
+  "startedAt": "2026-01-19T04:24:55.913Z",
+  "buoyVersion": "0.2.5",
+  "configGenerated": false,
+  "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CXG6pZqkee9XLnBG71nuE\"}",
+  "completedAt": "2026-01-19T04:24:58.443Z",
+  "durationMs": 2530
+}

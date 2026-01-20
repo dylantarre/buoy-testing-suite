@@ -1,0 +1,21 @@
+{
+  "repo": {
+    "url": "https://github.com/primer/css",
+    "name": "css",
+    "owner": "primer"
+  },
+  "score": 5,
+  "testedAt": "2026-01-19T04:43:07.472Z",
+  "buoyVersion": "0.2.5",
+  "designSystemSources": [],
+  "scan": {
+    "components": 0,
+    "tokens": 0,
+    "coverage": {}
+  },
+  "drift": {
+    "total": 0,
+    "byType": {},
+    "bySeverity": {}
+  }
+}
