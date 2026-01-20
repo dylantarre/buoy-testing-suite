@@ -130,7 +130,7 @@ Minimum score to be included: **5**
 ## Project Structure
 
 ```
-buoy-testing-suite/
+buoy-lab/
 ├── src/
 │   ├── discovery/      # GitHub search and repo scoring
 │   ├── execution/      # Test runner and repo caching

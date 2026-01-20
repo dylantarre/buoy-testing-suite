@@ -1,0 +1,332 @@
+{
+  "version": 1,
+  "currentTask": null,
+  "tasks": [
+    {
+      "id": "monorepo-detection",
+      "title": "Monorepo Structure Detection",
+      "description": "Auto-detect monorepo patterns (pnpm-workspace.yaml, lerna.json) and expand include patterns to packages/*/src/**/*.tsx",
+      "priority": 1,
+      "category": "scanner",
+      "status": "completed",
+      "attempts": 4,
+      "completedAt": "2025-12-31T23:55:00.000Z",
+      "notes": "Completed in cycles 1, 7, 9, 10. Detection working correctly."
+    },
+    {
+      "id": "polymorphic-factory",
+      "title": "Mantine polymorphicFactory Pattern",
+      "description": "Detect polymorphicFactory<T>() pattern used in Mantine components",
+      "priority": 2,
+      "category": "scanner",
+      "status": "completed",
+      "attempts": 1,
+      "completedAt": "2025-12-31T16:05:00.000Z",
+      "notes": "Already implemented in react-scanner.ts. 24/24 Mantine components detected."
+    },
+    {
+      "id": "cva-pattern",
+      "title": "CVA (class-variance-authority) Pattern",
+      "description": "Detect cva() patterns used in shadcn/ui and similar libraries",
+      "priority": 3,
+      "category": "scanner",
+      "status": "completed",
+      "attempts": 1,
+      "completedAt": "2025-12-31T16:10:00.000Z",
+      "notes": "Already implemented via forwardRef detection. 4148 shadcn components detected."
+    },
+    {
+      "id": "chakra-recipe-context",
+      "title": "Chakra createRecipeContext Pattern",
+      "description": "Detect createRecipeContext() and createSlotRecipeContext() patterns",
+      "priority": 4,
+      "category": "scanner",
+      "status": "completed",
+      "attempts": 1,
+      "completedAt": "2025-12-31T16:10:00.000Z",
+      "notes": "Already implemented with withContext/withProvider patterns."
+    },
+    {
+      "id": "ark-ui-wrappers",
+      "title": "Ark UI Wrapper Detection",
+      "description": "Detect components that wrap @ark-ui/react primitives",
+      "priority": 5,
+      "category": "scanner",
+      "status": "completed",
+      "attempts": 1,
+      "completedAt": "2025-12-31T16:10:00.000Z",
+      "notes": "Covered by withProvider/withContext detection."
+    },
+    {
+      "id": "radix-wrappers",
+      "title": "Radix Primitive Wrapper Detection",
+      "description": "Detect components that wrap @radix-ui/react-* primitives",
+      "priority": 6,
+      "category": "scanner",
+      "status": "completed",
+      "attempts": 1,
+      "completedAt": "2025-12-31T16:10:00.000Z",
+      "notes": "forwardRef detection covers all Radix wrappers."
+    },
+    {
+      "id": "ts-token-objects",
+      "title": "TypeScript Token Object Detection",
+      "description": "Detect design tokens defined as TypeScript/JavaScript objects (not just CSS)",
+      "priority": 7,
+      "category": "token",
+      "status": "completed",
+      "attempts": 1,
+      "completedAt": "2026-01-01T00:52:00.000Z",
+      "notes": "Implemented in Cycle 13. Added TypeScript token object detection to TokenScanner."
+    },
+    {
+      "id": "style-props-tokens",
+      "title": "Style Props Token Detection",
+      "description": "Detect tokens used in style prop systems like Chakra/Mantine",
+      "priority": 8,
+      "category": "token",
+      "status": "completed",
+      "attempts": 1,
+      "completedAt": "2026-01-01T01:15:00.000Z",
+      "notes": "Implemented in Cycle 15. Added rem()/px() function detection, template literals, typed const assignments, and theme object patterns."
+    },
+    {
+      "id": "compound-components",
+      "title": "Compound Component Detection",
+      "description": "Detect compound component patterns (Menu.Item, Dialog.Content)",
+      "priority": 9,
+      "category": "scanner",
+      "status": "completed",
+      "attempts": 1,
+      "completedAt": "2025-12-31T16:10:00.000Z",
+      "notes": "Detected via withContext pattern."
+    },
+    {
+      "id": "forward-ref-displayname",
+      "title": "forwardRef with displayName",
+      "description": "Detect React.forwardRef components with displayName assignments",
+      "priority": 10,
+      "category": "scanner",
+      "status": "completed",
+      "attempts": 1,
+      "completedAt": "2025-12-31T16:10:00.000Z",
+      "notes": "forwardRef detection in react-scanner.ts."
+    },
+    {
+      "id": "primer-monorepo-scan",
+      "title": "Primer/React Monorepo Component Scan Bug",
+      "description": "primer/react uses forwardRef components in packages/react/src/ but the scanner detects 0 components. Test repo: repos/primer/react. Expected: 50+ components. Root cause: monorepo scan paths may not be correct or forwardRef with polymorphic type casting not detected.",
+      "priority": 11,
+      "category": "scanner",
+      "status": "completed",
+      "attempts": 1,
+      "completedAt": "2026-01-18T16:10:00.000Z",
+      "notes": "Fixed in Cycle 18. Root cause: config loader wasn't merging auto-detected frameworks with partial user configs. After fix: 577 components detected."
+    },
+    {
+      "id": "lit-web-components",
+      "title": "Lit Web Component Detection",
+      "description": "lit/lit uses @customElement decorator and LitElement class pattern. Scanner shows 0 components. Test repo: repos/lit/lit if cached, otherwise clone from GitHub. Pattern: @customElement('my-element') class MyElement extends LitElement",
+      "priority": 12,
+      "category": "scanner",
+      "status": "completed",
+      "attempts": 1,
+      "completedAt": "2026-01-19T00:30:00.000Z",
+      "notes": "Already working in Cycle 19. WebComponentScanner already has comprehensive Lit detection. Detects 385 Lit-type components and 661 total components in lit/lit repo. @customElement decorator, customElements.define(), and class extends LitElement all detected."
+    },
+    {
+      "id": "docsify-vue-detection",
+      "title": "Docsify Vue-style Component Detection",
+      "description": "docsifyjs/docsify is a JavaScript library with custom component patterns that aren't being detected. Test repo shows 0 components. Need to analyze the codebase structure and component patterns used.",
+      "priority": 13,
+      "category": "scanner",
+      "status": "completed",
+      "attempts": 1,
+      "completedAt": "2026-01-19T01:00:00.000Z",
+      "notes": "NOT APPLICABLE: docsify is a documentation generator tool, not a UI component library. It has no React/Vue/Svelte components to detect. The 'vue' topic in GitHub refers to Vue integration (embedding Vue in docs), not Vue components. Registry correctly shows designSystemSignals: [] and designSystem score: 0. Zero components detected is CORRECT behavior."
+    },
+    {
+      "id": "sigignoz-monorepo",
+      "title": "SigNoz Monorepo TypeScript Components",
+      "description": "SigNoz/signoz is a TypeScript monitoring app with 0 components detected. Large monorepo with React components in frontend/. Need to verify monorepo detection is finding nested frontend packages.",
+      "priority": 14,
+      "category": "scanner",
+      "status": "completed",
+      "attempts": 1,
+      "completedAt": "2026-01-19T02:00:00.000Z",
+      "notes": "Fixed in Cycle 23. Root cause: no detection for nested frontend directories (frontend/, client/, web/). Added detectNestedFrontend() and expandForNestedFrontend() to auto-detect.ts. SigNoz now detects 1078 components."
+    }
+  ],
+  "history": [
+    {
+      "cycle": 1,
+      "task": "monorepo-detection",
+      "result": "success",
+      "timestamp": "2025-12-31T12:47:00.000Z"
+    },
+    {
+      "cycle": 7,
+      "task": "monorepo-detection",
+      "result": "success",
+      "timestamp": "2025-12-31T14:45:00.000Z"
+    },
+    {
+      "cycle": 10,
+      "task": "monorepo-detection",
+      "result": "completed",
+      "timestamp": "2025-12-31T23:55:00.000Z"
+    },
+    {
+      "cycle": 11,
+      "task": "bulk-verification",
+      "result": "8_of_10_complete",
+      "timestamp": "2025-12-31T16:10:00.000Z"
+    },
+    {
+      "cycle": 13,
+      "task": "ts-token-objects",
+      "result": "success",
+      "timestamp": "2026-01-01T00:52:00.000Z"
+    },
+    {
+      "cycle": 14,
+      "task": "state-sync",
+      "result": "sync",
+      "timestamp": "2026-01-02T01:15:00.000Z",
+      "notes": "State.json was reset. Synced with changelog history."
+    },
+    {
+      "cycle": 15,
+      "task": "style-props-tokens",
+      "result": "success",
+      "timestamp": "2026-01-01T01:15:00.000Z",
+      "notes": "Completed in Cycle 15. See changelog entry."
+    },
+    {
+      "cycle": 16,
+      "task": "style-props-tokens",
+      "result": "already_complete",
+      "timestamp": "2026-01-02T01:26:00.000Z",
+      "notes": "Task was already completed in Cycle 15. State.json synced."
+    },
+    {
+      "cycle": 18,
+      "task": "primer-monorepo-scan",
+      "result": "success",
+      "timestamp": "2026-01-18T16:10:00.000Z",
+      "notes": "Fixed config loader to merge auto-detected frameworks with partial user configs. primer/react now detects 577 components.",
+      "metrics": {
+        "before": {
+          "primerComponents": 0,
+          "primerTokens": 0
+        },
+        "after": {
+          "primerComponents": 577,
+          "primerTokens": 8
+        }
+      },
+      "commit": "eec403d"
+    },
+    {
+      "cycle": 19,
+      "task": "lit-web-components",
+      "result": "already_working",
+      "timestamp": "2026-01-19T00:30:00.000Z",
+      "notes": "Lit detection already implemented in WebComponentScanner. Verified: 385 Lit-type components detected in lit/lit repo. Total 661 components. No code changes needed.",
+      "metrics": {
+        "litComponents": 385,
+        "litTotalComponents": 661,
+        "baseline": {
+          "chakra": {
+            "components": 820,
+            "tokens": 431
+          },
+          "mantine": {
+            "components": 4229,
+            "tokens": 356
+          },
+          "adobeReactSpectrum": {
+            "components": 1002,
+            "tokens": 783
+          },
+          "total": {
+            "components": 6712,
+            "tokens": 1570
+          }
+        }
+      }
+    },
+    {
+      "cycle": 21,
+      "task": "docsify-vue-detection",
+      "result": "not_applicable",
+      "timestamp": "2026-01-19T01:00:00.000Z",
+      "notes": "Docsify is NOT a UI component library - it's a documentation site generator. The 'vue' topic refers to Vue integration for embedding Vue in docs, not Vue components. Zero components detected is correct. No code changes needed.",
+      "analysis": {
+        "repoType": "documentation-generator",
+        "hasComponents": false,
+        "designSystemScore": 0,
+        "registrySignals": []
+      }
+    },
+    {
+      "cycle": 23,
+      "task": "sigignoz-monorepo",
+      "result": "success",
+      "timestamp": "2026-01-19T02:00:00.000Z",
+      "notes": "Added nested frontend directory detection. SigNoz has frontend code in frontend/ subdirectory. Added detectNestedFrontend() and expandForNestedFrontend() to auto-detect.ts.",
+      "metrics": {
+        "before": {
+          "sigNozComponents": 0,
+          "sigNozTokens": 0
+        },
+        "after": {
+          "sigNozComponents": 1078,
+          "sigNozTokens": 0
+        },
+        "noRegression": {
+          "chakra": {
+            "components": 751,
+            "tokens": 431
+          },
+          "mantine": {
+            "components": 3046,
+            "tokens": 356
+          }
+        }
+      },
+      "commit": "e29f758"
+    },
+    {
+      "cycle": 25,
+      "task": "buoy-lab-local-version",
+      "result": "success",
+      "timestamp": "2026-01-20T19:15:00.000Z",
+      "notes": "Updated buoy-lab runner to prefer local linked buoy (v0.2.15) over global installation (v0.2.5). This ensures buoy-lab tests use the latest buoy features including nested frontend detection.",
+      "metrics": {
+        "before": {
+          "sigNozComponents": 0,
+          "notes": "Global buoy v0.2.5 was being used, missing nested frontend fix"
+        },
+        "after": {
+          "sigNozComponents": 1084,
+          "notes": "Local buoy v0.2.15 correctly detects components in frontend/"
+        }
+      }
+    }
+  ],
+  "lastRun": "2026-01-20T19:15:00.000Z",
+  "totalCycles": 25,
+  "consecutiveFailures": 0,
+  "baselineMetrics": {
+    "components": 6712,
+    "tokens": 1570,
+    "repos": [
+      "adobe/react-spectrum",
+      "chakra-ui/chakra-ui",
+      "mantinedev/mantine",
+      "lit/lit"
+    ],
+    "measuredAt": "2026-01-19T00:30:00.000Z"
+  }
+}

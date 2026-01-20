@@ -2,29 +2,39 @@
 
 You are running an autonomous improvement cycle for Buoy, a design drift detection tool.
 
+## CRITICAL CONSTRAINTS
+
+❌ **DO NOT** add new features or framework support
+❌ **DO NOT** refactor "for improvement"
+❌ **DO NOT** expand scope beyond the task
+✅ **ONLY** fix bugs in existing detection
+✅ **ONLY** improve accuracy of existing scanners
+✅ **ALWAYS** write tests BEFORE fixing code
+✅ **ALWAYS** ensure ALL tests pass before committing
+
 ## Your Mission
 
 1. Read the current improvement state
-2. Pick the next task from the roadmap
+2. Pick the next task (a BUG to fix, not a feature to add)
 3. Run baseline tests against real design system repos
-4. Implement the fix in the Buoy codebase
-5. Run tests again to measure improvement
-6. **ONLY commit if metrics improved** (never regress)
-7. Update changelog with exactly what changed and why
-8. Bump version number
+4. **Write a failing test** that captures the bug
+5. Fix the bug to make the test pass
+6. Run ALL tests - every test must pass
+7. **ONLY commit if tests pass AND metrics improved**
+8. Update changelog with exactly what changed
 9. Update state and exit
 
 ## Context
 
 - **Buoy repo**: /Users/dylantarre/dev/buoy
-- **Testing suite**: /Users/dylantarre/dev/buoy-testing-suite
-- **State file**: /Users/dylantarre/dev/buoy-testing-suite/.improvement/state.json
-- **Changelog**: /Users/dylantarre/dev/buoy-testing-suite/.improvement/CHANGELOG.md
-- **Logs**: /Users/dylantarre/dev/buoy-testing-suite/.improvement/logs/
+- **Buoy Lab**: /Users/dylantarre/dev/buoy-lab
+- **State file**: /Users/dylantarre/dev/buoy-lab/.improvement/state.json
+- **Changelog**: /Users/dylantarre/dev/buoy-lab/.improvement/CHANGELOG.md
+- **Logs**: /Users/dylantarre/dev/buoy-lab/.improvement/logs/
 
 ## Logging Structure
 
-All logs go to `/Users/dylantarre/dev/buoy-testing-suite/.improvement/logs/`:
+All logs go to `/Users/dylantarre/dev/buoy-lab/.improvement/logs/`:
 
 ```
 logs/
@@ -47,47 +57,82 @@ Read `.improvement/state.json` to understand:
 
 If no current task, pick the highest priority pending task from the state.
 
-### Step 3: Run Baseline Tests
+### Step 3: Get Baseline Metrics (FAST MODE)
+
+**Use cached results when available** to avoid redundant scans:
 
 ```bash
-cd /Users/dylantarre/dev/buoy-testing-suite
-./dist/cli.js run batch --top 3
+cd /Users/dylantarre/dev/buoy-lab
+
+# Check for recent cached results (less than 1 hour old)
+if [ -f results/chakra-ui/chakra-ui/test-run.json ]; then
+  # Use cached metrics
+  cat results/chakra-ui/chakra-ui/test-run.json | jq '.buoyOutput.scan'
+else
+  # Only scan ONE repo for quick iteration
+  ./dist/cli.js run single chakra-ui/chakra-ui
+fi
 ```
 
-Capture the output and record:
-- How many components detected?
-- How many tokens detected?
-- Coverage percentage?
+Record baseline:
+- Components detected
+- Tokens detected
 
-**SAVE THESE NUMBERS** - you'll compare against them later.
+**DO NOT re-scan unless you changed scanner code.**
 
-### Step 4: Implement the Fix
+### Step 4: Write a FAILING Test First (MANDATORY)
 
-Based on the task, modify the relevant files in Buoy:
+**You MUST write a test before writing any fix code.**
+
+1. Find an existing test file for the area you're fixing
+2. Add a new test case that captures the bug
+3. Run the test - it MUST fail (proving the bug exists)
+4. Save the test file
+
+Example:
+```typescript
+// In packages/scanners/src/__tests__/react-scanner.test.ts
+it('detects forwardRef with displayName assignment', () => {
+  const code = `
+    const Button = React.forwardRef((props, ref) => <button ref={ref} />);
+    Button.displayName = 'Button';
+  `;
+  const result = scanComponents(code);
+  expect(result).toContainEqual(expect.objectContaining({ name: 'Button' }));
+});
+```
+
+Run the test to confirm it fails:
+```bash
+cd /Users/dylantarre/dev/buoy
+pnpm test -- --grep "forwardRef with displayName"
+```
+
+### Step 5: Fix the Bug
+
+Now fix the code to make your test pass:
 - Scanner improvements: `/Users/dylantarre/dev/buoy/packages/scanners/src/`
 - Token detection: `/Users/dylantarre/dev/buoy/packages/core/src/`
 - CLI changes: `/Users/dylantarre/dev/buoy/apps/cli/src/`
 
-Follow TDD:
-1. Write a test that fails (captures the missing pattern)
-2. Implement the fix
-3. Verify the test passes
-
-Build after changes:
+After fixing, run ALL tests:
 ```bash
 cd /Users/dylantarre/dev/buoy
 pnpm build
 pnpm test
 ```
 
-### Step 5: Run Tests Again
+**ALL tests must pass. If any test fails, fix it before proceeding.**
+
+### Step 6: Verify Improvement (Single Repo)
 
 ```bash
-cd /Users/dylantarre/dev/buoy-testing-suite
-./dist/cli.js run batch --top 3
+cd /Users/dylantarre/dev/buoy-lab
+# Use the SAME repo as baseline for fair comparison
+./dist/cli.js run single chakra-ui/chakra-ui
 ```
 
-### Step 6: Compare Metrics (CRITICAL)
+### Step 7: Compare Metrics (CRITICAL)
 
 Compare to baseline:
 
@@ -115,7 +160,7 @@ In plain English:
 - **MUST improve** at least one metric
 - If no improvement, do NOT commit - revise approach
 
-### Step 7: Commit if Improved
+### Step 8: Commit if Improved
 
 Only if metrics improved and tests pass:
 
@@ -136,9 +181,12 @@ Tested against: chakra-ui, shadcn-ui, mantine
 
 🤖 Generated by autonomous improvement loop
 Cycle: #N"
+
+# Push to GitHub after successful commit
+git push origin main
 ```
 
-### Step 8: Update Changelog
+### Step 9: Update Changelog
 
 Append to `.improvement/CHANGELOG.md`:
 
@@ -166,7 +214,7 @@ Append to `.improvement/CHANGELOG.md`:
 ---
 ```
 
-### Step 9: Update State
+### Step 10: Update State
 
 Update `.improvement/state.json`:
 - Mark task completed (or failed)
@@ -175,7 +223,7 @@ Update `.improvement/state.json`:
 - Increment cycle count
 - Update version number
 
-### Step 10: Exit with Status
+### Step 11: Exit with Status
 
 Print a summary:
 ```
@@ -232,14 +280,62 @@ Before committing, verify ALL of these:
 
 If ANY check fails, abort the commit.
 
-## Test Repos for Validation
+## Test Repos Strategy
 
-Use these repos for baseline testing:
-1. `chakra-ui/chakra-ui` - Ark UI wrappers, createRecipeContext
-2. `shadcn-ui/ui` - CVA pattern, registry structure
-3. `mantinedev/mantine` - polymorphicFactory pattern
+**Goal: 100% detection on each repo before moving on.**
 
-These are already cloned in `/Users/dylantarre/dev/buoy-testing-suite/repos/`
+### How It Works
+
+1. **Focus on ONE repo** until Buoy detects all its components/tokens
+2. **Compare against ground truth** - manually count or use AST to verify
+3. **Mark repo complete** when detection matches reality
+4. **Move to next repo** in the registry
+5. **Discover new repos** only when registry is exhausted
+
+### Current Registry
+
+Check `/Users/dylantarre/dev/buoy-lab/registry/repos.json` for all available repos.
+
+```bash
+# List all repos in registry
+./dist/cli.js registry list --top 50
+
+# See which are tested vs untested
+./dist/cli.js registry stats
+```
+
+### Completion Tracking
+
+Track in `.improvement/repo-progress.json`:
+```json
+{
+  "repos": {
+    "chakra-ui/chakra-ui": {
+      "status": "complete",
+      "expected": { "components": 2087, "tokens": 340 },
+      "detected": { "components": 2087, "tokens": 340 },
+      "completedAt": "2026-01-01"
+    },
+    "shadcn-ui/ui": {
+      "status": "in_progress",
+      "expected": { "components": 2500, "tokens": 50 },
+      "detected": { "components": 2305, "tokens": 0 },
+      "gaps": ["tokens not detected - uses CSS variables"]
+    }
+  }
+}
+```
+
+### When to Discover New Repos
+
+Only run discovery when ALL registry repos are complete:
+```bash
+# Check if we need more repos
+./dist/cli.js registry stats
+
+# If all tested and complete, discover more
+./dist/cli.js discover search --min-stars 100
+```
 
 ## Metrics History
 
@@ -262,3 +358,71 @@ Append each cycle's metrics to `.improvement/logs/metrics-history.json`:
 ```
 
 This enables trend analysis over time.
+
+## Completion Criteria - When Is Work "Done"?
+
+A scanner/feature is considered **COMPLETE** when:
+
+### Per-Repo Completion
+A repo is complete when:
+```
+detected.components >= expected.components  (100% detection)
+AND detected.tokens >= expected.tokens
+```
+
+Track in `.improvement/repo-progress.json`:
+```json
+{
+  "chakra-ui/chakra-ui": {
+    "status": "complete",
+    "expected": { "components": 100, "tokens": 50 },
+    "detected": { "components": 100, "tokens": 50 },
+    "coverage": 1.0
+  }
+}
+```
+
+### Per-Scanner Completion
+A scanner is complete when:
+1. All test repos for that scanner reach 100% detection
+2. All unit tests pass
+3. No regressions on other repos
+
+### Focus Area Completion (for parallel daemon)
+A focus area (e.g., "react-scanner") is done for THIS ROUND when:
+1. One meaningful improvement was made AND committed
+2. OR no improvement possible after 3 attempts
+3. Move to next focus area
+
+### Overall Project Completion
+The improvement loop should STOP when:
+1. All repos in registry are at 100% detection
+2. No tasks remain with priority > 0
+3. 3 consecutive cycles with no improvements
+
+When complete, the agent should:
+1. Update state.json with `status: "complete"`
+2. Log final metrics to changelog
+3. Exit with message: "Improvement target reached"
+
+## Quick Mode vs Full Mode
+
+**Quick Mode** (default for iteration):
+- Single repo scan
+- Use cached baseline
+- Skip if no scanner changes
+- ~2-3 minutes per cycle
+
+**Full Mode** (for validation):
+- All registry repos
+- Fresh scans
+- Full regression test
+- ~15-30 minutes
+
+Use `--quick` flag or set in state.json:
+```json
+{
+  "mode": "quick",
+  "quickModeRepo": "chakra-ui/chakra-ui"
+}
+```
