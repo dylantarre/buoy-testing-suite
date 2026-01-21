@@ -8,18 +8,18 @@ importers:
 
   .:
     dependencies:
+      '@ahoybuoy/cli':
+        specifier: link:/Users/dylantarre/dev/buoy/apps/cli
+        version: link:../buoy/apps/cli
+      '@ahoybuoy/core':
+        specifier: link:/Users/dylantarre/dev/buoy/packages/core
+        version: link:../buoy/packages/core
+      '@ahoybuoy/scanners':
+        specifier: link:/Users/dylantarre/dev/buoy/packages/scanners
+        version: link:../buoy/packages/scanners
       '@anthropic-ai/sdk':
         specifier: ^0.32.1
         version: 0.32.1
-      '@buoy-design/cli':
-        specifier: link:/Users/dylantarre/dev/buoy/apps/cli
-        version: link:../buoy/apps/cli
-      '@buoy-design/core':
-        specifier: link:/Users/dylantarre/dev/buoy/packages/core
-        version: link:../buoy/packages/core
-      '@buoy-design/scanners':
-        specifier: link:/Users/dylantarre/dev/buoy/packages/scanners
-        version: link:../buoy/packages/scanners
       '@octokit/rest':
         specifier: ^21.0.0
         version: 21.1.1

@@ -1,6 +1,6 @@
 # Buoy Testing Suite
 
-Test harness for stress-testing [Buoy](https://github.com/dylantarre/buoy-design) against real-world open source projects with design systems.
+Test harness for stress-testing [Buoy](https://github.com/ahoybuoy) against real-world open source projects with design systems.
 
 ## Goals
 

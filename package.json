@@ -1,15 +1,16 @@
 {
-  "name": "buoy-testing-suite",
+  "name": "buoy-lab",
   "version": "0.1.0",
-  "description": "Test harness for stress-testing Buoy against real-world design systems",
+  "description": "Research platform for testing Buoy and gathering design system statistics",
   "type": "module",
   "license": "MIT",
   "author": "Buoy <hello@buoy.design>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dylantarre/buoy-testing-suite.git"
+    "url": "git+https://github.com/dylantarre/buoy-lab.git"
   },
   "bin": {
+    "buoy-lab": "./dist/cli.js",
     "buoy-test": "./dist/cli.js",
     "buoy-improve": "./dist/improvement/runner.js",
     "buoy-daemon": "./dist/improvement/daemon.js"
@@ -32,9 +33,9 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.32.1",
-    "@buoy-design/cli": "link:/Users/dylantarre/dev/buoy/apps/cli",
-    "@buoy-design/core": "link:/Users/dylantarre/dev/buoy/packages/core",
-    "@buoy-design/scanners": "link:/Users/dylantarre/dev/buoy/packages/scanners",
+    "@ahoybuoy/cli": "link:/Users/dylantarre/dev/buoy/apps/cli",
+    "@ahoybuoy/core": "link:/Users/dylantarre/dev/buoy/packages/core",
+    "@ahoybuoy/scanners": "link:/Users/dylantarre/dev/buoy/packages/scanners",
     "@octokit/rest": "^21.0.0",
     "chalk": "^5.3.0",
     "commander": "^12.1.0",
