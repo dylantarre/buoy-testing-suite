@@ -5,12 +5,30 @@ import { z } from 'zod';
 // ============================================================================
 
 export const DesignSystemSignalSchema = z.enum([
+  // Framework signals (design system libraries)
   'storybook',
   'design-tokens',
   'figma-config',
   'ui-package',
   'css-variables',
   'tailwind-theme',
+  // Product signals (apps using design systems)
+  'chakra-ui',
+  'mantine',
+  'radix-ui',
+  'headless-ui',
+  'cva',
+  'custom-theme',
+  'saas-product',
+  'dashboard-app',
+  // App-specific signals (likely to have drift)
+  'tailwind-app',
+  'nextjs-app',
+  'admin-panel',
+  'landing-page',
+  'ecommerce',
+  'blog-app',
+  'portfolio',
 ]);
 
 export type DesignSystemSignal = z.infer<typeof DesignSystemSignalSchema>;
@@ -220,13 +238,44 @@ export type AggregateStats = z.infer<typeof AggregateStatsSchema>;
 // ============================================================================
 
 export const DESIGN_SYSTEM_WEIGHTS: Record<DesignSystemSignal, number> = {
+  // Framework signals
   'storybook': 3,
   'design-tokens': 3,
   'ui-package': 3,
   'figma-config': 2,
   'css-variables': 2,
   'tailwind-theme': 2,
+  // Product signals
+  'chakra-ui': 3,
+  'mantine': 3,
+  'radix-ui': 3,
+  'headless-ui': 3,
+  'cva': 2,
+  'custom-theme': 2,
+  'saas-product': 1,
+  'dashboard-app': 1,
+  // App-specific signals (likely to have drift)
+  'tailwind-app': 3,
+  'nextjs-app': 2,
+  'admin-panel': 2,
+  'landing-page': 2,
+  'ecommerce': 2,
+  'blog-app': 1,
+  'portfolio': 1,
 };
+
+// Topics that indicate a repo is a design system library (not an app)
+export const LIBRARY_TOPICS = [
+  'design-system',
+  'component-library',
+  'ui-library',
+  'ui-components',
+  'react-components',
+  'vue-components',
+  'design-tokens',
+  'ui-kit',
+  'component-kit',
+];
 
 export const ACTIVITY_WEIGHTS: Record<ActivitySignal, number> = {
   'recent-commits': 2,

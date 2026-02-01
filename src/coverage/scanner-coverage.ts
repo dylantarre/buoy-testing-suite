@@ -8,6 +8,10 @@
 
 import {
   ReactComponentScanner,
+  VueComponentScanner,
+  SvelteComponentScanner,
+  AngularComponentScanner,
+  WebComponentScanner,
   TokenScanner,
   TailwindScanner,
   CssScanner,
@@ -90,7 +94,24 @@ export interface CoverageAnalyzerOptions {
 const DEFAULT_MODEL = 'claude-sonnet-4-20250514';
 const COMPONENT_EXTENSIONS = ['.tsx', '.jsx', '.vue', '.svelte'];
 const TOKEN_EXTENSIONS = ['.ts', '.js', '.json', '.css', '.scss'];
-const IGNORE_DIRS = ['node_modules', '.git', 'dist', 'build', '.next', 'coverage', '__tests__', '__mocks__', '.turbo', '.cache'];
+const IGNORE_DIRS = [
+  // Build/package artifacts
+  'node_modules', '.git', 'dist', 'build', '.next', 'out',
+  // Test/coverage
+  'coverage', '__tests__', '__mocks__', '__fixtures__', 'fixtures',
+  // Cache
+  '.turbo', '.cache',
+  // Documentation & examples (avoid over-counting in monorepos)
+  'docs', 'documentation', 'examples', 'example',
+  // Storybook
+  '.storybook', 'stories', '__stories__',
+  // E2E testing
+  'e2e', 'cypress', 'playwright',
+  // Demo/playground apps (avoid counting demo code)
+  'demo', 'playground', 'sandbox',
+  // Website/marketing (separate from library code)
+  'website', 'www', 'site',
+];
 
 export class ScannerCoverageAnalyzer {
   private client: Anthropic;
@@ -175,6 +196,62 @@ export class ScannerCoverageAnalyzer {
       errors.push(`React scanner failed: ${err}`);
     }
 
+    // Vue Scanner (covers .vue files)
+    try {
+      const vueScanner = new VueComponentScanner({
+        projectRoot: repoPath,
+        exclude: IGNORE_DIRS.map(d => `**/${d}/**`),
+      });
+      const vueResult = await vueScanner.scan();
+      components.push(...vueResult.items);
+      if (vueResult.items.length > 0) patterns.push('vue');
+      errors.push(...vueResult.errors.map(e => `Vue: ${e.message}`));
+    } catch (err: unknown) {
+      errors.push(`Vue scanner failed: ${err}`);
+    }
+
+    // Svelte Scanner (covers .svelte files)
+    try {
+      const svelteScanner = new SvelteComponentScanner({
+        projectRoot: repoPath,
+        exclude: IGNORE_DIRS.map(d => `**/${d}/**`),
+      });
+      const svelteResult = await svelteScanner.scan();
+      components.push(...svelteResult.items);
+      if (svelteResult.items.length > 0) patterns.push('svelte');
+      errors.push(...svelteResult.errors.map(e => `Svelte: ${e.message}`));
+    } catch (err: unknown) {
+      errors.push(`Svelte scanner failed: ${err}`);
+    }
+
+    // Angular Scanner (covers Angular components)
+    try {
+      const angularScanner = new AngularComponentScanner({
+        projectRoot: repoPath,
+        exclude: IGNORE_DIRS.map(d => `**/${d}/**`),
+      });
+      const angularResult = await angularScanner.scan();
+      components.push(...angularResult.items);
+      if (angularResult.items.length > 0) patterns.push('angular');
+      errors.push(...angularResult.errors.map(e => `Angular: ${e.message}`));
+    } catch (err: unknown) {
+      errors.push(`Angular scanner failed: ${err}`);
+    }
+
+    // Web Component Scanner (covers custom elements, Lit, etc.)
+    try {
+      const webComponentScanner = new WebComponentScanner({
+        projectRoot: repoPath,
+        exclude: IGNORE_DIRS.map(d => `**/${d}/**`),
+      });
+      const webComponentResult = await webComponentScanner.scan();
+      components.push(...webComponentResult.items);
+      if (webComponentResult.items.length > 0) patterns.push('web-components');
+      errors.push(...webComponentResult.errors.map(e => `WebComponent: ${e.message}`));
+    } catch (err: unknown) {
+      errors.push(`WebComponent scanner failed: ${err}`);
+    }
+
     // Token Scanner (covers JSON, CSS, TypeScript token files)
     try {
       const tokenScanner = new TokenScanner({
@@ -223,12 +300,55 @@ export class ScannerCoverageAnalyzer {
       // Tailwind scanner failing is common for non-tailwind repos - don't report
     }
 
+    // Post-process: Consolidate compound components into families
+    // This reduces over-counting of Dialog.Root, Dialog.Content, etc.
+    const consolidatedComponents = this.consolidateCompoundComponents(components);
+
     return {
-      components,
+      components: consolidatedComponents,
       tokens,
       patterns: [...new Set(patterns)],
       errors,
     };
+  }
+
+  /**
+   * Consolidate compound components into families.
+   * When components share a compound group (e.g., Dialog.Root, Dialog.Content),
+   * count them as a single family to avoid over-counting.
+   */
+  private consolidateCompoundComponents(components: Component[]): Component[] {
+    const families = new Map<string, Component[]>();
+    const standalone: Component[] = [];
+
+    for (const comp of components) {
+      const group = comp.metadata?.compoundGroup;
+      if (group) {
+        if (!families.has(group)) {
+          families.set(group, []);
+        }
+        families.get(group)!.push(comp);
+      } else {
+        standalone.push(comp);
+      }
+    }
+
+    // For each family, keep only the root component (or first if no root marked)
+    const familyRoots: Component[] = [];
+    for (const [_groupName, members] of families) {
+      const root = members.find(c => c.metadata?.isCompoundRoot) || members[0];
+      if (root) {
+        // Add compound-family tag to identify this as a family root
+        const existingTags = root.metadata?.tags || [];
+        root.metadata = {
+          ...root.metadata,
+          tags: [...existingTags, 'compound-family'],
+        };
+        familyRoots.push(root);
+      }
+    }
+
+    return [...standalone, ...familyRoots];
   }
 
   /**
